@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Digital India - All-in-One Digital Tools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .tool-card:hover { transform: translateY(-5px); transition: 0.3s; }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <nav class="bg-blue-600 p-4 text-white shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Time Digital India</h1>
+            <ul class="flex space-x-4 text-sm">
+                <li><a href="#" class="hover:underline">Home</a></li>
+                <li><a href="#" class="hover:underline">About</a></li>
+                <li><a href="#" class="hover:underline">Contact</a></li>
+                <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8 text-center">
+        <h2 class="text-3xl font-extrabold text-gray-800 mb-4">India ke Best Digital Tools</h2>
+        <p class="text-gray-600 mb-8 text-lg">Fast, Free aur Easy-to-use tools ek hi jagah par.</p>
+
+        <div class="bg-white p-4 mb-8 border-dashed border-2 border-gray-300 rounded text-gray-400">
+            AdSense Ad Space (Horizontal)
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="tool-card bg-white p-6 rounded-xl shadow-md border-b-4 border-blue-500">
+                <div class="text-4xl mb-2">🎂</div>
+                <h3 class="text-xl font-bold mb-2">Age Calculator</h3>
+                <p class="text-sm text-gray-500 mb-4">Apni sahi umar saal, mahine aur din mein jaanein.</p>
+                <button onclick="showTool('age')" class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-700">Open Tool</button>
+            </div>
+
+            <div class="tool-card bg-white p-6 rounded-xl shadow-md border-b-4 border-red-500">
+                <div class="text-4xl mb-2">🎥</div>
+                <h3 class="text-xl font-bold mb-2">Thumbnail Downloader</h3>
+                <p class="text-sm text-gray-500 mb-4">Kisi bhi YouTube video ka HD thumbnail download karein.</p>
+                <button onclick="showTool('yt')" class="bg-red-500 text-white px-6 py-2 rounded-full hover:bg-red-700">Open Tool</button>
+            </div>
+
+            <div class="tool-card bg-white p-6 rounded-xl shadow-md border-b-4 border-green-500">
+                <div class="text-4xl mb-2">💰</div>
+                <h3 class="text-xl font-bold mb-2">GST Calculator</h3>
+                <p class="text-sm text-gray-500 mb-4">GST amount aur total bill turant calculate karein.</p>
+                <button onclick="showTool('gst')" class="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-700">Open Tool</button>
+            </div>
+
+            <div class="tool-card bg-white p-6 rounded-xl shadow-md border-b-4 border-purple-500">
+                <div class="text-4xl mb-2">📱</div>
+                <h3 class="text-xl font-bold mb-2">QR Code Generator</h3>
+                <p class="text-sm text-gray-500 mb-4">Links aur UPI ke liye custom QR code banayein.</p>
+                <button onclick="showTool('qr')" class="bg-purple-500 text-white px-6 py-2 rounded-full hover:bg-purple-700">Open Tool</button>
+            </div>
+
+            <div class="tool-card bg-white p-6 rounded-xl shadow-md border-b-4 border-yellow-500">
+                <div class="text-4xl mb-2">⚖️</div>
+                <h3 class="text-xl font-bold mb-2">Unit Converter</h3>
+                <p class="text-sm text-gray-500 mb-4">Weight, Length aur Data units convert karein.</p>
+                <button onclick="showTool('unit')" class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-700">Open Tool</button>
+            </div>
+
+        </div>
+
+        <div class="bg-white p-4 mt-8 border-dashed border-2 border-gray-300 rounded text-gray-400">
+            AdSense Ad Space (Horizontal)
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12 text-center text-sm">
+        <p>&copy; 2026 Time Digital India. All Rights Reserved.</p>
+        <div class="mt-2 text-gray-400">
+            Powered by Cloudflare Pages | Designed for India
+        </div>
+    </footer>
+
+    <script>
+        function showTool(tool) {
+            alert(tool + " tool page par kaam chal raha hai! Kal tak activate ho jayega.");
+        }
+    </script>
+</body>
+</html>
