@@ -5,36 +5,30 @@
     <title>Thumbnail Downloader - Time Digital India</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 p-5 font-sans">
-    <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-2xl border-t-8 border-red-600 mt-10">
-        <h2 class="text-3xl font-bold text-center text-red-600 mb-6">YouTube Thumbnail Downloader</h2>
-        <p class="text-center text-gray-600 mb-6">Kisi bhi video ka link dalo aur HD image pao.</p>
+<body class="bg-gray-100 p-5">
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-xl mt-10 text-center">
+        <a href="index.html" class="text-blue-500 mb-4 inline-block">⬅️ Back to Home</a>
+        <h2 class="text-3xl font-bold text-red-600 mb-6">YouTube Thumbnail Downloader</h2>
         
-        <input type="text" id="ytUrl" placeholder="Video link yahan paste karein..." 
-            class="w-full p-4 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-red-500 mb-4">
-        
-        <button onclick="getThumb()" class="w-full bg-red-600 text-white font-bold py-3 rounded-lg hover:bg-red-700 transition">Get HD Thumbnail</button>
+        <input type="text" id="url" placeholder="Paste YouTube Link Here..." class="w-full p-4 border rounded-lg mb-4">
+        <button onclick="getThumb()" class="w-full bg-red-600 text-white py-3 rounded-lg font-bold">Get HD Image</button>
 
-        <div id="result" class="hidden mt-8 text-center">
-            <img id="preview" src="" class="mx-auto rounded-lg shadow-md mb-4 border w-full">
-            <a id="downloadBtn" href="#" download="thumbnail.jpg" 
-                class="inline-block bg-green-600 text-white px-8 py-3 rounded-full font-bold hover:bg-green-700">Download Now</a>
+        <div id="result" class="hidden mt-8">
+            <img id="prev" src="" class="w-full rounded-lg shadow mb-4">
+            <a id="btn" href="#" download="thumb.jpg" class="bg-green-600 text-white px-8 py-3 rounded-full font-bold inline-block">Download Now</a>
         </div>
     </div>
 
     <script>
         function getThumb() {
-            const url = document.getElementById('ytUrl').value;
-            let id = "";
-            if (url.includes("v=")) { id = url.split("v=")[1].substring(0, 11); }
-            else if (url.includes("youtu.be/")) { id = url.split("youtu.be/")[1].substring(0, 11); }
-            
-            if (id) {
-                const imgPath = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
-                document.getElementById('preview').src = imgPath;
-                document.getElementById('downloadBtn').href = imgPath;
+            let val = document.getElementById('url').value;
+            let id = val.includes('v=') ? val.split('v=')[1].split('&')[0] : val.split('/').pop().split('?')[0];
+            if(id) {
+                let img = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+                document.getElementById('prev').src = img;
+                document.getElementById('btn').href = img;
                 document.getElementById('result').classList.remove('hidden');
-            } else { alert("Bhai, sahi link toh dalo!"); }
+            } else { alert("Link galat hai bhai!"); }
         }
     </script>
 </body>
