@@ -9,7 +9,7 @@
     <style>
         body { background-color: #0f172a; color: #f8fafc; font-family: 'Inter', sans-serif; }
         .glass-card { background: #1e293b; border: 1px solid #334155; border-radius: 1.5rem; }
-        #qrcode canvas, #qrcode img { margin: 0 auto; border: 8px solid white; border-radius: 0.5rem; }
+        #qrcode img, #qrcode canvas { margin: 0 auto; border: 10px solid white; border-radius: 0.5rem; }
     </style>
 </head>
 <body class="min-h-screen py-12 px-6 text-slate-200">
@@ -21,10 +21,17 @@
         <div class="space-y-6">
             <input type="text" id="qr-input" placeholder="Paste link or type text here..." 
                 class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 outline-none focus:border-blue-500 transition text-white text-center">
-            <button onclick="generateQR()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg">Generate QR Code</button>
+            
+            <button onclick="generateQR()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg transform hover:scale-[1.01]">
+                Generate QR Code
+            </button>
+
             <div id="result-container" class="hidden mt-8 space-y-4">
-                <div id="qrcode" class="bg-white p-2 rounded-xl inline-block"></div>
-                <button onclick="downloadQR()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl transition">Download QR (.png)</button>
+                <div id="qrcode" class="bg-white p-2 rounded-xl inline-block">
+                    </div>
+                <button onclick="downloadQR()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl transition">
+                    Download QR (.png)
+                </button>
             </div>
         </div>
     </div>
@@ -34,29 +41,57 @@
         <p>QR codes have transformed how we share information. From digital menus to social media links, <strong>Time Digital India</strong> offers a fast generator for all your needs.</p>
         <h3 class="text-xl font-semibold text-blue-400">What can you use QR codes for?</h3>
         <ul class="list-disc ml-6 space-y-2">
-            <li><strong>Website Links:</strong> Direct customers to your blog.</li>
+            <li><strong>Website Links:</strong> Direct customers to your blog or YouTube.</li>
             <li><strong>Social Media:</strong> Share your handles instantly.</li>
-            <li><strong>Security:</strong> All generation happens locally in your browser.</li>
+            <li><strong>Privacy:</strong> All generation happens locally in your browser.</li>
         </ul>
     </div>
 
     <script>
         function generateQR() {
             const input = document.getElementById('qr-input').value;
-            if (!input) return alert("Pehle kuch likho!");
+            if (!input) {
+                alert("Bhai, pehle link ya text toh dalo!");
+                return;
+            }
+
             const container = document.getElementById('result-container');
             const qrDiv = document.getElementById('qrcode');
+            
+            // Clear previous QR
             qrDiv.innerHTML = "";
             container.classList.remove('hidden');
-            new QRCode(qrDiv, { text: input, width: 256, height: 256, colorDark : "#000000", colorLight : "#ffffff", correctLevel : QRCode.Level.H });
+
+            // Generate New QR
+            new QRCode(qrDiv, {
+                text: input,
+                width: 256,
+                height: 256,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
         }
+
         function downloadQR() {
-            const qrCanvas = document.querySelector('#qrcode canvas');
-            const dataUrl = qrCanvas.toDataURL("image/png");
-            const link = document.createElement("a");
-            link.href = dataUrl;
-            link.download = "TimeDigitalIndia_QR.png";
-            link.click();
+            const canvas = document.querySelector('#qrcode canvas');
+            const img = document.querySelector('#qrcode img');
+            
+            let dataUrl;
+            if (canvas) {
+                dataUrl = canvas.toDataURL("image/png");
+            } else if (img) {
+                dataUrl = img.src;
+            }
+
+            if (dataUrl) {
+                const link = document.createElement("a");
+                link.href = dataUrl;
+                link.download = "TimeDigitalIndia_QR.png";
+                link.click();
+            } else {
+                alert("Pehle QR generate toh kar lo!");
+            }
         }
     </script>
 </body>
