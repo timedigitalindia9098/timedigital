@@ -1,34 +1,56 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Thumbnail Downloader - Time Digital India</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Thumbnail Downloader | Time Digital India</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .glass-card { background: #1e293b; border: 1px solid #334155; border-radius: 1.5rem; }
+        .thumb-preview { display: none; margin-top: 1.5rem; }
+    </style>
 </head>
-<body class="bg-gray-100 p-5">
-    <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-xl mt-10 text-center">
-        <a href="index.html" class="text-blue-500 mb-4 inline-block">⬅️ Back to Home</a>
-        <h2 class="text-3xl font-bold text-red-600 mb-6">YouTube Thumbnail Downloader</h2>
-        
-        <input type="text" id="url" placeholder="Paste YouTube Link Here..." class="w-full p-4 border rounded-lg mb-4">
-        <button onclick="getThumb()" class="w-full bg-red-600 text-white py-3 rounded-lg font-bold">Get HD Image</button>
+<body class="min-h-screen flex items-center justify-center p-6">
+    <div class="glass-card w-full max-w-2xl p-8 shadow-2xl">
+        <a href="index.html" class="text-blue-400 hover:text-blue-300 transition mb-4 inline-block">← Back to Dashboard</a>
+        <h1 class="text-3xl font-bold mb-2 text-red-500">YouTube Thumbnail Downloader</h1>
+        <p class="text-slate-400 mb-8">Get high-quality thumbnails for free.</p>
 
-        <div id="result" class="hidden mt-8">
-            <img id="prev" src="" class="w-full rounded-lg shadow mb-4">
-            <a id="btn" href="#" download="thumb.jpg" class="bg-green-600 text-white px-8 py-3 rounded-full font-bold inline-block">Download Now</a>
+        <div class="space-y-4">
+            <input type="text" id="videoUrl" placeholder="Paste YouTube Video Link here..." 
+                class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 outline-none focus:border-red-500 transition text-white">
+            
+            <button onclick="getThumbnail()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl shadow-lg transition-all transform hover:scale-[1.01]">
+                Generate Thumbnail
+            </button>
+        </div>
+
+        <div id="previewArea" class="thumb-preview space-y-4">
+            <img id="thumbImg" src="" alt="Thumbnail Preview" class="w-full rounded-xl border border-slate-700 shadow-md">
+            <a id="downloadBtn" href="" download="thumbnail.jpg" 
+                class="block w-full bg-green-600 hover:bg-green-700 text-white text-center font-bold py-4 rounded-xl transition">
+                Download HD Thumbnail
+            </a>
         </div>
     </div>
 
     <script>
-        function getThumb() {
-            let val = document.getElementById('url').value;
-            let id = val.includes('v=') ? val.split('v=')[1].split('&')[0] : val.split('/').pop().split('?')[0];
-            if(id) {
-                let img = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
-                document.getElementById('prev').src = img;
-                document.getElementById('btn').href = img;
-                document.getElementById('result').classList.remove('hidden');
-            } else { alert("Link galat hai bhai!"); }
+        function getThumbnail() {
+            const url = document.getElementById('videoUrl').value;
+            const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+
+            if (match && match[2].length == 11) {
+                const videoId = match[2];
+                const thumbUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+                
+                document.getElementById('thumbImg').src = thumbUrl;
+                document.getElementById('downloadBtn').href = thumbUrl;
+                document.getElementById('previewArea').style.display = 'block';
+            } else {
+                alert("Bhai, sahi YouTube link toh daalo!");
+            }
         }
     </script>
 </body>
