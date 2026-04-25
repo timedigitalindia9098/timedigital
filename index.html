@@ -3,86 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Digital India | Smart AI Tools</title>
+    <title>Time Digital India | All-in-One Digital Tools</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
-        .tool-card {
-            background: #1e293b;
-            border: 1px solid #334155;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .tool-card:hover {
-            border-color: #3b82f6;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.5);
-        }
-        .neon-blue { color: #3b82f6; text-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
+        body { background-color: #0f172a; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .tool-card { background: #1e293b; border: 1px solid #334155; transition: all 0.3s ease; }
+        .tool-card:hover { border-color: #3b82f6; transform: translateY(-5px); }
+        .glass-nav { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid #334155; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body>
 
-    <header class="py-6 border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold tracking-tight">TIME <span class="neon-blue">DIGITAL</span> INDIA</h1>
-            <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-400">
-                <a href="index.html" class="hover:text-white transition">Home</a>
-                <a href="#" class="hover:text-white transition">All Tools</a>
-                <a href="#" class="hover:text-white transition">About</a>
-            </nav>
+    <nav class="glass-nav sticky top-0 z-50 py-4 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-500 tracking-tighter">TIME DIGITAL <span class="text-white">INDIA</span></a>
+            <div class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="index.html" class="hover:text-blue-400 transition">Home</a>
+                <a href="about.html" class="hover:text-blue-400 transition">About Us</a>
+                <a href="contact.html" class="hover:text-blue-400 transition">Contact</a>
+            </div>
         </div>
+    </nav>
+
+    <header class="py-20 px-6 text-center">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Powerful Digital Tools</h1>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">Free, fast, and secure tools to simplify your daily digital tasks. No registration required.</p>
     </header>
 
-    <main class="flex-grow container mx-auto px-4 py-12">
-        <section class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Smart Tools for Digital Creators</h2>
-            <p class="text-slate-400 text-lg max-w-2xl mx-auto">Free, fast, and simple tools to boost your productivity. No registration required.</p>
-        </section>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <main class="max-w-7xl mx-auto px-6 pb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             
-            <a href="age.html" class="tool-card p-8 rounded-2xl flex flex-col items-center text-center group">
-                <div class="text-5xl mb-6 group-hover:scale-110 transition">📅</div>
-                <h3 class="text-xl font-bold mb-2">Age Calculator</h3>
-                <p class="text-slate-500 text-sm mb-6">Calculate your exact age in years, months, and days.</p>
-                <span class="mt-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-semibold transition">Open Tool</span>
+            <a href="youtube.html" class="tool-card p-8 rounded-2xl flex flex-col items-center text-center group">
+                <div class="text-5xl mb-6 group-hover:scale-110 transition">🎥</div>
+                <h3 class="text-xl font-bold mb-2">YT Thumbnail</h3>
+                <p class="text-slate-500 text-sm mb-6">Download HD thumbnails from any YouTube video instantly.</p>
+                <span class="mt-auto bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold group-hover:bg-blue-700">Open Tool</span>
             </a>
 
-            <a href="youtube.html" class="tool-card p-8 rounded-2xl flex flex-col items-center text-center group">
-                <div class="text-5xl mb-6 group-hover:scale-110 transition">🖼️</div>
-                <h3 class="text-xl font-bold mb-2">Thumbnail Downloader</h3>
-                <p class="text-slate-500 text-sm mb-6">Download high-quality thumbnails from any YouTube video.</p>
-                <span class="mt-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-semibold transition">Open Tool</span>
+            <a href="age.html" class="tool-card p-8 rounded-2xl flex flex-col items-center text-center group">
+                <div class="text-5xl mb-6 group-hover:scale-110 transition">🎂</div>
+                <h3 class="text-xl font-bold mb-2">Age Calculator</h3>
+                <p class="text-slate-500 text-sm mb-6">Calculate your exact age in years, months, and days.</p>
+                <span class="mt-auto bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold group-hover:bg-blue-700">Open Tool</span>
             </a>
 
             <a href="gst.html" class="tool-card p-8 rounded-2xl flex flex-col items-center text-center group">
                 <div class="text-5xl mb-6 group-hover:scale-110 transition">📊</div>
                 <h3 class="text-xl font-bold mb-2">GST Calculator</h3>
-                <p class="text-slate-500 text-sm mb-6">Quickly calculate GST amounts for your business needs.</p>
-                <span class="mt-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-semibold transition">Open Tool</span>
+                <p class="text-slate-500 text-sm mb-6">Quickly calculate GST amounts for Indian tax slabs.</p>
+                <span class="mt-auto bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold group-hover:bg-blue-700">Open Tool</span>
             </a>
-<a href="qr.html" class="tool-card p-8 rounded-2xl flex flex-col items-center text-center group transition-all hover:scale-105">
-    <div class="text-5xl mb-6 group-hover:scale-110 transition">🔗</div>
-    <h3 class="text-xl font-bold mb-2">QR Code Generator</h3>
-    <p class="text-slate-500 text-sm mb-6">Create custom QR codes for links and text instantly.</p>
-    <span class="mt-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-semibold transition">Open Tool</span>
-</a>
 
+            <a href="qr.html" class="tool-card p-8 rounded-2xl flex flex-col items-center text-center group">
+                <div class="text-5xl mb-6 group-hover:scale-110 transition">🔗</div>
+                <h3 class="text-xl font-bold mb-2">QR Generator</h3>
+                <p class="text-slate-500 text-sm mb-6">Create high-quality custom QR codes for links or text.</p>
+                <span class="mt-auto bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold group-hover:bg-blue-700">Open Tool</span>
+            </a>
+
+        </div>
+
+        <div class="mt-24 p-10 bg-slate-900/50 rounded-3xl border border-slate-800 text-slate-300 space-y-6">
+            <h2 class="text-3xl font-bold text-white">Why Time Digital India is Your Go-To Tool Platform?</h2>
+            <p>In today's fast-paced digital world, time is the most valuable asset. At <strong>Time Digital India</strong>, we believe that simple tasks shouldn't take complex software. Our mission is to provide a comprehensive suite of digital utilities that are 100% free, require no signup, and respect your privacy.</p>
+            
+            <div class="grid md:grid-cols-2 gap-8 mt-8">
+                <div>
+                    <h4 class="text-blue-400 font-bold mb-2">Safe & Secure</h4>
+                    <p class="text-sm">We process all calculations locally in your browser. Your data never touches our servers, ensuring total privacy.</p>
+                </div>
+                <div>
+                    <h4 class="text-blue-400 font-bold mb-2">Made for India</h4>
+                    <p class="text-sm">From Indian GST rates to regional news tools, we build features specifically keeping the Indian audience in mind.</p>
+                </div>
+            </div>
         </div>
     </main>
 
     <footer class="py-12 border-t border-slate-800 text-center bg-slate-900/40">
-    <div class="mb-8 flex flex-wrap justify-center gap-6 text-sm font-medium">
-        <a href="about.html" class="text-slate-400 hover:text-blue-400 transition-colors">About Us</a>
-        <a href="contact.html" class="text-slate-400 hover:text-blue-400 transition-colors">Contact Us</a>
-        <a href="privacy.html" class="text-slate-400 hover:text-blue-400 transition-colors">Privacy Policy</a>
-        <a href="terms.html" class="text-slate-400 hover:text-blue-400 transition-colors">Terms & Conditions</a>
-    </div>
-    
-    <p class="text-slate-500 text-sm mb-3">&copy; 2026 Time Digital India | All Rights Reserved</p>
-    <p class="text-slate-400 font-medium tracking-wide">Developed with ❤️ by <span class="text-blue-500">Ishwar Meena</span></p>
-</footer>
+        <div class="mb-8 flex flex-wrap justify-center gap-6 text-sm font-medium">
+            <a href="about.html" class="text-slate-400 hover:text-blue-400 transition">About Us</a>
+            <a href="contact.html" class="text-slate-400 hover:text-blue-400 transition">Contact Us</a>
+            <a href="privacy.html" class="text-slate-400 hover:text-blue-400 transition">Privacy Policy</a>
+            <a href="terms.html" class="text-slate-400 hover:text-blue-400 transition">Terms & Conditions</a>
+        </div>
+        <p class="text-slate-500 text-sm mb-3">&copy; 2026 Time Digital India | Managed by Ishwar Meena</p>
+    </footer>
 
 </body>
 </html>
