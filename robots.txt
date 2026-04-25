@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://timedigitalindia.com/sitemap.xml
