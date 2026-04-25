@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator | Time Digital India</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         body { background-color: #0f172a; color: #f8fafc; font-family: 'Inter', sans-serif; }
         .glass-card { background: #1e293b; border: 1px solid #334155; border-radius: 1.5rem; }
-        #qrcode img { margin: 0 auto; border: 10px solid white; border-radius: 0.5rem; }
+        #qrcode canvas, #qrcode img { margin: 0 auto; border: 8px solid white; border-radius: 0.5rem; }
     </style>
 </head>
 <body class="min-h-screen flex items-center justify-center p-6 text-slate-200">
@@ -21,14 +22,13 @@
             <input type="text" id="qr-input" placeholder="Paste link or type text here..." 
                 class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 outline-none focus:border-blue-500 transition text-white">
             
-            <button onclick="generateQR()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg">
+            <button onclick="generateQR()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg">
                 Generate QR Code
             </button>
 
             <div id="result-container" class="hidden mt-8 space-y-4 animate-fade-in">
-                <div id="qrcode" class="bg-white p-4 rounded-xl inline-block">
-                    <img id="qr-img" src="" alt="QR Code">
-                </div>
+                <div id="qrcode" class="bg-white p-2 rounded-xl inline-block">
+                    </div>
                 <button onclick="downloadQR()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl transition">
                     Download QR (.png)
                 </button>
@@ -37,34 +37,41 @@
     </div>
 
     <script>
+        let qrcodeObject = null;
+
         function generateQR() {
             const input = document.getElementById('qr-input').value;
-            if (!input) {
-                alert("Bhai, kuch likho toh sahi!");
-                return;
-            }
+            if (!input) return alert("Bhai, kuch likho toh sahi!");
 
-            const qrImg = document.getElementById('qr-img');
             const container = document.getElementById('result-container');
+            const qrDiv = document.getElementById('qrcode');
             
-            // Google API for QR Code
-            const size = "300x300";
-            const url = `https://chart.googleapis.com/chart?cht=qr&chs=${size}&chl=${encodeURIComponent(input)}`;
-            
-            qrImg.src = url;
+            // Purana QR saaf karo
+            qrDiv.innerHTML = "";
             container.classList.remove('hidden');
+
+            // Naya QR Generate karo
+            qrcodeObject = new QRCode(qrDiv, {
+                text: input,
+                width: 256,
+                height: 256,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
         }
 
         function downloadQR() {
-            const img = document.getElementById('qr-img');
-            fetch(img.src)
-                .then(response => response.blob())
-                .then(blob => {
-                    const link = document.createElement("a");
-                    link.href = URL.createObjectURL(blob);
-                    link.download = "TimeDigitalIndia_QR.png";
-                    link.click();
-                });
+            const qrCanvas = document.querySelector('#qrcode canvas');
+            const qrImg = document.querySelector('#qrcode img');
+            
+            // Canvas ya Image dono mein se jo mile use download karo
+            const dataUrl = qrCanvas ? qrCanvas.toDataURL("image/png") : qrImg.src;
+            
+            const link = document.createElement("a");
+            link.href = dataUrl;
+            link.download = "TimeDigitalIndia_QR.png";
+            link.click();
         }
     </script>
 </body>
