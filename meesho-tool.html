@@ -7,51 +7,48 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #0f172a; color: #f8fafc; font-family: 'Inter', sans-serif; }
-        .glass-card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; }
-        .accent-blue { background-color: #3b82f6; }
+        .glass-card { background: #1e293b; border: 1px solid #334155; border-radius: 20px; }
+        .accent-blue { background-color: #2563eb; }
     </style>
 </head>
 <body>
-
-    <nav class="sticky top-0 z-50 py-4 px-6 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+    <nav class="sticky top-0 z-50 py-4 px-6 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-blue-500">TIME DIGITAL <span class="text-white">INDIA</span></a>
+            <a href="index.html" class="text-2xl font-bold text-blue-500 tracking-tighter">TIME DIGITAL <span class="text-white">INDIA</span></a>
         </div>
     </nav>
 
-    <main class="max-w-3xl mx-auto p-6 min-h-screen">
-        <h1 class="text-3xl font-bold text-center mt-10 mb-4 text-white">Meesho AI Description Generator</h1>
-        <p class="text-slate-400 text-center mb-8">Professional descriptions aur trending tags generate karke apni sales badhayein.</p>
+    <main class="max-w-3xl mx-auto p-6 min-h-[80vh] flex flex-col justify-center">
+        <div class="glass-card p-8 shadow-2xl border border-slate-700">
+            <h1 class="text-3xl font-bold text-center mb-2 text-white">Meesho AI Description</h1>
+            <p class="text-slate-400 text-center mb-8 text-sm">Professional description aur tags banayein fast.</p>
 
-        <div class="glass-card p-8 shadow-2xl">
-            <div class="mb-6">
-                <label class="block text-sm font-medium mb-2 text-blue-400 font-bold">Product Ka Naam</label>
-                <input id="productName" type="text" placeholder="e.g. Fancy Party Wear Saree" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500">
+            <div class="space-y-6">
+                <div>
+                    <label class="block text-sm font-semibold mb-2 text-blue-400">Product Name</label>
+                    <input id="productName" type="text" placeholder="e.g. Cotton Kurti Set" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-white focus:ring-2 focus:ring-blue-500 outline-none transition">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold mb-2 text-blue-400">Features (e.g. Color, Fabric, Occasion)</label>
+                    <textarea id="features" rows="3" placeholder="e.g. Red, Silk, Party Wear, Mirror Work" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-white focus:ring-2 focus:ring-blue-500 outline-none transition"></textarea>
+                </div>
+
+                <button onclick="generateDescription()" class="w-full accent-blue text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition transform active:scale-95 shadow-lg">Magic Se Likho ✨</button>
             </div>
 
-            <div class="mb-6">
-                <label class="block text-sm font-medium mb-2 text-blue-400 font-bold">Product Features (Comma se alag karein)</label>
-                <textarea id="features" rows="3" placeholder="e.g. Silk Material, Red Color, Mirror Work, Heavy Border" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500"></textarea>
-            </div>
-
-            <button onclick="generateDescription()" class="w-full accent-blue text-white font-bold py-3 rounded-lg hover:bg-blue-600 transition shadow-lg">Magic Se Likho ✨</button>
-
-            <div id="resultBox" class="mt-8 hidden">
-                <label class="block text-sm font-medium mb-2 text-green-400 font-bold">Aapka Description Taiyar Hai:</label>
-                <div id="descriptionOutput" class="bg-slate-900 border border-slate-700 p-4 rounded-lg whitespace-pre-wrap text-sm leading-relaxed text-slate-300"></div>
-                <button onclick="copyText()" class="mt-4 bg-slate-700 px-6 py-2 rounded-lg hover:bg-slate-600 transition text-sm font-bold">Copy Karo 📋</button>
+            <div id="resultBox" class="mt-10 hidden border-t border-slate-700 pt-6">
+                <div class="flex justify-between items-center mb-3">
+                    <span class="text-green-400 font-bold text-sm">Taiyar Hai! ✅</span>
+                    <button onclick="copyText()" class="text-xs bg-slate-700 px-3 py-1 rounded-lg hover:bg-slate-600 transition">Copy 📋</button>
+                </div>
+                <div id="descriptionOutput" class="bg-slate-950 border border-slate-800 p-5 rounded-xl text-sm leading-relaxed text-slate-300 whitespace-pre-wrap"></div>
             </div>
         </div>
     </main>
 
-    <footer class="py-12 border-t border-slate-800 text-center bg-slate-900/40">
-        <div class="mb-8 flex flex-wrap justify-center gap-6 text-sm font-medium">
-            <a href="about.html" class="text-slate-400 hover:text-blue-400 transition">About Us</a>
-            <a href="contact.html" class="text-slate-400 hover:text-blue-400 transition">Contact Us</a>
-            <a href="privacy.html" class="text-slate-400 hover:text-blue-400 transition">Privacy Policy</a>
-            <a href="terms.html" class="text-slate-400 hover:text-blue-400 transition">Terms & Conditions</a>
-        </div>
-        <p class="text-slate-500 text-sm mb-3">&copy; 2026 Time Digital India | Managed by Ishwar Meena</p>
+    <footer class="py-10 text-center border-t border-slate-900 mt-10">
+        <p class="text-slate-500 text-sm">© 2026 Time Digital India | Ishwar Meena</p>
     </footer>
 
     <script>
@@ -62,26 +59,29 @@
             const output = document.getElementById('descriptionOutput');
 
             if(!name || !features) {
-                alert("Bhai, pehle product details bharo!");
+                alert("Bhai details toh bhar do!");
                 return;
             }
 
-            output.innerText = "Generating... ✨";
+            output.innerText = "AI soch raha hai... ⏳";
             resultBox.classList.remove('hidden');
 
+            // Asli AI Integration yahan hogi, abhi logic dikhane ke liye demo hai:
             setTimeout(() => {
-                const tags = features.split(',').map(f => "#" + f.trim().replace(/\s+/g, '')).join(' ');
-                const desc = `🌟 *Product:* ${name}\n\n👗 *Description:* Ye premium ${name} aapke wardrobe ke liye best hai. Elegant design aur high-quality fabric ke saath.\n\n✨ *Key Features:*\n- ${features.split(',').join('\n- ')}\n\n✅ *Why Buy?*\n- Lowest Price\n- High Quality\n- Easy Returns\n\n${tags} #MeeshoSeller #TimeDigitalIndia`;
-                output.innerText = desc;
-            }, 1000);
+                const featureList = features.split(',').map(f => f.trim());
+                const tags = featureList.map(f => "#" + f.replace(/\s+/g, '')).join(' ');
+                
+                const response = `🌟 *Premium Quality ${name}*\n\nUpgrade your style with this beautiful ${name}. Perfect for every occasion!\n\n✨ *Product Highlights:*\n- Fabric: High Quality\n- Features: ${featureList.join(', ')}\n- Condition: New Arrival\n\n✅ *Why Buy from Us?*\n- Lowest Price on Meesho\n- Fast Delivery\n- Premium Quality Guaranteed\n\nOrder now and be the trendsetter! 🚀\n\n${tags} #MeeshoSeller #TimeDigitalIndia`;
+                
+                output.innerText = response;
+            }, 1200);
         }
 
         function copyText() {
             const text = document.getElementById('descriptionOutput').innerText;
             navigator.clipboard.writeText(text);
-            alert("Description copy ho gaya! Ab Meesho par paste kar do.");
+            alert("Description copy ho gaya!");
         }
     </script>
-
 </body>
 </html>
