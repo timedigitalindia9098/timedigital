@@ -3,7 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meesho AI Description Generator | Time Digital India</title>
+    
+    <title>Free Meesho Product Description & Tags Generator AI Tool</title>
+    <meta name="description" content="Boost your Meesho catalog ranking with our Free AI Description Generator. Create SEO-optimized product descriptions, titles, and trending tags in seconds.">
+    <meta name="keywords" content="meesho description generator, meesho ai tool, meesho tags generator, meesho product listing, free meesho seller tools, e-commerce seo">
+    
+    <meta property="og:title" content="Free Meesho AI Description & Tags Generator">
+    <meta property="og:description" content="Increase your Meesho sales with AI-generated SEO descriptions and trending tags. 100% Free, no login required.">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Meesho AI Description Generator",
+      "alternateName": "Meesho Tags & Product Content AI Tool",
+      "url": "https://timedigitalindia.com/meesho-tool.html",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "description": "A free AI utility tool for Meesho sellers to automatically generate high-converting product descriptions, bullet points, and trending search tags.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "INR"
+      }
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #0f172a; color: #f8fafc; font-family: 'Inter', sans-serif; }
@@ -15,40 +40,86 @@
     <nav class="sticky top-0 z-50 py-4 px-6 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold text-blue-500 tracking-tighter">TIME DIGITAL <span class="text-white">INDIA</span></a>
+            <div class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="index.html" class="hover:text-blue-400 transition">Home</a>
+                <a href="index.html" class="hover:text-blue-400 transition text-blue-400">All Tools</a>
+            </div>
         </div>
     </nav>
 
-    <main class="max-w-3xl mx-auto p-6 min-h-[80vh] flex flex-col justify-center">
-        <div class="glass-card p-8 shadow-2xl border border-slate-700">
-            <h1 class="text-3xl font-bold text-center mb-2 text-white">Meesho AI Description</h1>
-            <p class="text-slate-400 text-center mb-8 text-sm">Professional description aur tags banayein fast.</p>
+    <main class="max-w-4xl mx-auto p-6 mt-10 flex flex-col justify-center">
+        
+        <div class="glass-card p-8 shadow-2xl border border-blue-500/30">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-center mb-2 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Meesho AI Description Generator</h1>
+            <p class="text-slate-400 text-center mb-8 text-sm md:text-base">Generate professional, SEO-friendly descriptions and viral hashtags for your Meesho catalog in 2 seconds.</p>
 
-            <div class="space-y-6">
+            <div class="space-y-6 max-w-2xl mx-auto">
                 <div>
-                    <label class="block text-sm font-semibold mb-2 text-blue-400">Product Name</label>
-                    <input id="productName" type="text" placeholder="e.g. Cotton Kurti Set" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-white focus:ring-2 focus:ring-blue-500 outline-none transition">
+                    <label class="block text-sm font-semibold mb-2 text-blue-400">Product Title / Name</label>
+                    <input id="productName" type="text" placeholder="e.g. Pure Cotton Anarkali Kurti Set for Women" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-white focus:ring-2 focus:ring-blue-500 outline-none transition">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold mb-2 text-blue-400">Features (e.g. Color, Fabric, Occasion)</label>
-                    <textarea id="features" rows="3" placeholder="e.g. Red, Silk, Party Wear, Mirror Work" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-white focus:ring-2 focus:ring-blue-500 outline-none transition"></textarea>
+                    <label class="block text-sm font-semibold mb-2 text-blue-400">Key Features (Color, Fabric, Type)</label>
+                    <textarea id="features" rows="3" placeholder="e.g. Red color, Silk blend, Party wear, Mirror work, Includes Dupatta" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-white focus:ring-2 focus:ring-blue-500 outline-none transition"></textarea>
                 </div>
 
-                <button id="genBtn" onclick="generateDescription()" class="w-full accent-blue text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition transform active:scale-95 shadow-lg">Magic Se Likho ✨</button>
+                <button id="genBtn" onclick="generateDescription()" class="w-full accent-blue text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition transform active:scale-95 shadow-lg flex justify-center items-center gap-2">
+                    Generate SEO Description ✨
+                </button>
             </div>
 
-            <div id="resultBox" class="mt-10 hidden border-t border-slate-700 pt-6">
+            <div id="resultBox" class="mt-10 hidden border-t border-slate-700 pt-6 max-w-2xl mx-auto">
                 <div class="flex justify-between items-center mb-3">
-                    <span class="text-green-400 font-bold text-sm">Taiyar Hai! ✅</span>
-                    <button onclick="copyText()" class="text-xs bg-slate-700 px-3 py-1 rounded-lg hover:bg-slate-600 transition text-white">Copy 📋</button>
+                    <span class="text-green-400 font-bold text-sm">Listing Ready! ✅</span>
+                    <button onclick="copyText()" class="text-xs bg-slate-700 px-4 py-2 rounded-lg hover:bg-slate-600 transition text-white font-bold">Copy Full Text 📋</button>
                 </div>
-                <div id="descriptionOutput" class="bg-slate-950 border border-slate-800 p-5 rounded-xl text-sm leading-relaxed text-slate-300 whitespace-pre-wrap"></div>
+                <div id="descriptionOutput" class="bg-slate-950 border border-slate-800 p-6 rounded-xl text-sm md:text-base leading-relaxed text-slate-300 whitespace-pre-wrap"></div>
             </div>
         </div>
+
+        <article class="mt-20 text-slate-300 space-y-8 prose prose-invert max-w-none">
+            <section class="bg-slate-900/50 p-8 rounded-3xl border border-slate-800">
+                <h2 class="text-2xl font-bold text-white mb-4">Rank Higher on Meesho with AI-Optimized Product Listings</h2>
+                <p class="mb-4 text-slate-400">As a seller, uploading your catalog is just the first step. To get organic orders, your products need to appear on the first page of Meesho's search engine. Our <strong>Free Meesho Description Generator</strong> uses advanced AI to create high-converting text that the algorithm loves.</p>
+                <div class="grid md:grid-cols-3 gap-6 mt-6">
+                    <div class="border border-slate-700 p-4 rounded-lg">
+                        <h4 class="text-blue-400 font-bold mb-2">🔍 Search Engine Friendly</h4>
+                        <p class="text-xs text-slate-400">Naturally injects high-volume keywords to increase catalog visibility.</p>
+                    </div>
+                    <div class="border border-slate-700 p-4 rounded-lg">
+                        <h4 class="text-blue-400 font-bold mb-2">🏷️ Viral Trending Tags</h4>
+                        <p class="text-xs text-slate-400">Automatically generates the best hashtags for maximum reach.</p>
+                    </div>
+                    <div class="border border-slate-700 p-4 rounded-lg">
+                        <h4 class="text-blue-400 font-bold mb-2">⚡ 100% Free Tool</h4>
+                        <p class="text-xs text-slate-400">No login, no premium plans. Perfect for all Meesho suppliers.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-12">
+                <h2 class="text-2xl font-bold text-white mb-6 text-center">Frequently Asked Questions (FAQs)</h2>
+                <div class="space-y-4">
+                    <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
+                        <h3 class="font-bold text-blue-400 mb-2">How do I generate tags for Meesho products?</h3>
+                        <p class="text-sm text-slate-400">Simply enter your product name and a few details in our AI tool above. The generator will automatically provide you with the most relevant and trending tags at the bottom of the description. Copy and paste these directly into your Meesho seller panel.</p>
+                    </div>
+                    <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
+                        <h3 class="font-bold text-blue-400 mb-2">Does an AI description increase Meesho sales?</h3>
+                        <p class="text-sm text-slate-400">Yes! A well-structured description with clear bullet points, emojis, and exact dimensions builds trust with buyers. Moreover, the correct use of keywords helps your product rank above competitors in search results, directly increasing your order volume.</p>
+                    </div>
+                    <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
+                        <h3 class="font-bold text-blue-400 mb-2">Is this a free alternative to premium E-commerce AI tools?</h3>
+                        <p class="text-sm text-slate-400">Absolutely. Time Digital India provides this premium AI utility entirely for free. You don't need to pay for expensive AI copywriters to manage your Meesho supplier account.</p>
+                    </div>
+                </div>
+            </section>
+        </article>
     </main>
 
-    <footer class="py-10 text-center border-t border-slate-900 mt-10">
-        <p class="text-slate-500 text-sm">© 2026 Time Digital India | Managed by Ishwar Meena</p>
+    <footer class="py-10 text-center border-t border-slate-900 mt-20 bg-slate-900/40">
+        <p class="text-slate-500 text-sm">© 2026 Time Digital India</p>
     </footer>
 
     <script>
@@ -59,17 +130,17 @@
             const output = document.getElementById('descriptionOutput');
             const btn = document.getElementById('genBtn');
 
-            // Teri API Key maine yahan daal di hai bhai
-            const API_KEY = "AIzaSyDMjqzgViJaYuOnkS7HTVfAtx5TkEaLF20"; 
+            // ⚠️ ATTENTION: Nayi API Key yahan daalna mat bhoolna!
+            const API_KEY = "AIzaSyCr140BwIIjusVkCmDv4NZxCbK42abvRE4"; 
 
             if(!name || !features) {
-                alert("Bhai details toh bhar do!");
+                alert("Please enter product name and features!");
                 return;
             }
 
             btn.disabled = true;
-            btn.innerText = "AI Likh Raha Hai... ✨";
-            output.innerText = "Thoda intezar karein, Gemini AI kaam kar raha hai...";
+            btn.innerHTML = "Generating AI Magic... ⏳";
+            output.innerText = "Please wait, crafting the perfect description...";
             resultBox.classList.remove('hidden');
 
             try {
@@ -79,33 +150,51 @@
                     body: JSON.stringify({
                         contents: [{
                             parts: [{
-                                text: `Write a high-converting Meesho product description for: ${name}. 
-                                Key features: ${features}. 
-                                Requirements: Use professional bullet points, attractive emojis, mention 'Best Price' and 'High Quality'. 
-                                Include 5 trending hashtags at the end. 
-                                Language: Hinglish (Hindi + English mix).`
+                                text: `Act as an expert E-commerce copywriter and SEO specialist for Meesho India. Write a highly attractive and sales-converting product description for: ${name}. 
+                                Product features: ${features}. 
+                                Guidelines:
+                                - Start with a catchy headline.
+                                - Use clean bullet points for features.
+                                - Use attractive emojis.
+                                - Keep the tone persuasive and mention high quality.
+                                - MUST provide 7 to 10 highly trending and relevant hashtags at the bottom for Meesho search algorithm.
+                                - Language: Provide the output in a mix of simple Hindi and English (Hinglish), exactly how Indian sellers talk and buyers read.`
                             }]
                         }]
                     })
                 });
 
                 const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error.message);
+                }
+
                 const aiText = data.candidates[0].content.parts[0].text;
                 output.innerText = aiText;
 
             } catch (error) {
-                output.innerText = "Error: Kuch dikkat aa gayi bhai. Key check karo ya dobara try karo.";
-                console.error(error);
+                output.innerText = "Error: System failed to generate. Please check your API Key or try again later.";
+                console.error("API Error:", error);
             } finally {
                 btn.disabled = false;
-                btn.innerText = "Magic Se Likho ✨";
+                btn.innerHTML = "Generate SEO Description ✨";
             }
         }
 
         function copyText() {
             const text = document.getElementById('descriptionOutput').innerText;
             navigator.clipboard.writeText(text);
-            alert("Description copy ho gaya! Ab Meesho par paste kar do.");
+            
+            const copyBtn = event.target;
+            const originalText = copyBtn.innerText;
+            copyBtn.innerText = "Copied! ✅";
+            copyBtn.classList.replace('bg-slate-700', 'bg-green-600');
+            
+            setTimeout(() => {
+                copyBtn.innerText = originalText;
+                copyBtn.classList.replace('bg-green-600', 'bg-slate-700');
+            }, 2000);
         }
     </script>
 </body>
