@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>WhatsApp Direct Link Generator | Message Without Saving Number</title>
+    <meta name="description" content="Create a free WhatsApp direct chat link (wa.me) instantly. Send messages on WhatsApp without saving the phone number. 100% secure and free tool.">
+    <meta name="keywords" content="whatsapp link generator, wa.me link maker, message without saving number, whatsapp direct chat link, create whatsapp link, whatsapp chat link generator">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Free WhatsApp Direct Chat Link Generator">
+    <meta property="og:description" content="Generate a WhatsApp link to chat with anyone without saving their phone number in your contacts.">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .glass-card { background: #1e293b; border: 1px solid #334155; border-radius: 1.5rem; }
+        
+        /* Custom SEO Content Styling */
+        .seo-article h2 { font-size: 1.5rem; font-weight: bold; color: #f8fafc; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .seo-article h3 { font-size: 1.25rem; font-weight: 600; color: #22c55e; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+        .seo-article p { color: #94a3b8; line-height: 1.7; margin-bottom: 1rem; }
+        .seo-article ul { list-style-type: disc; margin-left: 1.5rem; color: #94a3b8; margin-bottom: 1rem; }
+        .seo-article li { margin-bottom: 0.5rem; }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "WhatsApp Direct Link Generator",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      },
+      "description": "A free tool to generate WhatsApp chat links, allowing users to send direct messages without saving the recipient's phone number."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How can I send a WhatsApp message without saving the number?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Simply enter the phone number with the country code in our WhatsApp Link Generator tool. It will create a direct 'wa.me' link. Click it, and your WhatsApp chat will open immediately without saving the contact."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Is this WhatsApp link generator safe to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, it is 100% secure. The tool works locally in your browser to format the official WhatsApp API URL. We do not store or track any phone numbers or messages you enter."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Can I add a custom pre-filled message?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You can type a custom message in the text box. When the user clicks your link, that message will automatically appear in their WhatsApp chat box, ready to be sent."
+        }
+      }]
+    }
+    </script>
+</head>
+<body class="min-h-screen py-12 px-6">
+    <div class="glass-card w-full max-w-md p-8 shadow-2xl text-center mx-auto">
+        <a href="index.html" class="text-green-400 hover:text-green-300 mb-4 inline-block font-semibold transition">← Back to Dashboard</a>
+        <h1 class="text-3xl font-bold mb-2 text-green-500">WA Link Generator</h1>
+        <p class="text-slate-400 mb-8 text-sm">Create direct WhatsApp chat links instantly.</p>
+
+        <div class="space-y-5 text-left">
+            <div>
+                <label class="block text-sm text-slate-400 mb-2">WhatsApp Number (with Country Code)</label>
+                <div class="flex">
+                    <input type="text" id="countryCode" value="91" placeholder="91" class="w-1/4 bg-slate-900 border border-slate-700 rounded-l-xl p-4 text-white outline-none focus:border-green-500 text-center border-r-0">
+                    <input type="number" id="phoneNum" placeholder="Phone Number" class="w-3/4 bg-slate-900 border border-slate-700 rounded-r-xl p-4 text-white outline-none focus:border-green-500 tracking-wide">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm text-slate-400 mb-2">Pre-filled Message (Optional)</label>
+                <textarea id="customMsg" rows="3" placeholder="Hello! I want to inquire about..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-white outline-none focus:border-green-500 resize-none"></textarea>
+            </div>
+            
+            <button onclick="generateWALink()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg transform hover:scale-[1.01] flex justify-center items-center gap-2">
+                Generate Link
+            </button>
+            
+            <div id="resultArea" class="hidden mt-6 space-y-4">
+                <div class="p-4 bg-slate-900 rounded-xl border border-green-500/30 break-all text-sm text-green-400 font-mono" id="finalLink">
+                </div>
+                
+                <div class="flex gap-3">
+                    <button onclick="copyLink()" id="copyBtn" class="flex-1 bg-slate-700 hover:bg-slate-600 text-white font-semibold py-3 rounded-xl transition">
+                        Copy Link
+                    </button>
+                    <button onclick="openChat()" class="flex-1 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 rounded-xl transition">
+                        Open Chat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto mt-12 p-8 glass-card text-slate-300 space-y-6 mb-12 seo-article">
+        <h2>Free WhatsApp Direct Link Generator (wa.me)</h2>
+        <p>In today's fast-paced digital world, saving every single contact just to send a quick message is frustrating and clutters your phonebook. Time Digital India's <strong>WhatsApp Direct Chat Link Generator</strong> is a simple, free tool that allows you to start a conversation with anyone on WhatsApp without saving their phone number.</p>
+        
+        <h3>How to Send a WhatsApp Message Without Saving the Number?</h3>
+        <p>Using our tool is incredibly easy and saves you valuable time:</p>
+        <ol class="list-decimal ml-6 space-y-2 text-slate-400">
+            <li>Enter the <strong>Country Code</strong> (e.g., 91 for India, 1 for USA) without the '+' symbol.</li>
+            <li>Type the <strong>Phone Number</strong> of the person you want to message.</li>
+            <li>(Optional) Type a <strong>Pre-filled Message</strong> that will automatically appear in the chat box.</li>
+            <li>Click "Generate Link". You can now copy the link to share it, or click "Open Chat" to instantly redirect to WhatsApp.</li>
+        </ol>
+
+        <h3>Why Business Owners Need a WhatsApp Link Maker</h3>
+        <ul>
+            <li><strong>Instagram & Facebook Bios:</strong> Social media platforms only allow one or two links. A custom WhatsApp link directs your followers straight to your inbox.</li>
+            <li><strong>Lead Generation:</strong> Add a pre-filled message like <em>"Hi, I want to buy your product"</em>. When customers click the link, they don't have to type anything, increasing your conversion rates.</li>
+            <li><strong>Privacy First:</strong> Our tool generates the official <code>wa.me</code> API URL directly in your browser. We never store, read, or track the phone numbers you input.</li>
+        </ul>
+    </div>
+
+    <script>
+        let generatedUrl = "";
+
+        function generateWALink() {
+            let country = document.getElementById('countryCode').value.replace(/[^0-9]/g, '');
+            let phone = document.getElementById('phoneNum').value.replace(/[^0-9]/g, '');
+            let msg = document.getElementById('customMsg').value;
+
+            if (!phone) {
+                alert("Please enter a valid phone number!");
+                return;
+            }
+
+            if (!country) country = "91"; // Default to India
+
+            // Official WhatsApp API Format
+            generatedUrl = `https://wa.me/${country}${phone}`;
+            
+            if (msg.trim() !== "") {
+                generatedUrl += `?text=${encodeURIComponent(msg)}`;
+            }
+
+            document.getElementById('finalLink').innerText = generatedUrl;
+            document.getElementById('resultArea').classList.remove('hidden');
+            
+            // Reset copy button text
+            document.getElementById('copyBtn').innerText = "Copy Link";
+        }
+
+        function copyLink() {
+            if (!generatedUrl) return;
+            navigator.clipboard.writeText(generatedUrl).then(() => {
+                const btn = document.getElementById('copyBtn');
+                btn.innerText = "Copied!";
+                setTimeout(() => { btn.innerText = "Copy Link"; }, 2000);
+            });
+        }
+
+        function openChat() {
+            if (!generatedUrl) return;
+            window.open(generatedUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
