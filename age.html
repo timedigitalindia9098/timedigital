@@ -3,40 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age Calculator | Time Digital India</title>
+    
+    <title>Age Calculator by Date of Birth | Find Exact Age Online</title>
+    <meta name="description" content="Use our free online Age Calculator to find your exact chronological age in years, months, and days based on your date of birth. 100% accurate and private.">
+    <meta name="keywords" content="age calculator, calculate age by date of birth, online age calculator, exact age calculator, age calculator in years months days">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.timedigitalindia.com/age.html" />
+
+    <meta property="og:title" content="Exact Age Calculator by Date of Birth">
+    <meta property="og:description" content="Quickly calculate your exact age in years, months, and days with our free online tool.">
+    <meta property="og:type" content="website">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #0f172a; color: #f8fafc; font-family: 'Inter', sans-serif; }
         .glass-card { background: #1e293b; border: 1px solid #334155; border-radius: 1.5rem; }
+        
+        /* Custom SEO Content Styling */
+        .seo-article h2 { font-size: 1.5rem; font-weight: bold; color: #f8fafc; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .seo-article h3 { font-size: 1.25rem; font-weight: 600; color: #60a5fa; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+        .seo-article p { color: #94a3b8; line-height: 1.7; margin-bottom: 1rem; }
+        .seo-article ul { list-style-type: disc; margin-left: 1.5rem; color: #94a3b8; margin-bottom: 1rem; }
+        .seo-article li { margin-bottom: 0.5rem; }
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Age Calculator",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      },
+      "description": "A free online utility to calculate exact chronological age in years, months, and days based on a provided date of birth."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How is my exact age calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our calculator compares your Date of Birth to today's current date, factoring in leap years and varying month lengths to give you a 100% accurate result in Years, Months, and Days."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Do you save my Date of Birth?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, all age calculations are performed locally in your browser. We do not store or collect your date of birth or any personal data."
+        }
+      }]
+    }
+    </script>
 </head>
 <body class="min-h-screen py-12 px-6">
     <div class="glass-card w-full max-w-md p-8 shadow-2xl text-center mx-auto">
-        <a href="index.html" class="text-blue-400 hover:text-blue-300 mb-4 inline-block">← Back to Dashboard</a>
+        <a href="index.html" class="text-blue-400 hover:text-blue-300 mb-4 inline-block font-semibold">← Back to Dashboard</a>
         <h1 class="text-3xl font-bold mb-6 text-blue-500">Age Calculator</h1>
         
         <div class="space-y-6">
             <div class="relative">
                 <input type="text" id="dob" placeholder="DD-MM-YYYY" maxlength="10"
-                    class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-white outline-none focus:border-blue-500 text-center text-lg tracking-widest"
+                    class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-white outline-none focus:border-blue-500 text-center text-xl tracking-widest transition"
                     onkeyup="formatDate(this)">
-                <p class="text-xs text-slate-500 mt-2">Example: 15-08-1947</p>
+                <p class="text-xs text-slate-500 mt-2">Format: Date-Month-Year (e.g., 15-08-1947)</p>
             </div>
-            <button onclick="calculateAge()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all">Calculate Age</button>
-            <div id="result" class="hidden mt-6 p-4 bg-slate-900 rounded-xl border border-blue-500/30">
-                <p id="ageText" class="text-xl font-bold text-green-400"></p>
+            
+            <button onclick="calculateAge()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg transform hover:scale-[1.01]">
+                Calculate Exact Age
+            </button>
+            
+            <div id="result" class="hidden mt-6 p-6 bg-slate-900 rounded-xl border border-blue-500/30 shadow-inner">
+                <p class="text-sm text-slate-400 mb-1">Your Exact Age is:</p>
+                <p id="ageText" class="text-2xl font-bold text-green-400 leading-tight"></p>
             </div>
         </div>
     </div>
 
-    <div class="max-w-4xl mx-auto mt-12 p-8 glass-card text-slate-300 space-y-6 mb-12">
-        <h2 class="text-2xl font-bold text-white">Online Age Calculator: Find Your Exact Age Instantly</h2>
-        <p>Calculating your age manually can often lead to errors. Time Digital India's Age Calculator provides a 100% accurate way to find your age in years, months, and days.</p>
-        <h3 class="text-xl font-semibold text-blue-400">Why use our Age Calculator?</h3>
-        <ul class="list-disc ml-6 space-y-2">
-            <li><strong>Simplicity:</strong> No complex drop-downs. Just type your date.</li>
-            <li><strong>Precision:</strong> Real-time logic for exact results.</li>
-            <li><strong>Privacy:</strong> We never store your personal data.</li>
+    <div class="max-w-4xl mx-auto mt-12 p-8 glass-card text-slate-300 space-y-6 mb-12 seo-article">
+        <h2>Online Age Calculator: Find Your Exact Age by Date of Birth</h2>
+        <p>Calculating your exact chronological age manually can be confusing, especially when accounting for leap years and months with 28, 30, or 31 days. Time Digital India's <strong>Free Age Calculator</strong> provides a 100% accurate mathematical way to find your exact age in Years, Months, and Days.</p>
+        
+        <h3>Why use our Exact Age Calculator?</h3>
+        <ul>
+            <li><strong>Detailed Results:</strong> Don't just settle for how many years old you are. Our tool breaks down your age into precise Years, Months, and Days.</li>
+            <li><strong>Lightning Fast & Simple:</strong> No complex drop-down menus for dates. Just type your Date of Birth in the simple DD-MM-YYYY format, and the result is generated instantly.</li>
+            <li><strong>100% Privacy Guaranteed:</strong> We respect your privacy. The date you enter never leaves your device. The JavaScript calculates everything directly in your web browser.</li>
+        </ul>
+
+        <h3>Common Uses for an Age Calculator</h3>
+        <p>Knowing your precise age to the exact day is often required for various official purposes:</p>
+        <ul>
+            <li>Filling out government, banking, or passport application forms.</li>
+            <li>Checking eligibility criteria for competitive exams and job applications.</li>
+            <li>Calculating the age of your baby, pet, or even tracking business milestones.</li>
         </ul>
     </div>
 
@@ -47,17 +115,57 @@
             if (v.length > 4) v = v.slice(0, 2) + '-' + v.slice(2, 4) + '-' + v.slice(4, 8);
             input.value = v;
         }
+
         function calculateAge() {
             const dobValue = document.getElementById('dob').value;
-            if(!dobValue || dobValue.length < 10) return alert("Pura date dalo!");
+            
+            // Basic validation
+            if(!dobValue || dobValue.length < 10) {
+                alert("Please enter a complete Date of Birth (DD-MM-YYYY)!");
+                return;
+            }
+
             const parts = dobValue.split("-");
-            const birthDate = new Date(`${parts[2]}-${parts[1]}-${parts[0]}`);
+            const birthDay = parseInt(parts[0], 10);
+            const birthMonth = parseInt(parts[1], 10) - 1; // Months are 0-indexed in JS
+            const birthYear = parseInt(parts[2], 10);
+
+            const birthDate = new Date(birthYear, birthMonth, birthDay);
             const today = new Date();
-            let age = today.getFullYear() - birthDate.getFullYear();
-            const m = today.getMonth() - birthDate.getMonth();
-            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) { age--; }
+
+            // Validate if the date is in the future
+            if (birthDate > today) {
+                alert("Date of birth cannot be in the future!");
+                return;
+            }
+
+            // Calculate Years, Months, Days
+            let years = today.getFullYear() - birthDate.getFullYear();
+            let months = today.getMonth() - birthDate.getMonth();
+            let days = today.getDate() - birthDate.getDate();
+
+            if (days < 0) {
+                months--;
+                // Get days in the previous month
+                const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+                days += prevMonth.getDate();
+            }
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            // Display Results
             document.getElementById('result').classList.remove('hidden');
-            document.getElementById('ageText').innerText = `You are ${age} years old!`;
+            
+            // Format the output string nicely
+            let ageString = "";
+            if (years > 0) ageString += `${years} Years, `;
+            if (months > 0) ageString += `${months} Months, `;
+            ageString += `and ${days} Days`;
+
+            document.getElementById('ageText').innerText = ageString;
         }
     </script>
 </body>
