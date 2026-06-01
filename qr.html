@@ -3,23 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Generator | Time Digital India</title>
+    
+    <!-- 🚀 ULTRA SEO META TAGS -->
+    <title>Free QR Code Generator Online | Create QR Codes (No Expiry)</title>
+    <meta name="description" content="Create custom, high-quality QR codes for links, text, WiFi, and social media instantly. 100% free online QR code maker with no expiration. Download as PNG.">
+    <meta name="keywords" content="qr code generator, free qr code maker, create qr code online, qr code generator no sign up, qr code with no expiration, generate qr code for link">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.timedigitalindia.com/qr.html" />
+
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="Free Online QR Code Generator">
+    <meta property="og:description" content="Generate permanent, high-quality QR codes for free without any sign-up.">
+    <meta property="og:type" content="website">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         body { background-color: #0f172a; color: #f8fafc; font-family: 'Inter', sans-serif; }
         .glass-card { background: #1e293b; border: 1px solid #334155; border-radius: 1.5rem; }
         #qrcode img, #qrcode canvas { margin: 0 auto; border: 10px solid white; border-radius: 0.5rem; }
+        
+        /* Custom SEO Content Styling */
+        .seo-article h2 { font-size: 1.5rem; font-weight: bold; color: #f8fafc; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .seo-article h3 { font-size: 1.25rem; font-weight: 600; color: #60a5fa; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+        .seo-article p { color: #94a3b8; line-height: 1.7; margin-bottom: 1rem; }
+        .seo-article ul { list-style-type: disc; margin-left: 1.5rem; color: #94a3b8; margin-bottom: 1rem; }
+        .seo-article li { margin-bottom: 0.5rem; }
     </style>
+
+    <!-- 🚀 SCHEMA 1: SOFTWARE APPLICATION -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Free QR Code Generator",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      },
+      "description": "A completely free, browser-based tool to generate static QR codes that never expire. Perfect for URLs, text, and contact information."
+    }
+    </script>
+
+    <!-- 🚀 SCHEMA 2: FAQ PAGE (For Rich Snippets) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Do these generated QR codes ever expire?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No! Our tool generates Static QR codes. They will never expire and will work forever as long as the underlying link or text is valid."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Is it completely free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our QR maker is 100% free with no hidden charges, no watermarks, and no sign-up required."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Are my QR codes saved on your server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The QR codes are generated locally inside your web browser. We do not track, save, or store your links or text data."
+        }
+      }]
+    }
+    </script>
 </head>
 <body class="min-h-screen py-12 px-6 text-slate-200">
     <div class="glass-card w-full max-w-md p-8 shadow-2xl text-center mx-auto">
-        <a href="index.html" class="text-blue-400 hover:text-blue-300 mb-4 inline-block transition">← Back to Dashboard</a>
-        <h1 class="text-3xl font-bold mb-2 text-blue-500">QR Generator</h1>
-        <p class="text-slate-400 mb-8 text-sm">Create instant QR codes for any link or text.</p>
+        <a href="index.html" class="text-blue-400 hover:text-blue-300 mb-4 inline-block transition font-semibold">← Back to Dashboard</a>
+        <h1 class="text-3xl font-bold mb-2 text-blue-500">QR Code Generator</h1>
+        <p class="text-slate-400 mb-8 text-sm">Create instant, permanent QR codes for any link or text.</p>
 
         <div class="space-y-6">
-            <input type="text" id="qr-input" placeholder="Paste link or type text here..." 
+            <input type="text" id="qr-input" placeholder="Paste link (URL) or type text here..." 
                 class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 outline-none focus:border-blue-500 transition text-white text-center">
             
             <button onclick="generateQR()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg transform hover:scale-[1.01]">
@@ -27,7 +92,7 @@
             </button>
 
             <div id="result-container" class="hidden mt-8 space-y-4">
-                <div id="qrcode" class="bg-white p-2 rounded-xl inline-block">
+                <div id="qrcode" class="bg-white p-2 rounded-xl inline-block shadow-md">
                     </div>
                 <button onclick="downloadQR()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl transition">
                     Download QR (.png)
@@ -36,22 +101,34 @@
         </div>
     </div>
 
-    <div class="max-w-4xl mx-auto mt-12 p-8 glass-card text-slate-300 space-y-6 mb-12">
-        <h2 class="text-2xl font-bold text-white">Free QR Code Generator: Create Custom QR Codes</h2>
-        <p>QR codes have transformed how we share information. From digital menus to social media links, <strong>Time Digital India</strong> offers a fast generator for all your needs.</p>
-        <h3 class="text-xl font-semibold text-blue-400">What can you use QR codes for?</h3>
-        <ul class="list-disc ml-6 space-y-2">
-            <li><strong>Website Links:</strong> Direct customers to your blog or YouTube.</li>
-            <li><strong>Social Media:</strong> Share your handles instantly.</li>
-            <li><strong>Privacy:</strong> All generation happens locally in your browser.</li>
+    <!-- 🚀 SEO HEAVY CONTENT SECTION -->
+    <div class="max-w-4xl mx-auto mt-12 p-8 glass-card text-slate-300 space-y-6 mb-12 seo-article">
+        <h2>Free Online QR Code Maker (No Expiry & No Sign-up)</h2>
+        <p>Welcome to the fastest and most reliable <strong>Free QR Code Generator</strong>. Whether you need to share a website URL, a YouTube video, a digital menu for your restaurant, or simply plain text, our tool creates high-quality, scannable codes in less than a second.</p>
+        
+        <h3>Why Choose Our QR Code Generator?</h3>
+        <ul>
+            <li><strong>No Expiration Date:</strong> Unlike many paid services, the QR codes generated here are <em>Static</em>. This means they will never expire. You can print them on business cards, flyers, or banners with full confidence.</li>
+            <li><strong>100% Privacy & Security:</strong> Your data is safe. The QR code generation process happens entirely client-side (in your browser). We do not send your links or text to any backend servers.</li>
+            <li><strong>High-Resolution PNG Download:</strong> With a single click, download your code in crisp, HD format ready for professional printing or digital sharing.</li>
+            <li><strong>Zero Ads & No Watermarks:</strong> We don't force our logo onto your QR codes. The output is clean, professional, and ready for your brand.</li>
         </ul>
+
+        <h3>How to Create a QR Code for a Link?</h3>
+        <p>Making your own QR code is incredibly simple:</p>
+        <ol class="list-decimal ml-6 space-y-2 text-slate-400">
+            <li>Copy the URL of the website or profile you want to share.</li>
+            <li>Paste the link into the input box at the top of this page.</li>
+            <li>Click the <strong>"Generate QR Code"</strong> button.</li>
+            <li>Scan it with your phone camera to test it, then click the green button to Download the image file to your device.</li>
+        </ol>
     </div>
 
     <script>
         function generateQR() {
             const input = document.getElementById('qr-input').value;
             if (!input) {
-                alert("Bhai, pehle link ya text toh dalo!");
+                alert("Please paste a link or type some text first!");
                 return;
             }
 
@@ -87,10 +164,10 @@
             if (dataUrl) {
                 const link = document.createElement("a");
                 link.href = dataUrl;
-                link.download = "TimeDigitalIndia_QR.png";
+                link.download = "TimeDigitalIndia_QRCode.png";
                 link.click();
             } else {
-                alert("Pehle QR generate toh kar lo!");
+                alert("Please generate a QR code first!");
             }
         }
     </script>
