@@ -1,50 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Homepage -->
   <url>
     <loc>https://timedigitalindia.com/</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <priority>1.00</priority>
   </url>
   
+  <!-- Tools List -->
   <url>
     <loc>https://timedigitalindia.com/youtube.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://timedigitalindia.com/age.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://timedigitalindia.com/gst.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://timedigitalindia.com/qr.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-06-03</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://timedigitalindia.com/meesho-tool.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://timedigitalindia.com/password-generator.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://timedigitalindia.com/whatsapp-link-generator.html</loc>
+    <lastmod>2026-06-03</lastmod>
     <priority>0.80</priority>
   </url>
 
+  <!-- Legal & Info Pages -->
   <url>
     <loc>https://timedigitalindia.com/about.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <priority>0.50</priority>
   </url>
   <url>
     <loc>https://timedigitalindia.com/contact.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <priority>0.50</priority>
   </url>
   <url>
     <loc>https://timedigitalindia.com/privacy.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <priority>0.50</priority>
   </url>
   <url>
     <loc>https://timedigitalindia.com/terms.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <priority>0.50</priority>
   </url>
 </urlset>
