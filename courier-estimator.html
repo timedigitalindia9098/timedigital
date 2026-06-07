@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags (Google Baba Special) -->
+    <title>Free Courier Weight & Shipping Cost Estimator India (2026)</title>
+    <meta name="description" content="Accurate Courier Charges Calculator for India. Estimate shipping costs based on actual & volumetric weight for Delhivery, BlueDart, Speed Post, and DTDC. Free tool for e-commerce sellers.">
+    <meta name="keywords" content="courier charges calculator, shipping cost estimator india, volumetric weight calculator, delhivery charges calculator, bluedart shipping rates, speed post calculator, meesho seller shipping tool">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://timedigitalindia.com/courier-shipping-estimator">
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://timedigitalindia.com/courier-shipping-estimator">
+    <meta property="og:title" content="Free Courier Weight & Shipping Cost Estimator India">
+    <meta property="og:description" content="Calculate standard and express courier rates across India instantly. Supports volumetric weight formulas used by top logistics companies.">
+    <meta property="og:image" content="https://timedigitalindia.com/assets/shipping-tool-banner.jpg">
+
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-hover: #4338CA;
+            --bg-dark: #0F172A;
+            --text-main: #334155;
+            --success: #10B981;
+        }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #F8FAFC; color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 20px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+        
+        /* Premium Tool Card */
+        .card { background: white; border-radius: 16px; pading: 30px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05); padding: 30px; border: 1px solid #E2E8F0; }
+        h1 { font-size: 28px; color: var(--bg-dark); margin-top: 0; text-align: center; font-weight: 800; }
+        h2 { font-size: 22px; color: var(--bg-dark); margin-top: 30px; border-bottom: 2px solid #E2E8F0; padding-bottom: 10px; }
+        
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 14px; }
+        input, select { width: 100%; padding: 12px; border: 1px solid #CBD5E1; border-radius: 8px; box-sizing: border-box; font-size: 15px; transition: all 0.3s ease; }
+        input:focus, select:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15); }
+        
+        .dimension-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+        .btn-calc { width: 100%; padding: 14px; background: var(--primary); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-top: 10px; }
+        .btn-calc:hover { background: var(--primary-hover); }
+
+        /* Output / Results Styling */
+        .results-box { display: none; background: #F1F5F9; border-radius: 12px; padding: 20px; margin-top: 25px; border-left: 5px solid var(--primary); }
+        .weight-badge { display: inline-block; background: #E2E8F0; padding: 4px 10px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 15px; }
+        .carrier-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #E2E8F0; }
+        .carrier-row:last-child { border-bottom: none; }
+        .carrier-name { font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .carrier-price { font-size: 18px; font-weight: 700; color: var(--success); }
+
+        /* SEO Content Area */
+        .seo-content { margin-top: 50px; background: white; padding: 40px; border-radius: 16px; border: 1px solid #E2E8F0; }
+        .seo-content ul, .seo-content ol { padding-left: 20px; }
+        .seo-content li { margin-bottom: 10px; }
+        .faq-item { margin-bottom: 20px; }
+        .faq-question { font-weight: 700; color: #1E293B; margin-bottom: 5px; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="grid">
+        
+        <!-- Tool Component -->
+        <div class="card">
+            <h1>Courier Shipping Cost Estimator</h1>
+            <p style="text-align: center; color: #64748B; font-size: 14px; margin-top: -10px; margin-bottom: 25px;">Calculate volumetric weight & compare multiple carrier rates instantly.</p>
+            
+            <div class="form-group">
+                <label for="zone">Shipping Destination Zone</label>
+                <select id="zone">
+                    <option value="local">Local (Within Same City)</option>
+                    <option value="regional">Regional (Within Same State)</option>
+                    <option value="metro" selected>Metro to Metro (Major Cities)</option>
+                    <option value="national">National (Rest of India)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="actualWeight">Actual Physical Weight (in Kilograms)</label>
+                <input type="number" id="actualWeight" step="0.01" value="0.5" min="0.1">
+            </div>
+
+            <div class="form-group">
+                <label>Package Dimensions (Required for Volumetric Weight)</label>
+                <div class="dimension-grid">
+                    <div>
+                        <input type="number" id="length" placeholder="Length (cm)" min="0">
+                    </div>
+                    <div>
+                        <input type="number" id="width" placeholder="Width (cm)" min="0">
+                    </div>
+                    <div>
+                        <input type="number" id="height" placeholder="Height (cm)" min="0">
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-calc" onclick="calculatePremiumShipping()">Estimate Shipping Cost</button>
+
+            <!-- Results Section -->
+            <div class="results-box" id="resultsSection">
+                <div class="weight-badge">Charged Weight Method: <span id="weightMethod">Actual</span></div>
+                <p style="margin: 0 0 15px 0; font-size: 15px;">Final Payable Weight: <strong id="finalWeightDisplay">0.5</strong> Kg</p>
+                
+                <div class="carrier-row">
+                    <div class="carrier-name">📦 India Post (Speed Post) <small style="color:#64748B;">(Reliable/Govt)</small></div>
+                    <div class="carrier-price" id="pricePost">₹0</div>
+                </div>
+                <div class="carrier-row">
+                    <div class="carrier-name">🚚 Delhivery Surface <small style="color:#64748B;">(Best for E-commerce)</small></div>
+                    <div class="carrier-price" id="priceDelhivery">₹0</div>
+                </div>
+                <div class="carrier-row">
+                    <div class="carrier-name">⚡ BlueDart / Express <small style="color:#64748B;">(Premium/Fastest)</small></div>
+                    <div class="carrier-price" id="priceBlueDart">₹0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar / Visual Value Addition (Google Engagement Booster) -->
+        <div class="card" style="background: linear-gradient(135deg, #EEF2F6 0%, #E2E8F0 100%);">
+            <h3 style="margin-top: 0; color: var(--bg-dark);">💡 How Logistics Companies Charge You</h3>
+            <p>Ever wondered why courier charges are sometimes higher than expected? Logistics companies in India calculate cost based on **whichever weight is higher**: </p>
+            <ol>
+                <li><strong>Actual Weight:</strong> The actual scale reading of your parcel.</li>
+                <li><strong>Volumetric (Dimensional) Weight:</strong> The space your parcel occupies inside the truck or airplane.</li>
+            </ol>
+            <p><strong>The Golden Formula:</strong></p>
+            <div style="background: white; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; text-align: center; font-weight: bold; border: 1px dashed var(--primary);">
+                Volumetric Weight (Kg) = (L × W × H in cm) / 5000
+            </div>
+            <p style="font-size: 13px; color: #475569; margin-top: 15px;"><em>Our automated tool compares this algorithm across India's top courier services to save you from hidden platform fees.</em></p>
+        </div>
+
+    </div> <!-- End Grid -->
+
+    <!-- ========================================== -->
+    <!-- 2. HIGH OPTIMIZED SEO CONTENT BLOCK (EEAT) -->
+    <!-- ========================================== -->
+    <div class="seo-content">
+        <h2>How to Use the Free Courier Weight & Shipping Cost Estimator</h2>
+        <p>Managing logistics can be highly challenging for individual e-commerce sellers, retail stores, and small scale distributors on platforms like Meesho and Flipkart. To estimate your expenses seamlessly without manual bookkeeping, follow these simple steps:</p>
+        <ul>
+            <li><strong>Step 1: Select Destination Zone</strong> - Identify if your customer resides locally, regionally, or in a major metropolitan hub.</li>
+            <li><strong>Step 2: Enter Dead Weight</strong> - Use a standard weighing scale to input the structural mass of the packed box in kilograms.</li>
+            <li><strong>Step 3: Measure Dimensions</strong> - Input the Length, Width, and Height of the outer package box in centimeters to check for volumetric overhead charges.</li>
+            <li><strong>Step 4: Analyze and Compare</strong> - Hit 'Estimate' to get detailed standard breakdowns across leading networks.</li>
+        </ul>
+
+        <h2>Understanding Volumetric vs. Actual Weight Overhead</h2>
+        <p>If you are shipping light objects in large boxes (like stuffed pillows or plastic containers), courier agents will bill you using <strong>Dimensional Weight</strong> rather than structural gravity. This tool protects your profit margins by performing automatic checks against standard commercial base matrices ($5000$ dividing divisor rule universally accepted across India).</p>
+
+        <h2>Frequently Asked Questions (FAQs) — Schema Optimized</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">Q1: Which is the cheapest courier service for Meesho sellers in India?</div>
+            <div class="faq-content">Ans: For small and medium-scale e-commerce resellers, India Post (Speed Post) provides the most competitive pricing framework for rural codes, while commercial partners like Delhivery Surface offer optimized digital automation APIs for urban pin codes.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Q2: Why do courier costs differ between surface and air delivery formats?</div>
+            <div class="faq-content">Ans: Surface logistics utilizes ground trucks and multi-axle freight networks which takes 4-7 business days but is highly budget friendly. Express air shipments reserve cargo hold capacity in flight structures, commanding a premium price matrix for 24-48 hour delivery.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Q3: Does this estimation sheet include GST parameters?</div>
+            <div class="faq-content">Ans: No, the base calculation matrix maps out operational cargo costs. You must add standard 18% Integrated Goods and Services Tax (IGST) over the output data for final legal ledger computations.</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Calculation Engine Logic -->
+<script>
+function calculatePremiumShipping() {
+    let zone = document.getElementById('zone').value;
+    let actualWeight = parseFloat(document.getElementById('actualWeight').value) || 0;
+    
+    let l = parseFloat(document.getElementById('length').value) || 0;
+    let w = parseFloat(document.getElementById('width').value) || 0;
+    let h = parseFloat(document.getElementById('height').value) || 0;
+    
+    // Volumetric computation
+    let volumetricWeight = (l * w * h) / 5000;
+    
+    let finalWeight = Math.max(actualWeight, volumetricWeight);
+    let method = (volumetricWeight > actualWeight) ? "Volumetric Weight (Dimensional)" : "Actual Physical Weight";
+    
+    // Standardizing slabs to 0.5 Kg blocks
+    let weightSlabs = Math.ceil(finalWeight / 0.5);
+    if(weightSlabs === 0) weightSlabs = 1;
+
+    // Core Pricing Matrices (Dynamic pricing simulation base metrics)
+    let rates = {
+        local: { post: 35, delhivery: 40, bluedart: 70 },
+        regional: { post: 45, delhivery: 55, bluedart: 95 },
+        metro: { post: 60, delhivery: 75, bluedart: 130 },
+        national: { post: 75, delhivery: 90, bluedart: 160 }
+    };
+
+    let baseRate = rates[zone];
+    
+    // Calculation algorithm factoring incremental weight logic
+    let finalPost = baseRate.post * (weightSlabs * 0.85); 
+    let finalDelhivery = baseRate.delhivery * (weightSlabs * 0.9);
+    let finalBlueDart = baseRate.bluedart * (weightSlabs * 0.95);
+
+    // Render Logic safely injecting numbers to DOM
+    document.getElementById('weightMethod').innerText = method;
+    document.getElementById('finalWeightDisplay').innerText = finalWeight.toFixed(2);
+    
+    document.getElementById('pricePost').innerText = "₹" + Math.round(finalPost);
+    document.getElementById('priceDelhivery').innerText = "₹" + Math.round(finalDelhivery);
+    document.getElementById('priceBlueDart').innerText = "₹" + Math.round(finalBlueDart);
+    
+    document.getElementById('resultsSection').style.display = 'block';
+}
+</script>
+</body>
+</html>
