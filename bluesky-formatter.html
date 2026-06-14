@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Bluesky Text Formatter (Copy & Paste) | Bold, Italic & Cool Fonts Generator</title>
+    <meta name="description" content="Free Bluesky text formatter and font generator. Convert plain text to bold, italic, monospace, and cursive styles instantly. Built-in 300 character constraint layout counter.">
+    <meta name="keywords" content="bluesky text formatter, bluesky bold generator, bsky text styles, format bluesky posts, text styling tool bluesky, copy paste fancy fonts bsky">
+    
+    <link rel="canonical" href="https://timedigitalindia.com/bluesky-formatter" />
+    
+    <meta property="og:title" content="Bluesky Text Formatter (Copy & Paste) | Bold & Italic Font Changer">
+    <meta property="og:description" content="Format your Bluesky posts with professional bold, italic, and stylish unicode scripts. Tracking the exact 300 byte constraint seamlessly.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Bluesky Text Formatter",
+        "alternateName": "BSKY Font Stylist & Character Constraint Tool",
+        "url": "https://timedigitalindia.com/bluesky-formatter",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "description": "An optimization rich text formatting converter engineered globally for formatting Bluesky updates with bold fonts, italic conversions, and customized glyph structures natively.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can you use bold or italic text on native Bluesky posts?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Native Bluesky dashboard editors do not offer built-in formatting settings. Our Text Formatter utilizes distinct mathematical Unicode ranges to translate regular alphabet sets into custom stylings that load cross-compatible structural representations natively."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does formatting text reduce the official 300-character limit rules?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mathematical Unicode blocks represent composite character scripts which consume equivalent index bytes. While visibility scales smoothly, users should reference our layout meter calculations to avoid automated pipeline truncation bugs."
+            }
+          }
+        ]
+      }
+    ]
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0b0f19; color: #f1f5f9; font-family: 'Inter', sans-serif; }
+        .glass-container { background: #131c2e; border: 1px solid #1e293b; border-radius: 24px; }
+        .bsky-blue { background-color: #0085ff; }
+        .tab-active { background-color: #1e293b; color: #0085ff; border-color: #0085ff; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="sticky top-0 z-50 py-4 px-6 bg-[#0b0f19]/80 backdrop-blur-xl border-b border-slate-900">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-xl font-black text-[#0085ff] tracking-tight">TIME DIGITAL <span class="text-white">INDIA</span></a>
+            <div class="flex gap-6 text-sm font-semibold">
+                <a href="index.html" class="text-slate-400 hover:text-white transition">All Tools</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto p-4 md:p-6 mt-6 md:mt-12">
+        <div class="glass-container p-6 md:p-10 shadow-2xl">
+            
+            <div class="flex flex-col items-center mb-8 text-center">
+                <span class="bg-[#0085ff]/10 text-[#0085ff] text-xs font-black px-4 py-1.5 rounded-full tracking-wider mb-3 border border-[#0085ff]/20">Global Utility</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-3">Bluesky Text Formatter</h1>
+                <p class="text-slate-400 text-sm md:text-lg max-w-2xl leading-relaxed">Instantly convert vanilla inputs to high-impact bold, italic, and specialized decorative unicode presets optimized for global Bluesky algorithms.</p>
+            </div>
+
+            <div class="space-y-6 max-w-3xl mx-auto">
+                <div>
+                    <div class="flex justify-between items-center mb-2.5">
+                        <label class="text-sm font-bold text-slate-300">Your Bluesky Post / Thread Segment</label>
+                        <span id="counterDisplay" class="text-sm font-black px-3 py-1 bg-slate-900 rounded-lg text-slate-400 border border-slate-800">0 / 300</span>
+                    </div>
+                    <textarea id="mainInput" rows="4" oninput="executeFormatPipeline()" placeholder="Write your hook or update here... (e.g., Attention developers!)" class="w-full bg-slate-950 border border-slate-800 rounded-2xl p-4 text-white focus:ring-2 focus:ring-[#0085ff] outline-none transition duration-200 text-base md:text-lg placeholder-slate-600"></textarea>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="w-full bg-slate-900 rounded-full h-2.5">
+                        <div id="meterBar" class="bg-[#0085ff] h-2.5 rounded-full w-0 transition-all duration-200"></div>
+                    </div>
+                    <div id="boundaryWarning" class="text-xs font-bold text-red-400 hidden text-right animate-pulse">⚠️ Warning: Content length scales past standard Bluesky limits.</div>
+                </div>
+
+                <div class="flex flex-wrap gap-2 border-b border-slate-800 pb-4 pt-2">
+                    <button onclick="switchCategoryTab('all', this)" class="text-xs md:text-sm font-bold px-4 py-2 rounded-xl border border-slate-800 text-slate-400 hover:text-white transition tab-active">All Scripts</button>
+                    <button onclick="switchCategoryTab('essential', this)" class="text-xs md:text-sm font-bold px-4 py-2 rounded-xl border border-slate-800 text-slate-400 hover:text-white transition">Essential</button>
+                    <button onclick="switchCategoryTab('decorative', this)" class="text-xs md:text-sm font-bold px-4 py-2 rounded-xl border border-slate-800 text-slate-400 hover:text-white transition">Decorative</button>
+                    <button onclick="switchCategoryTab('special', this)" class="text-xs md:text-sm font-bold px-4 py-2 rounded-xl border border-slate-800 text-slate-400 hover:text-white transition">Special</button>
+                </div>
+            </div>
+
+            <div id="renderTarget" class="mt-8 space-y-4 max-w-3xl mx-auto">
+                </div>
+        </div>
+
+        <article class="mt-16 space-y-12 text
