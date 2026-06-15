@@ -80,22 +80,26 @@
         let selectedCategory = 'all';
 
         const textStyles = [
-            { title: "Bold Sans-Serif 🚀", offset: 0x1D5D4, group: "essential" },
-            { title: "Italic Sans-Serif ✨", offset: 0x1D608, group: "essential" },
-            { title: "Bold Italic Sans 💎", offset: 0x1D63C, group: "essential" },
-            { title: "Monospace / Dev 💻", offset: 0x1D670, group: "essential" },
-            { title: "Classic Bold Serif", offset: 0x1D400, group: "essential" },
-            { title: "Double Struck Outline", offset: 0x1D552, group: "decorative" },
-            { title: "Gothic Script", offset: 0x1D504, group: "decorative" }
+            { title: "Bold Sans-Serif 🚀", capStart: 0x1D5D4, lowStart: 0x1D5EE, group: "essential" },
+            { title: "Italic Sans-Serif ✨", capStart: 0x1D608, lowStart: 0x1D622, group: "essential" },
+            { title: "Bold Italic Sans 💎", capStart: 0x1D63C, lowStart: 0x1D656, group: "essential" },
+            { title: "Monospace / Dev 💻", capStart: 0x1D670, lowStart: 0x1D68A, group: "essential" },
+            { title: "Classic Bold Serif 🏛️", capStart: 0x1D400, lowStart: 0x1D41A, group: "essential" },
+            { title: "Classic Italic Serif ✍️", capStart: 0x1D434, lowStart: 0x1D44E, group: "essential" },
+            { title: "Double Struck Outline 🌐", capStart: 0x1D538, lowStart: 0x1D552, group: "decorative" },
+            { title: "Gothic Fraktur Script 📜", capStart: 0x1D504, lowStart: 0x1D51E, group: "decorative" }
         ];
 
-        function convertUnicode(text, offset) {
+        function convertUnicode(text, capStart, lowStart) {
             return text.split("").map(char => {
                 let code = char.charCodeAt(0);
-                if (code >= 65 && code <= 90) return String.fromCodePoint(offset + (code - 65));
+                // Exact Capital Letters Transformation
+                if (code >= 65 && code <= 90) {
+                    return String.fromCodePoint(capStart + (code - 65));
+                }
+                // Exact Lowercase Letters Transformation
                 if (code >= 97 && code <= 122) {
-                    let jump = (offset === 0x1D552) ? 6 : 26;
-                    return String.fromCodePoint(offset + jump + (code - 97));
+                    return String.fromCodePoint(lowStart + (code - 97));
                 }
                 return char;
             }).join("");
@@ -125,13 +129,12 @@
                 warning.classList.add('hidden');
             }
 
-            // Fallback display if box is empty
-            const activeText = input.trim() === "" ? "Type something here..." : input;
+            const activeText = input.trim() === "" ? "Format Preview Text" : input;
             target.innerHTML = "";
 
             textStyles.forEach(style => {
                 if (selectedCategory === 'all' || style.group === selectedCategory) {
-                    let res = convertUnicode(activeText, style.offset);
+                    let res = convertUnicode(activeText, style.capStart, style.lowStart);
                     
                     let row = document.createElement('div');
                     row.className = "flex justify-between items-center bg-slate-950 border border-slate-900 p-4 rounded-xl gap-3 hover:border-slate-800 transition";
