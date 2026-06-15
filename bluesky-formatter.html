@@ -9,7 +9,7 @@
     <link rel="canonical" href="https://timedigitalindia.com/bluesky-formatter" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #0b0f19; color: #f1f5f9; font-family: 'Inter', sans-serif; }
+        body { background-color: #0b0f19; color: #f1f5f9; font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
         .glass-container { background: #131c2e; border: 1px solid #1e293b; border-radius: 24px; }
         .tab-active { background-color: #1e293b; color: #0085ff; border-color: #0085ff; }
     </style>
@@ -33,7 +33,7 @@
             <div class="flex flex-col items-center mb-8 text-center">
                 <span class="bg-[#0085ff]/10 text-[#0085ff] text-xs font-black px-4 py-1.5 rounded-full tracking-wider mb-3 border border-[#0085ff]/20">Global Utility</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-3">Bluesky Text Formatter</h1>
-                <p class="text-slate-400 text-sm md:text-lg max-w-2xl leading-relaxed">Instantly convert vanilla inputs to high-impact bold, italic, and specialized decorative unicode presets optimized for global Bluesky algorithms.</p>
+                <p class="text-slate-400 text-sm md:text-lg max-w-2xl leading-relaxed">Instantly convert vanilla inputs to high-impact bold, italic, and specialized decorative presets optimized for global Bluesky algorithms.</p>
             </div>
 
             <div class="space-y-6 max-w-3xl mx-auto">
@@ -66,7 +66,7 @@
             <section class="bg-slate-900/40 p-6 md:p-8 rounded-3xl border border-slate-900">
                 <h2 class="text-xl md:text-3xl font-bold text-white mb-4">Complete Guide: How to Format Text and Fonts on Bluesky</h2>
                 <p class="leading-relaxed text-slate-400 text-sm md:text-base mb-4">
-                    Bluesky is growing rapidly across global tech and creator ecosystems. However, the native Bluesky composer doesn't provide built-in styling features like bold or italic options. To solve this, creators use our unicode text formatter to convert plain text into rich styles that render natively across iOS, Android, and web.
+                    Bluesky is growing rapidly across global tech and creator ecosystems. However, the native Bluesky composer doesn't provide built-in styling features like bold or italic options. To solve this, creators use our unicode text formatter to convert plain text into rich styles that render natively across iOS, Android, and web servers.
                 </p>
             </section>
         </article>
@@ -79,28 +79,43 @@
     <script>
         let selectedCategory = 'all';
 
-        const textStyles = [
+        // 100% Global Stable Mathematical Unicode Blocks
+        const unicodeStyles = [
             { title: "Bold Sans-Serif 🚀", capStart: 0x1D5D4, lowStart: 0x1D5EE, group: "essential" },
             { title: "Italic Sans-Serif ✨", capStart: 0x1D608, lowStart: 0x1D622, group: "essential" },
             { title: "Bold Italic Sans 💎", capStart: 0x1D63C, lowStart: 0x1D656, group: "essential" },
-            { title: "Monospace / Dev 💻", capStart: 0x1D670, lowStart: 0x1D68A, group: "essential" },
-            { title: "Classic Bold Serif 🏛️", capStart: 0x1D400, lowStart: 0x1D41A, group: "essential" },
-            { title: "Classic Italic Serif ✍️", capStart: 0x1D434, lowStart: 0x1D44E, group: "essential" },
-            { title: "Double Struck Outline 🌐", capStart: 0x1D538, lowStart: 0x1D552, group: "decorative" },
-            { title: "Gothic Fraktur Script 📜", capStart: 0x1D504, lowStart: 0x1D51E, group: "decorative" }
+            { title: "Monospace / Dev 💻", capStart: 0x1D670, lowStart: 0x1D68A, group: "essential" }
+        ];
+
+        // 100% Fail-Safe Pure Functional String Custom Translators (Zero Boxes Risk)
+        const functionalStyles = [
+            {
+                title: "Bubble Circled 🫓",
+                group: "decorative",
+                action: t => t.toLowerCase().replace(/[a-z]/g, c => String.fromCodePoint(c.charCodeAt(0) - 97 + 0x24D0)).replace(/[A-Z]/g, c => String.fromCodePoint(c.charCodeAt(0) - 65 + 0x24B6)).replace(/[0-9]/g, c => String.fromCodePoint(c.charCodeAt(0) - 48 + 0x2460))
+            },
+            {
+                title: "Square Blocked 🔲",
+                group: "decorative",
+                action: t => t.toUpperCase().replace(/[A-Z]/g, c => String.fromCodePoint(c.charCodeAt(0) - 65 + 0x1F170))
+            },
+            {
+                title: "Underline Format 📜",
+                group: "decorative",
+                action: t => t.split("").map(c => c + String.fromCharCode(0x0332)).join("")
+            },
+            {
+                title: "Strikethrough Cross ⚔️",
+                group: "decorative",
+                action: t => t.split("").map(c => c + String.fromCharCode(0x0338)).join("")
+            }
         ];
 
         function convertUnicode(text, capStart, lowStart) {
             return text.split("").map(char => {
                 let code = char.charCodeAt(0);
-                // Exact Capital Letters Transformation
-                if (code >= 65 && code <= 90) {
-                    return String.fromCodePoint(capStart + (code - 65));
-                }
-                // Exact Lowercase Letters Transformation
-                if (code >= 97 && code <= 122) {
-                    return String.fromCodePoint(lowStart + (code - 97));
-                }
+                if (code >= 65 && code <= 90) return String.fromCodePoint(capStart + (code - 65));
+                if (code >= 97 && code <= 122) return String.fromCodePoint(lowStart + (code - 97));
                 return char;
             }).join("");
         }
@@ -132,22 +147,35 @@
             const activeText = input.trim() === "" ? "Format Preview Text" : input;
             target.innerHTML = "";
 
-            textStyles.forEach(style => {
+            // Loop 1: Render Mathematical Blocks
+            unicodeStyles.forEach(style => {
                 if (selectedCategory === 'all' || style.group === selectedCategory) {
                     let res = convertUnicode(activeText, style.capStart, style.lowStart);
-                    
-                    let row = document.createElement('div');
-                    row.className = "flex justify-between items-center bg-slate-950 border border-slate-900 p-4 rounded-xl gap-3 hover:border-slate-800 transition";
-                    row.innerHTML = `
-                        <div class="flex-1">
-                            <span class="text-[11px] text-[#0085ff] font-extrabold uppercase block mb-0.5">${style.title}</span>
-                            <div class="text-base md:text-lg text-slate-100 font-medium break-all">${res}</div>
-                        </div>
-                        <button onclick="copyToClipboard(this)" class="bg-slate-900 px-4 py-2 rounded-lg hover:bg-[#0085ff] text-slate-400 hover:text-white transition text-xs font-bold border border-slate-800">Copy</button>
-                    `;
-                    target.appendChild(row);
+                    appendOutputRow(style.title, res);
                 }
             });
+
+            // Loop 2: Render Functional Handlers
+            functionalStyles.forEach(style => {
+                if (selectedCategory === 'all' || style.group === selectedCategory) {
+                    let res = style.action(activeText);
+                    appendOutputRow(style.title, res);
+                }
+            });
+        }
+
+        function appendOutputRow(title, finalValue) {
+            const target = document.getElementById('renderTarget');
+            let row = document.createElement('div');
+            row.className = "flex justify-between items-center bg-slate-950 border border-slate-900 p-4 rounded-xl gap-3 hover:border-slate-800 transition";
+            row.innerHTML = `
+                <div class="flex-1">
+                    <span class="text-[11px] text-[#0085ff] font-extrabold uppercase block mb-0.5">${title}</span>
+                    <div class="text-base md:text-lg text-slate-100 font-medium break-all">${finalValue}</div>
+                </div>
+                <button onclick="copyToClipboard(this)" class="bg-slate-900 px-4 py-2 rounded-lg hover:bg-[#0085ff] text-slate-400 hover:text-white transition text-xs font-bold border border-slate-800">Copy</button>
+            `;
+            target.appendChild(row);
         }
 
         function copyToClipboard(btn) {
