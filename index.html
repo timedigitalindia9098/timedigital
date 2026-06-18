@@ -3,129 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>100% Free AI & Utility Tools | No Login, No Signup | Time Digital India</title>
-    <meta name="description" content="Access 100% free, fast, and secure digital tools including AI Generators, GST Calculators, and more. Zero registration or login required. Start using instantly.">
+    <title>100% Free AI & Utility Tools | Time Digital India</title>
+    <meta name="description" content="Access 100% free, fast, and secure digital tools including AI Generators, GST Calculators, and more.">
     
-    <link rel="icon" href="/favicon.png" sizes="48x48" type="image/png">
-    <link rel="apple-touch-icon" href="/favicon.png">
-
-    <meta property="og:title" content="100% Free AI & Utility Tools | No Login, No Signup | Time Digital India">
-    <meta property="og:description" content="Access 100% free, fast, and secure digital tools including AI Generators, GST Calculators, and more.">
-    <meta property="og:image" content="https://timedigitalindia.com/og-image.jpg">
-    <meta property="og:url" content="https://timedigitalindia.com/">
+    <!-- Poppins Font for that playful, rounded look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://timedigitalindia.com/og-image.jpg">
-
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Poppins"', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            purple: '#7C3AED',
+                            orange: '#EA580C',
+                            pink: '#E11D48',
+                            blue: '#2563EB',
+                            teal: '#0F766E',
+                            indigo: '#4F46E5',
+                            green: '#16A34A',
+                            cyan: '#0891B2',
+                            red: '#DC2626'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
-        body { background-color: #0f172a; color: #f8fafc; font-family: 'Inter', sans-serif; }
-        .tool-card { background: #1e293b; border: 1px solid #334155; transition: all 0.3s ease; }
-        .tool-card:hover { border-color: #3b82f6; transform: translateY(-5px); }
-        .glass-nav { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid #334155; }
+        body { background-color: #FAFBFC; color: #111827; overflow-x: hidden; }
+        
+        /* The custom text block style */
+        .highlight-block {
+            background-color: #3A7E89;
+            color: white;
+            padding: 0 16px;
+            display: inline-block;
+            line-height: 1.2;
+        }
+        
+        /* The red line under the text */
+        .underline-accent {
+            position: relative;
+        }
+        .underline-accent::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: #E11D48;
+        }
+
+        /* Card Hover Effect */
+        .tw-card { transition: all 0.3s ease; }
+        .tw-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
     </style>
 </head>
-<body>
+<body class="antialiased">
 
-    <nav class="glass-nav sticky top-0 z-50 py-4 px-6">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-blue-500 tracking-tighter">TIME DIGITAL <span class="text-white">INDIA</span></a>
-            <div class="hidden md:flex gap-8 text-sm font-medium">
-                <a href="index.html" class="hover:text-blue-400 transition">Home</a>
-                <a href="about.html" class="hover:text-blue-400 transition">About Us</a>
-                <a href="contact.html" class="hover:text-blue-400 transition">Contact</a>
+    <!-- Navbar -->
+    <nav class="bg-white py-4 px-6 md:px-10 border-b border-gray-100 flex justify-between items-center sticky top-0 z-50">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-blue-500 rounded-full flex justify-center items-center text-white font-bold">T</div>
+            <span class="text-xl font-bold tracking-tight">Time Digital<span class="text-xs text-gray-500 font-normal block -mt-1">by India</span></span>
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden lg:flex gap-8 text-[15px] font-medium text-gray-700">
+            <a href="#" class="hover:text-blue-500 flex items-center gap-1">Tools <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+            <a href="#" class="hover:text-blue-500 flex items-center gap-1">Categories <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+            <a href="about.html" class="hover:text-blue-500">About</a>
+        </div>
+
+        <!-- Right Side (Moon Icon & Search Bar Only) -->
+        <div class="flex items-center gap-4">
+            <button class="w-10 h-10 rounded-full border border-gray-200 flex justify-center items-center text-gray-500 hover:bg-gray-50" title="Dark Mode Toggle">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            </button>
+            <div class="hidden md:flex relative">
+                <input type="text" placeholder="Search" class="pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-100">
+                <svg class="w-4 h-4 text-gray-400 absolute left-4 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             </div>
         </div>
     </nav>
 
-    <header class="py-20 px-6 text-center">
-        <div class="mb-6 inline-block bg-blue-900/50 text-blue-300 px-5 py-2 rounded-full text-sm font-bold tracking-widest border border-blue-700/50 uppercase shadow-lg shadow-blue-900/20">
-            🚀 100% Free • No Login • No Signup
+    <!-- Hero Section -->
+    <header class="relative pt-24 pb-16 px-4 text-center overflow-hidden">
+        <!-- Floating Shapes (Background) -->
+        <div class="absolute top-10 left-[15%] text-[#FBBF24] opacity-80 animate-float">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L22 20H2L12 2Z"/></svg>
         </div>
-        <h1 class="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Powerful Digital Tools</h1>
-        <p class="text-slate-400 text-lg max-w-2xl mx-auto">Fast and secure tools to simplify your daily digital tasks. Click and use instantly.</p>
+        <div class="absolute top-24 right-[15%] text-[#F472B6] opacity-80 animate-float-delayed">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><rect width="24" height="24" rx="4"/></svg>
+        </div>
+        <div class="absolute bottom-10 left-[25%] text-[#60A5FA] opacity-80 animate-float-delayed">
+            <svg width="25" height="25" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L22 20H2L12 2Z" transform="rotate(180 12 12)"/></svg>
+        </div>
+        <div class="absolute top-[40%] right-[5%] text-[#FBBF24] opacity-80 animate-float">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect width="24" height="24"/></svg>
+        </div>
+        <div class="absolute bottom-0 right-[30%] text-[#A78BFA] opacity-80 animate-float">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><rect width="24" height="24" transform="rotate(45 12 12)"/></svg>
+        </div>
+
+        <div class="max-w-4xl mx-auto relative z-10">
+            <h1 class="text-5xl md:text-[5.5rem] font-black leading-tight mb-8 text-[#1A1A1A]">
+                Free Tools to Make <br class="hidden md:block">
+                <div class="inline-block relative">
+                    <span class="highlight-block underline-accent">Digital Life</span>
+                </div> 
+                Simple
+            </h1>
+            <p class="text-gray-500 text-lg md:text-xl font-medium mb-12 max-w-2xl mx-auto">
+                We offer AI, utilities, PDF, and other online tools to make your daily tasks easier and faster. 100% Free.
+            </p>
+
+            <!-- Big Search Bar -->
+            <div class="max-w-2xl mx-auto bg-white rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-2 flex items-center border border-gray-100">
+                <div class="pl-6 text-gray-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                <input type="text" placeholder="Search for tools..." class="flex-1 px-4 py-3 text-lg focus:outline-none text-gray-700 placeholder-gray-400 bg-transparent">
+                <button class="bg-[#0EA5E9] hover:bg-[#0284C7] text-white px-8 py-3 rounded-full font-semibold text-lg transition-colors">
+                    Search
+                </button>
+            </div>
+        </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 pb-20">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
-            
-            <a href="youtube.html" class="tool-card p-8 rounded-2xl flex flex-col items-center text-center group">
-                <div class="text-5xl mb-6 group-hover:scale-110 transition">🎥</div>
-                <h3 class="text-xl font-bold mb-2">YT Thumbnail</h3>
-                <p class="text-slate-500 text-sm mb-6">Download HD thumbnails from any YouTube video instantly.</p>
-                <span class="mt-auto bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold group-hover:bg-blue-700">Open Tool</span>
+    <!-- Cards Section (Horizontal scroll on mobile, grid on desktop) -->
+    <main class="max-w-[1400px] mx-auto px-6 pb-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+
+            <!-- Card 1: Meesho Tool (Purple) -->
+            <a href="meesho-tool.html" class="tw-card bg-white rounded-[20px] overflow-hidden flex flex-col border border-gray-100">
+                <div class="bg-brand-purple p-6 text-white h-[200px] relative flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl backdrop-blur-sm shadow-inner">🛍️</div>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">AI Tool</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Meesho Tools</h3>
+                        <p class="text-white/80 text-[13px] font-medium flex items-center gap-1">Boost Your Sales <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></p>
+                    </div>
+                </div>
+                <div class="p-4 flex justify-between items-center text-xs font-semibold">
+                    <span class="text-gray-400">Featured Tool :</span>
+                    <span class="text-brand-purple">AI Generator</span>
+                </div>
             </a>
 
-            <a href="age.html" class="tool-card p-8 rounded-2xl flex flex-col items-center text-center group">
-                <div class="text-5xl mb-6 group-hover:scale-110 transition">🎂</div>
-                <h3 class="text-xl font-bold mb-2">Age Calculator</h3>
-                <p class="text-slate-500 text-sm mb-6">Calculate your exact age in years, months, and days.</p>
-                <span class="mt-auto bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold group-hover:bg-blue-700">Open Tool</span>
+            <!-- Card 2: YouTube Thumbnail (Orange) -->
+            <a href="youtube.html" class="tw-card bg-white rounded-[20px] overflow-hidden flex flex-col border border-gray-100">
+                <div class="bg-brand-orange p-6 text-white h-[200px] relative flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl backdrop-blur-sm shadow-inner">🎥</div>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">Video</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">YT Tools</h3>
+                        <p class="text-white/80 text-[13px] font-medium flex items-center gap-1">Solve YouTube Problems <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></p>
+                    </div>
+                </div>
+                <div class="p-4 flex justify-between items-center text-xs font-semibold">
+                    <span class="text-gray-400">Featured Tool :</span>
+                    <span class="text-brand-orange">Thumbnail DL</span>
+                </div>
             </a>
 
-            <a href="gst.html" class="tool-card p-8 rounded-2xl flex flex-col items-center text-center group">
-                <div class="text-5xl mb-6 group-hover:scale-110 transition">📊</div>
-                <h3 class="text-xl font-bold mb-2">GST Calculator</h3>
-                <p class="text-slate-500 text-sm mb-6">Quickly calculate GST amounts for Indian tax slabs.</p>
-                <span class="mt-auto bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold group-hover:bg-blue-700">Open Tool</span>
+            <!-- Card 3: GST Calculator (Pink) -->
+            <a href="gst.html" class="tw-card bg-white rounded-[20px] overflow-hidden flex flex-col border border-gray-100">
+                <div class="bg-brand-pink p-6 text-white h-[200px] relative flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl backdrop-blur-sm shadow-inner">📊</div>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">Finance</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Tax Tools</h3>
+                        <p class="text-white/80 text-[13px] font-medium flex items-center gap-1">Calculate GST Fast <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></p>
+                    </div>
+                </div>
+                <div class="p-4 flex justify-between items-center text-xs font-semibold">
+                    <span class="text-gray-400">Featured Tool :</span>
+                    <span class="text-brand-pink">GST Calc</span>
+                </div>
             </a>
 
-            <a href="qr.html" class="tool-card p-8 rounded-2xl flex flex-col items-center text-center group">
-                <div class="text-5xl mb-6 group-hover:scale-110 transition">🔗</div>
-                <h3 class="text-xl font-bold mb-2">QR Generator</h3>
-                <p class="text-slate-500 text-sm mb-6">Create high-quality custom QR codes for links or text.</p>
-                <span class="mt-auto bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold group-hover:bg-blue-700">Open Tool</span>
+            <!-- Card 4: WhatsApp Link (Blue) -->
+            <a href="whatsapp-link-generator.html" class="tw-card bg-white rounded-[20px] overflow-hidden flex flex-col border border-gray-100">
+                <div class="bg-brand-blue p-6 text-white h-[200px] relative flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl backdrop-blur-sm shadow-inner">💬</div>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">Social</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Social Tools</h3>
+                        <p class="text-white/80 text-[13px] font-medium flex items-center gap-1">Connect Instantly <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></p>
+                    </div>
+                </div>
+                <div class="p-4 flex justify-between items-center text-xs font-semibold">
+                    <span class="text-gray-400">Featured Tool :</span>
+                    <span class="text-brand-blue">WA Link Gen</span>
+                </div>
             </a>
 
-            <a href="meesho-tool.html" class="tool-card p-8 rounded-2xl flex flex-col items-center text-center group border-blue-500 border-2">
-                <div class="text-5xl mb-6 group-hover:scale-110 transition">🛍️</div>
-                <h3 class="text-xl font-bold mb-2 text-blue-400">Meesho AI Generator</h3>
-                <p class="text-slate-400 text-sm mb-6">Generate SEO-optimized product descriptions and viral tags for Meesho.</p>
-                <span class="mt-auto bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold group-hover:bg-blue-700">Open Tool</span>
+            <!-- Card 5: QR Generator (Teal) -->
+            <a href="qr.html" class="tw-card bg-white rounded-[20px] overflow-hidden flex flex-col border border-gray-100">
+                <div class="bg-brand-teal p-6 text-white h-[200px] relative flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl backdrop-blur-sm shadow-inner">🔗</div>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">Utility</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Link Tools</h3>
+                        <p class="text-white/80 text-[13px] font-medium flex items-center gap-1">Share Info Easily <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></p>
+                    </div>
+                </div>
+                <div class="p-4 flex justify-between items-center text-xs font-semibold">
+                    <span class="text-gray-400">Featured Tool :</span>
+                    <span class="text-brand-teal">QR Creator</span>
+                </div>
             </a>
 
-            <a href="password-generator.html" class="tool-card p-8 rounded-2xl flex flex-col items-center text-center group">
-                <div class="text-5xl mb-6 group-hover:scale-110 transition">🔒</div>
-                <h3 class="text-xl font-bold mb-2">Password Generator</h3>
-                <p class="text-slate-500 text-sm mb-6">Create strong, secure, and random passwords instantly for free.</p>
-                <span class="mt-auto bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold group-hover:bg-blue-700">Open Tool</span>
+            <!-- Card 6: Password Generator (Indigo) -->
+            <a href="password-generator.html" class="tw-card bg-white rounded-[20px] overflow-hidden flex flex-col border border-gray-100">
+                <div class="bg-brand-indigo p-6 text-white h-[200px] relative flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl backdrop-blur-sm shadow-inner">🔒</div>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">Security</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Security Tools</h3>
+                        <p class="text-white/80 text-[13px] font-medium flex items-center gap-1">Stay Safe Online <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></p>
+                    </div>
+                </div>
+                <div class="p-4 flex justify-between items-center text-xs font-semibold">
+                    <span class="text-gray-400">Featured Tool :</span>
+                    <span class="text-brand-indigo">Secure Pass</span>
+                </div>
             </a>
 
-            <a href="whatsapp-link-generator.html" class="tool-card p-8 rounded-2xl flex flex-col items-center text-center group border-green-500 border hover:border-green-600 border-transparent transition">
-                <div class="text-5xl mb-6 group-hover:scale-110 transition">💬</div>
-                <h3 class="text-xl font-bold mb-2">WhatsApp Link Generator</h3>
-                <p class="text-slate-500 text-sm mb-6">Create direct wa.me chat links and send messages without saving numbers.</p>
-                <span class="mt-auto bg-green-600 text-white px-6 py-2 rounded-full text-sm font-semibold group-hover:bg-green-700">Open Tool</span>
+            <!-- Card 7: Age Calculator (Cyan) -->
+            <a href="age.html" class="tw-card bg-white rounded-[20px] overflow-hidden flex flex-col border border-gray-100">
+                <div class="bg-brand-cyan p-6 text-white h-[200px] relative flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl backdrop-blur-sm shadow-inner">🎂</div>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">Utility</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Math Tools</h3>
+                        <p class="text-white/80 text-[13px] font-medium flex items-center gap-1">Calculate Age <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></p>
+                    </div>
+                </div>
+                <div class="p-4 flex justify-between items-center text-xs font-semibold">
+                    <span class="text-gray-400">Featured Tool :</span>
+                    <span class="text-brand-cyan">Age Tracker</span>
+                </div>
             </a>
 
-            <a href="courier-estimator.html" class="tool-card p-8 rounded-2xl flex flex-col items-center text-center group">
-                <div class="text-5xl mb-6 group-hover:scale-110 transition">📦</div>
-                <h3 class="text-xl font-bold mb-2">Shipping Cost Estimator</h3>
-                <p class="text-slate-500 text-sm mb-6">Calculate volumetric weight & compare shipping rates across Delhivery, BlueDart, and Speed Post.</p>
-                <span class="mt-auto bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold group-hover:bg-blue-700">Open Tool</span>
+            <!-- Card 8: Courier Estimator (Green) -->
+            <a href="courier-estimator.html" class="tw-card bg-white rounded-[20px] overflow-hidden flex flex-col border border-gray-100">
+                <div class="bg-brand-green p-6 text-white h-[200px] relative flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl backdrop-blur-sm shadow-inner">📦</div>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">Business</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Shipping Tools</h3>
+                        <p class="text-white/80 text-[13px] font-medium flex items-center gap-1">Estimate Courier Cost <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></p>
+                    </div>
+                </div>
+                <div class="p-4 flex justify-between items-center text-xs font-semibold">
+                    <span class="text-gray-400">Featured Tool :</span>
+                    <span class="text-brand-green">Ship Compare</span>
+                </div>
             </a>
 
-            <a href="bluesky-formatter.html" class="tool-card p-8 rounded-2xl flex flex-col items-center text-center group relative overflow-hidden">
-                <span class="absolute top-3 right-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[9px] font-black px-2 py-0.5 rounded shadow-sm tracking-wider uppercase animate-pulse">NEW 🚀</span>
-                
-                <div class="text-5xl mb-6 group-hover:scale-110 transition">🦋</div>
-                <h3 class="text-xl font-bold mb-2 text-white group-hover:text-blue-400 transition">Bluesky Formatter</h3>
-                <p class="text-slate-500 text-sm mb-6">Convert plain text into bold, italic, and cursive unicode fonts with an exact 300 character limit tracker.</p>
-                <span class="mt-auto bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold group-hover:bg-blue-700">Open Tool</span>
+             <!-- Card 9: Bluesky Formatter (Red) -->
+            <a href="bluesky-formatter.html" class="tw-card bg-white rounded-[20px] overflow-hidden flex flex-col border border-gray-100">
+                <div class="bg-brand-red p-6 text-white h-[200px] relative flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl backdrop-blur-sm shadow-inner">🦋</div>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">Text</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Format Tools</h3>
+                        <p class="text-white/80 text-[13px] font-medium flex items-center gap-1">Style Your Posts <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></p>
+                    </div>
+                </div>
+                <div class="p-4 flex justify-between items-center text-xs font-semibold">
+                    <span class="text-gray-400">Featured Tool :</span>
+                    <span class="text-brand-red">Bluesky Text</span>
+                </div>
             </a>
 
         </div>
     </main>
-
-    <footer class="py-12 border-t border-slate-800 text-center bg-slate-900/40">
-        <div class="mb-8 flex flex-wrap justify-center gap-6 text-sm font-medium">
-            <a href="about.html" class="text-slate-400 hover:text-blue-400 transition">About Us</a>
-            <a href="contact.html" class="text-slate-400 hover:text-blue-400 transition">Contact Us</a>
-            <a href="privacy.html" class="text-slate-400 hover:text-blue-400 transition">Privacy Policy</a>
-            <a href="terms.html" class="text-slate-400 hover:text-blue-400 transition">Terms & Conditions</a>
-        </div>
-        <p class="text-slate-500 text-sm mb-3">&copy; 2026 Time Digital India</p>
-    </footer>
 
 </body>
 </html>
