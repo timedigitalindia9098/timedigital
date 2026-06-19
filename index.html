@@ -117,8 +117,12 @@
             <span id="typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-purple-500 cursor"></span>
         </h1>
         
-        <p class="text-lg md:text-xl text-gray-500 font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
-            A minimalist suite of powerful digital utilities designed to save your time. From AI content generation to daily calculators, everything is instant and free.
+        <p class="text-lg md:text-xl text-gray-600 font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
+            100% free AI and utility tools to simplify your daily tasks. <br class="hidden md:block">
+            <span class="inline-flex items-center gap-1.5 text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-full text-sm mt-3 shadow-sm font-semibold">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                Your data is 100% safe. Processed directly in your browser.
+            </span>
         </p>
 
         <div class="max-w-xl mx-auto relative group">
@@ -242,7 +246,6 @@
                 }
             });
 
-            // Show 'No Results' message if everything is hidden
             if (visibleCount === 0) {
                 noResultsMsg.classList.remove('hidden');
             } else {
