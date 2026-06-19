@@ -4,15 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Time Digital | Free Online Utility & AI Tools</title>
-    <meta name="description" content="Access premium AI generators, SEO tools, and daily utilities completely free. No sign-up required. Work smarter with Time Digital.">
-    <meta name="keywords" content="free tools, AI generator, SEO tools, Meesho tags, YouTube thumbnail, GST calculator">
-    <meta name="author" content="Time Digital India">
-    
-    <meta property="og:title" content="Time Digital | Free Premium Tools">
-    <meta property="og:description" content="Work smarter with our suite of free online AI and utility tools.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://timedigitalindia.com/">
+    <title>Time Digital India | Free Online Utility & AI Tools</title>
+    <meta name="description" content="Access premium AI generators, SEO tools, and daily utilities completely free. No sign-up required.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,10 +18,8 @@
                 extend: {
                     fontFamily: { sans: ['"Inter"', 'sans-serif'] },
                     colors: {
-                        brand: '#4F46E5', /* Vercel/Linear Indigo */
+                        brand: '#4F46E5', 
                         surface: '#FAFAFA',
-                        card: '#FFFFFF',
-                        borderLite: '#E5E7EB',
                     }
                 }
             }
@@ -38,7 +29,7 @@
     <style>
         body { background-color: #FAFAFA; color: #111827; }
 
-        /* 1. Typewriter Cursor */
+        /* Typewriter Cursor */
         .cursor::after {
             content: '';
             display: inline-block;
@@ -51,11 +42,10 @@
         }
         @keyframes blink { 50% { opacity: 0; } }
 
-        /* 2. Staggered Spring Reveal */
+        /* Staggered Spring Reveal */
         .spring-reveal {
             opacity: 0;
             transform: translateY(60px) scale(0.95);
-            /* Custom Cubic Bezier for that "Bounce" effect */
             transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         .spring-reveal.visible {
@@ -63,7 +53,7 @@
             transform: translateY(0) scale(1);
         }
 
-        /* 3. Spotlight Card Styles */
+        /* Spotlight Card Styles */
         .spotlight-card {
             position: relative;
             background-color: #FFFFFF;
@@ -80,7 +70,6 @@
             box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.15);
         }
 
-        /* The actual tracking glow */
         .spotlight-card::before {
             content: "";
             position: absolute;
@@ -95,28 +84,29 @@
             pointer-events: none;
             z-index: 1;
         }
-        .spotlight-card:hover::before {
-            opacity: 1;
-        }
-
-        /* Keep content above the glow */
+        .spotlight-card:hover::before { opacity: 1; }
         .card-content { relative; z-index: 2; }
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col">
 
-    <nav class="w-full max-w-7xl mx-auto px-6 py-6 flex justify-between items-center spring-reveal visible">
-        <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-xl bg-brand text-white flex items-center justify-center font-bold shadow-lg shadow-indigo-500/30">T</div>
-            <span class="font-bold text-xl tracking-tight text-gray-900">Time Digital</span>
+    <nav class="w-full max-w-7xl mx-auto px-6 py-6 flex items-center justify-between relative spring-reveal visible">
+        
+        <div class="hidden sm:flex flex-1">
+            <a href="about.html" class="text-sm font-semibold text-gray-600 hover:text-brand transition-colors">About</a>
         </div>
-        <div class="flex gap-4">
-            <button class="text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors">Tools</button>
-            <button class="bg-gray-900 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-800 transition-colors shadow-md">Get Started</button>
+
+        <a href="index.html" class="flex items-center justify-center gap-3 flex-1 sm:flex-none cursor-pointer">
+            <div class="w-9 h-9 rounded-xl bg-brand text-white flex items-center justify-center font-bold shadow-lg shadow-indigo-500/30">T</div>
+            <span class="font-bold text-xl tracking-tight text-gray-900">Time Digital India</span>
+        </a>
+
+        <div class="hidden sm:flex flex-1 justify-end">
+            <a href="#tool-grid" class="bg-gray-900 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-800 transition-colors shadow-md">Explore Tools</a>
         </div>
     </nav>
 
-    <header class="w-full max-w-5xl mx-auto px-6 pt-20 pb-24 text-center spring-reveal visible" style="transition-delay: 100ms;">
+    <header class="w-full max-w-5xl mx-auto px-6 pt-16 pb-24 text-center spring-reveal visible" style="transition-delay: 100ms;">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gray-200 bg-white text-xs font-bold tracking-widest text-gray-500 uppercase mb-8 shadow-sm">
             <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
             Free Online Tools • No Sign-up Required
@@ -135,136 +125,132 @@
             <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none">
                 <svg class="w-5 h-5 text-gray-400 group-focus-within:text-brand transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             </div>
-            <input type="text" placeholder="What do you need to do today?" class="w-full pl-14 pr-6 py-4 rounded-2xl border border-gray-200 bg-white text-gray-900 shadow-sm focus:border-brand focus:ring-4 focus:ring-brand/10 outline-none transition-all text-lg font-medium">
+            <input type="text" id="searchInput" placeholder="Search for tools (e.g. Meesho, GST, YouTube)..." class="w-full pl-14 pr-6 py-4 rounded-2xl border border-gray-200 bg-white text-gray-900 shadow-sm focus:border-brand focus:ring-4 focus:ring-brand/10 outline-none transition-all text-lg font-medium">
         </div>
+        <p id="noResultsMsg" class="text-gray-500 font-medium mt-4 hidden">No tools found matching your search. Try another keyword.</p>
     </header>
 
-    <main class="flex-1 w-full max-w-7xl mx-auto px-6 pb-24">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="tool-grid">
+    <main id="tool-grid" class="flex-1 w-full max-w-7xl mx-auto px-6 pb-24 scroll-mt-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="cardsContainer">
             
             <a href="meesho-tool.html" class="spotlight-card p-6 flex flex-col spring-reveal">
                 <div class="card-content">
                     <div class="w-12 h-12 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-2xl mb-5 ring-1 ring-pink-100">🛍️</div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Meesho AI Generator</h3>
-                    <p class="text-sm text-gray-500 font-medium leading-relaxed">Generate SEO-optimized product descriptions and sales tags instantly.</p>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 tool-title">Meesho AI Generator</h3>
+                    <p class="text-sm text-gray-500 font-medium leading-relaxed tool-desc">Generate SEO-optimized product descriptions and sales tags instantly.</p>
                 </div>
             </a>
 
             <a href="youtube.html" class="spotlight-card p-6 flex flex-col spring-reveal">
                 <div class="card-content">
                     <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-2xl mb-5 ring-1 ring-red-100">🎥</div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">YT Thumbnail DL</h3>
-                    <p class="text-sm text-gray-500 font-medium leading-relaxed">Extract and download High-Definition thumbnails from any video.</p>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 tool-title">YT Thumbnail DL</h3>
+                    <p class="text-sm text-gray-500 font-medium leading-relaxed tool-desc">Extract and download High-Definition thumbnails from any YouTube video.</p>
                 </div>
             </a>
 
             <a href="gst.html" class="spotlight-card p-6 flex flex-col spring-reveal">
                 <div class="card-content">
                     <div class="w-12 h-12 rounded-xl bg-green-50 text-green-600 flex items-center justify-center text-2xl mb-5 ring-1 ring-green-100">📊</div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">GST Calculator</h3>
-                    <p class="text-sm text-gray-500 font-medium leading-relaxed">Quickly compute exclusive or inclusive GST amounts accurately.</p>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 tool-title">GST Calculator</h3>
+                    <p class="text-sm text-gray-500 font-medium leading-relaxed tool-desc">Quickly compute exclusive or inclusive GST amounts accurately.</p>
                 </div>
             </a>
 
             <a href="qr.html" class="spotlight-card p-6 flex flex-col spring-reveal">
                 <div class="card-content">
                     <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-5 ring-1 ring-blue-100">🔗</div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Smart QR Creator</h3>
-                    <p class="text-sm text-gray-500 font-medium leading-relaxed">Create crisp, high-quality custom QR codes for your links or text.</p>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 tool-title">Smart QR Creator</h3>
+                    <p class="text-sm text-gray-500 font-medium leading-relaxed tool-desc">Create crisp, high-quality custom QR codes for your links or text.</p>
                 </div>
             </a>
 
             <a href="whatsapp-link-generator.html" class="spotlight-card p-6 flex flex-col spring-reveal">
                 <div class="card-content">
                     <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-5 ring-1 ring-emerald-100">💬</div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">WA Link Generator</h3>
-                    <p class="text-sm text-gray-500 font-medium leading-relaxed">Generate direct wa.me chat links without saving contact numbers.</p>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 tool-title">WA Link Generator</h3>
+                    <p class="text-sm text-gray-500 font-medium leading-relaxed tool-desc">Generate direct wa.me chat links without saving contact numbers.</p>
                 </div>
             </a>
 
             <a href="password-generator.html" class="spotlight-card p-6 flex flex-col spring-reveal">
                 <div class="card-content">
                     <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-2xl mb-5 ring-1 ring-orange-100">🔒</div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Secure Password</h3>
-                    <p class="text-sm text-gray-500 font-medium leading-relaxed">Create mathematically complex, uncrackable random passwords.</p>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 tool-title">Secure Password</h3>
+                    <p class="text-sm text-gray-500 font-medium leading-relaxed tool-desc">Create mathematically complex, uncrackable random passwords.</p>
                 </div>
             </a>
 
             <a href="courier-estimator.html" class="spotlight-card p-6 flex flex-col spring-reveal">
                 <div class="card-content">
                     <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl mb-5 ring-1 ring-amber-100">📦</div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Shipping Estimator</h3>
-                    <p class="text-sm text-gray-500 font-medium leading-relaxed">Calculate volumetric weight & compare live shipping rates.</p>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 tool-title">Shipping Estimator</h3>
+                    <p class="text-sm text-gray-500 font-medium leading-relaxed tool-desc">Calculate volumetric weight & compare live shipping rates.</p>
                 </div>
             </a>
 
             <a href="bluesky-formatter.html" class="spotlight-card p-6 flex flex-col spring-reveal">
                 <div class="card-content">
                     <div class="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-2xl mb-5 ring-1 ring-cyan-100">🦋</div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Bluesky Formatter</h3>
-                    <p class="text-sm text-gray-500 font-medium leading-relaxed">Convert plain text into bold, italic, and cursive unicode fonts.</p>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 tool-title">Bluesky Formatter</h3>
+                    <p class="text-sm text-gray-500 font-medium leading-relaxed tool-desc">Convert plain text into bold, italic, and cursive unicode fonts.</p>
                 </div>
             </a>
             
         </div>
     </main>
 
-    <section class="w-full bg-white border-t border-gray-200 py-20 spring-reveal">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Master Your Digital Workflow</h2>
-                <div class="w-16 h-1 bg-brand mx-auto rounded-full"></div>
-            </div>
+    <footer class="w-full bg-white border-t border-gray-200 py-12 spring-reveal">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center">
             
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-                        <span class="text-brand">✦</span> What is Time Digital?
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">
-                        Time Digital is a comprehensive suite of utility tools designed to eliminate friction from your daily tasks. Whether you are an e-commerce seller needing AI-optimized tags, a creator needing quick YouTube thumbnails, or a professional calculating tax slabs, our platform provides instant, serverless execution directly in your browser. No data is stored, ensuring 100% privacy and security.
-                    </p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-                        <span class="text-brand">✦</span> How to use these tools
-                    </h3>
-                    <ul class="space-y-3 text-sm text-gray-600">
-                        <li class="flex gap-3">
-                            <strong class="text-gray-900">1.</strong> 
-                            <span>Select the required tool from the Bento grid above.</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <strong class="text-gray-900">2.</strong> 
-                            <span>Input your raw data (text, URLs, or numbers) into the clean interface.</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <strong class="text-gray-900">3.</strong> 
-                            <span>Click the primary action button to process the data instantly.</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <strong class="text-gray-900">4.</strong> 
-                            <span>Copy or export your results. No registration or login is ever required.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+            <a href="index.html" class="flex items-center gap-3 mb-8 cursor-pointer group">
+                <div class="w-8 h-8 rounded-lg bg-gray-900 text-white flex items-center justify-center font-bold shadow-md group-hover:bg-brand transition-colors">T</div>
+                <span class="font-bold text-xl tracking-tight text-gray-900">Time Digital India</span>
+            </a>
 
-    <footer class="w-full bg-gray-50 border-t border-gray-200 py-10 spring-reveal">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <span class="text-sm font-medium text-gray-500">© 2026 Time Digital India. Crafted for Creators.</span>
-            <div class="flex gap-6 text-sm font-semibold text-gray-600">
-                <a href="privacy.html" class="hover:text-brand transition-colors">Privacy</a>
-                <a href="terms.html" class="hover:text-brand transition-colors">Terms</a>
-                <a href="contact.html" class="hover:text-brand transition-colors">Contact</a>
+            <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-semibold text-gray-600 mb-8">
+                <a href="about.html" class="hover:text-brand transition-colors">About Us</a>
+                <a href="contact.html" class="hover:text-brand transition-colors">Contact Us</a>
+                <a href="privacy.html" class="hover:text-brand transition-colors">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-brand transition-colors">Terms & Conditions</a>
+                <a href="disclaimer.html" class="hover:text-brand transition-colors">Disclaimer</a>
             </div>
+
+            <span class="text-sm font-medium text-gray-400">© 2026 Time Digital India. All rights reserved.</span>
         </div>
     </footer>
 
     <script>
-        // 1. Advanced Typewriter Effect
+        // 1. Functional Live Search
+        const searchInput = document.getElementById('searchInput');
+        const toolCards = document.querySelectorAll('.spotlight-card');
+        const noResultsMsg = document.getElementById('noResultsMsg');
+
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            let visibleCount = 0;
+
+            toolCards.forEach(card => {
+                const title = card.querySelector('.tool-title').textContent.toLowerCase();
+                const desc = card.querySelector('.tool-desc').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show 'No Results' message if everything is hidden
+            if (visibleCount === 0) {
+                noResultsMsg.classList.remove('hidden');
+            } else {
+                noResultsMsg.classList.add('hidden');
+            }
+        });
+
+        // 2. Advanced Typewriter Effect
         const words = ["faster.", "not harder.", "with AI.", "for free."];
         let i = 0, j = 0;
         let isDeleting = false;
@@ -283,21 +269,20 @@
             let typeSpeed = isDeleting ? 40 : 80;
 
             if (!isDeleting && j === currentWord.length) {
-                typeSpeed = 2000; // Pause at end
+                typeSpeed = 2000; 
                 isDeleting = true;
             } else if (isDeleting && j === 0) {
                 isDeleting = false;
                 i = (i + 1) % words.length;
-                typeSpeed = 400; // Pause before new word
+                typeSpeed = 400; 
             }
 
             setTimeout(type, typeSpeed);
         }
         setTimeout(type, 1000);
 
-        // 2. Spotlight Mouse-Tracking Glow
-        const cards = document.querySelectorAll(".spotlight-card");
-        cards.forEach(card => {
+        // 3. Spotlight Mouse-Tracking Glow
+        toolCards.forEach(card => {
             card.addEventListener("mousemove", (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
@@ -307,41 +292,25 @@
             });
         });
 
-        // 3. Staggered Spring Reveal using IntersectionObserver
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
+        // 4. Staggered Spring Reveal
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         let delayCounter = 0;
         let revealTimer = null;
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    // Stagger logic
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, delayCounter * 100);
-                    
+                    setTimeout(() => { entry.target.classList.add('visible'); }, delayCounter * 100);
                     delayCounter++;
                     observer.unobserve(entry.target);
-
-                    // Reset counter if elements stop coming in rapidly
                     clearTimeout(revealTimer);
-                    revealTimer = setTimeout(() => {
-                        delayCounter = 0;
-                    }, 200);
+                    revealTimer = setTimeout(() => { delayCounter = 0; }, 200);
                 }
             });
         }, observerOptions);
 
         document.querySelectorAll('.spring-reveal').forEach((el) => {
-            // Exclude already visible elements (like nav/hero) from observer if they have inline styles/classes
-            if(!el.classList.contains('visible')) {
-                observer.observe(el);
-            }
+            if(!el.classList.contains('visible')) { observer.observe(el); }
         });
     </script>
 </body>
