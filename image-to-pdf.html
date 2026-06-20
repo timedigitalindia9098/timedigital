@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- ================= WORLD-CLASS SEO META TAGS ================= -->
     <title>Free Image to PDF Converter | Combine JPG & PNG to PDF Securely</title>
     <meta name="description" content="Convert multiple images (JPG, PNG, JPEG) into a single PDF document instantly. 100% Free, secure, no watermarks, and processed completely offline in your browser.">
     <meta name="keywords" content="image to pdf, jpg to pdf, convert image to pdf, multiple images to pdf, free online pdf converter, png to pdf, secure photo to pdf converter, no watermark pdf">
@@ -29,12 +30,13 @@
         }
     </script>
 
+    <!-- jsPDF Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <style>
         body { background-color: #FAFAFA; color: #111827; }
 
-        /* Smooth Reveal Animations */
+        /* Animation for Header & App */
         .spring-reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -42,7 +44,7 @@
         }
         .spring-reveal.visible { opacity: 1; transform: translateY(0); }
 
-        /* Drag & Drop Zone Magic */
+        /* Drag Zone */
         .drop-zone {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%23CBD5E1FF' stroke-width='4' stroke-dasharray='12%2c 12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
@@ -53,15 +55,11 @@
             background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%234F46E5FF' stroke-width='4' stroke-dasharray='12%2c 12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
         }
 
-        /* Image Preview Cards */
-        .preview-card {
-            animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-        }
+        .preview-card { animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
         @keyframes popIn {
             0% { opacity: 0; transform: scale(0.8); }
             100% { opacity: 1; transform: scale(1); }
         }
-        
         .remove-btn { transition: all 0.2s; }
         .remove-btn:hover { background-color: #EF4444; color: white; transform: scale(1.1); }
     </style>
@@ -95,19 +93,22 @@
 
         <div class="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 p-6 md:p-10 spring-reveal visible">
             
+            <!-- Hidden File Input -->
             <input type="file" id="file-input" multiple accept="image/jpeg, image/png, image/webp" class="hidden">
 
+            <!-- Drag & Drop Zone -->
             <div id="drop-zone" class="drop-zone rounded-[1.5rem] p-12 flex flex-col items-center justify-center cursor-pointer min-h-[300px] text-center bg-gray-50/50">
                 <div class="w-20 h-20 bg-indigo-100 text-brand rounded-2xl flex items-center justify-center mb-6 shadow-sm">
                     <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-2">Drag & Drop Images Here</h3>
-                <p class="text-gray-500 font-medium mb-6">or click to browse your files (JPG, PNG, WebP)</p>
+                <p class="text-gray-500 font-medium mb-6">or click to browse your files</p>
                 <button onclick="document.getElementById('file-input').click()" class="bg-gray-900 text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-brand transition-colors shadow-lg">
                     Select Images
                 </button>
             </div>
 
+            <!-- Workspace Area -->
             <div id="workspace" class="hidden mt-4">
                 
                 <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
@@ -115,4 +116,228 @@
                     
                     <div class="flex items-center gap-4">
                         <button onclick="document.getElementById('file-input').click()" class="text-sm font-bold text-brand hover:text-indigo-800 transition-colors flex items-center gap-1 bg-indigo-50 px-3 py-1.5 rounded-lg border border-indigo-100">
-                            <svg class="w-4 h-4"
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                            Add More
+                        </button>
+                        <button onclick="clearAll()" class="text-sm font-semibold text-red-500 hover:text-red-600 transition-colors">Clear All</button>
+                    </div>
+                </div>
+                
+                <div id="preview-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8"></div>
+
+                <button id="generate-btn" onclick="generatePDF()" class="w-full bg-brand text-white py-4 rounded-xl font-bold text-lg hover:bg-indigo-700 transition-all flex items-center justify-center gap-2 shadow-xl shadow-indigo-500/20 active:scale-[0.98]">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    Generate & Download PDF
+                </button>
+            </div>
+        </div>
+
+        <!-- SEO Article (Removed 'spring-reveal' so it's ALWAYS visible) -->
+        <article class="mt-24 prose prose-slate max-w-none">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The Best Free Image to PDF Converter Online</h2>
+                <div class="w-20 h-1.5 bg-brand mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <span class="text-brand">✦</span> Why Choose Time Digital?
+                    </h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Converting images to PDF shouldn't cost you money or compromise your privacy. Our tool is engineered with the latest WebAssembly technology to perform heavy document conversions directly inside your browser. 
+                    </p>
+                    <ul class="space-y-4 text-gray-600 font-medium">
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                            <strong>100% Privacy Guaranteed:</strong> Unlike other tools, we never upload your private photos to any server. Everything stays on your device.
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                            <strong>No Watermarks & No Limits:</strong> Export clean, professional PDFs without any branding.
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <span class="text-brand">✦</span> How to Convert JPG to PDF
+                    </h3>
+                    <div class="space-y-5">
+                        <div class="flex gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100">
+                            <div class="w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center font-bold shrink-0 shadow-md">1</div>
+                            <p class="text-gray-600 text-sm mt-1"><strong>Upload Images:</strong> Drag and drop your JPG or PNG files, or click to select them from your gallery.</p>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100">
+                            <div class="w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center font-bold shrink-0 shadow-md">2</div>
+                            <p class="text-gray-600 text-sm mt-1"><strong>Review & Add More:</strong> Check the preview grid. Click "Add More" if you want to insert extra pages.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="w-full bg-white border-t border-gray-200 py-10 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-sm font-medium text-gray-500">© 2026 Time Digital India. Built for speed, designed for privacy.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Bulletproof Script Wrap
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropZone = document.getElementById('drop-zone');
+            const fileInput = document.getElementById('file-input');
+            const workspace = document.getElementById('workspace');
+            const previewGrid = document.getElementById('preview-grid');
+            const imageCountEl = document.getElementById('image-count');
+            const generateBtn = document.getElementById('generate-btn');
+
+            let imageFiles = [];
+
+            // Prevent default drag behaviors
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, (e) => { e.preventDefault(); e.stopPropagation(); }, false);
+            });
+
+            // Highlight drop zone
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropZone.addEventListener(eventName, () => dropZone.classList.add('active'), false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, () => dropZone.classList.remove('active'), false);
+            });
+
+            // Handle dropped files
+            dropZone.addEventListener('drop', (e) => {
+                const files = e.dataTransfer.files;
+                if(files.length > 0) processFiles(files);
+            }, false);
+
+            // Handle selected files
+            fileInput.addEventListener('change', (e) => {
+                const files = e.target.files;
+                if(files.length > 0) processFiles(files);
+                
+                // Safely reset input so same file can be chosen again
+                setTimeout(() => { e.target.value = ''; }, 100);
+            }, false);
+
+            // Process & Validate Files
+            window.processFiles = function(files) {
+                const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
+                let newFilesAdded = false;
+
+                for (let i = 0; i < files.length; i++) {
+                    if (validTypes.includes(files[i].type)) {
+                        imageFiles.push(files[i]);
+                        newFilesAdded = true;
+                    }
+                }
+
+                if (newFilesAdded) {
+                    renderPreviews();
+                    workspace.classList.remove('hidden');
+                    dropZone.classList.add('hidden');
+                }
+            };
+
+            // Render Preview Cards
+            window.renderPreviews = function() {
+                previewGrid.innerHTML = '';
+                imageCountEl.innerText = imageFiles.length;
+
+                if(imageFiles.length === 0) {
+                    clearAll();
+                    return;
+                }
+
+                imageFiles.forEach((file, index) => {
+                    const reader = new FileReader();
+                    reader.onloadend = function() {
+                        const div = document.createElement('div');
+                        div.className = 'preview-card relative group rounded-xl overflow-hidden border border-gray-200 aspect-[3/4] bg-gray-50';
+                        
+                        div.innerHTML = `
+                            <img src="${reader.result}" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
+                                <button onclick="removeImage(${index})" class="remove-btn w-10 h-10 bg-white text-gray-900 rounded-full flex items-center justify-center font-bold shadow-lg" title="Remove">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                </button>
+                            </div>
+                        `;
+                        previewGrid.appendChild(div);
+                    };
+                    reader.readAsDataURL(file);
+                });
+            };
+
+            // Remove Individual Image
+            window.removeImage = function(index) {
+                imageFiles.splice(index, 1);
+                renderPreviews();
+            };
+
+            // Clear All Images
+            window.clearAll = function() {
+                imageFiles = [];
+                fileInput.value = '';
+                workspace.classList.add('hidden');
+                dropZone.classList.remove('hidden');
+            };
+
+            // Generate PDF
+            window.generatePDF = async function() {
+                if (imageFiles.length === 0) return;
+
+                const originalBtnHtml = generateBtn.innerHTML;
+                generateBtn.innerHTML = `Creating PDF...`;
+                generateBtn.disabled = true;
+
+                try {
+                    const { jsPDF } = window.jspdf;
+                    const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+                    
+                    for (let i = 0; i < imageFiles.length; i++) {
+                        const imgData = await new Promise((resolve) => {
+                            const r = new FileReader();
+                            r.onload = () => resolve(r.result);
+                            r.readAsDataURL(imageFiles[i]);
+                        });
+                        
+                        if (i > 0) pdf.addPage();
+
+                        const imgProps = pdf.getImageProperties(imgData);
+                        const pdfW = pdf.internal.pageSize.getWidth();
+                        const pdfH = pdf.internal.pageSize.getHeight();
+                        
+                        const imgRatio = imgProps.width / imgProps.height;
+                        const pdfRatio = pdfW / pdfH;
+                        
+                        let finalW, finalH;
+                        if (imgRatio > pdfRatio) {
+                            finalW = pdfW; finalH = pdfW / imgRatio;
+                        } else {
+                            finalH = pdfH; finalW = pdfH * imgRatio;
+                        }
+
+                        const xOffset = (pdfW - finalW) / 2;
+                        const yOffset = (pdfH - finalH) / 2;
+
+                        pdf.addImage(imgData, 'JPEG', xOffset, yOffset, finalW, finalH);
+                    }
+
+                    pdf.save('TimeDigital_Images.pdf');
+                } catch (error) {
+                    alert("Something went wrong while creating the PDF.");
+                } finally {
+                    generateBtn.innerHTML = originalBtnHtml;
+                    generateBtn.disabled = false;
+                }
+            };
+        });
+    </script>
+</body>
+</html>
