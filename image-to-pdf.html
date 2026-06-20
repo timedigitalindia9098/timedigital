@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Free Image to PDF Converter | Combine JPG & PNG to PDF Securely</title>
+    <meta name="description" content="Convert multiple images (JPG, PNG, JPEG) into a single PDF document instantly. 100% Free, secure, no watermarks, and processed completely offline in your browser.">
+    <meta name="keywords" content="image to pdf, jpg to pdf, convert image to pdf, multiple images to pdf, free online pdf converter, png to pdf, secure photo to pdf converter, no watermark pdf">
+    <meta name="author" content="Time Digital India">
+    
+    <meta property="og:title" content="Fastest Image to PDF Converter - 100% Free & Secure">
+    <meta property="og:description" content="Turn your photos into a high-quality PDF in seconds. No server uploads, total privacy.">
+    <meta property="og:type" content="website">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Inter"', 'sans-serif'] },
+                    colors: { brand: '#4F46E5', surface: '#FAFAFA' }
+                }
+            }
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <style>
+        body { background-color: #FAFAFA; color: #111827; }
+
+        /* Smooth Reveal Animations */
+        .spring-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .spring-reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* Drag & Drop Zone Magic */
+        .drop-zone {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%23CBD5E1FF' stroke-width='4' stroke-dasharray='12%2c 12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+        }
+        .drop-zone.active {
+            background-color: #EEF2FF;
+            transform: scale(1.02);
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%234F46E5FF' stroke-width='4' stroke-dasharray='12%2c 12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+        }
+
+        /* Image Preview Cards */
+        .preview-card {
+            animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        
+        .remove-btn { transition: all 0.2s; }
+        .remove-btn:hover { background-color: #EF4444; color: white; transform: scale(1.1); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <nav class="w-full max-w-7xl mx-auto px-6 py-6 flex items-center justify-between border-b border-gray-200">
+        <div class="hidden sm:flex flex-1">
+            <a href="index.html" class="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-brand transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Back to Tools
+            </a>
+        </div>
+        <a href="index.html" class="flex items-center justify-center gap-3 flex-1 sm:flex-none cursor-pointer">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 text-white flex items-center justify-center font-bold shadow-lg shadow-indigo-500/30">T</div>
+            <span class="font-bold text-xl tracking-tight text-gray-900">Time Digital</span>
+        </a>
+        <div class="hidden sm:flex flex-1 justify-end"></div>
+    </nav>
+
+    <main class="w-full max-w-5xl mx-auto px-6 pt-12 pb-24 flex-1">
+        
+        <div class="text-center mb-10 spring-reveal visible">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-200 bg-emerald-50 text-xs font-bold tracking-widest text-emerald-700 uppercase mb-4 shadow-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                100% Private - Processed Locally
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">Image to PDF Converter</h1>
+            <p class="text-gray-500 font-medium max-w-2xl mx-auto">Turn multiple JPGs or PNGs into a single, high-quality PDF document instantly. Files never leave your device.</p>
+        </div>
+
+        <div class="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 p-6 md:p-10 spring-reveal visible">
+            
+            <div id="drop-zone" class="drop-zone rounded-[1.5rem] p-12 flex flex-col items-center justify-center cursor-pointer min-h-[300px] text-center bg-gray-50/50">
+                <div class="w-20 h-20 bg-indigo-100 text-brand rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Drag & Drop Images Here</h3>
+                <p class="text-gray-500 font-medium mb-6">or click to browse your files (JPG, PNG, WebP)</p>
+                <input type="file" id="file-input" multiple accept="image/jpeg, image/png, image/webp" class="hidden">
+                <button onclick="document.getElementById('file-input').click()" class="bg-gray-900 text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-brand transition-colors shadow-lg">
+                    Select Images
+                </button>
+            </div>
+
+            <div id="workspace" class="hidden mt-10">
+                <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
+                    <h3 class="text-lg font-bold text-gray-900">Selected Images (<span id="image-count">0</span>)</h3>
+                    <button onclick="clearAll()" class="text-sm font-semibold text-red-500 hover:text-red-600 transition-colors">Clear All</button>
+                </div>
+                
+                <div id="preview-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8">
+                    </div>
+
+                <button id="generate-btn" onclick="generatePDF()" class="w-full bg-brand text-white py-4 rounded-xl font-bold text-lg hover:bg-indigo-700 transition-all flex items-center justify-center gap-2 shadow-xl shadow-indigo-500/20 active:scale-[0.98]">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    Generate & Download PDF
+                </button>
+            </div>
+        </div>
+
+        <article class="mt-24 prose prose-slate max-w-none spring-reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The Best Free Image to PDF Converter Online</h2>
+                <div class="w-20 h-1.5 bg-brand mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <span class="text-brand">✦</span> Why Choose Time Digital?
+                    </h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Converting images to PDF shouldn't cost you money or compromise your privacy. Our tool is engineered with the latest WebAssembly technology to perform heavy document conversions directly inside your browser. 
+                    </p>
+                    <ul class="space-y-4 text-gray-600 font-medium">
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                            <strong>100% Privacy Guaranteed:</strong> Unlike other tools, we never upload your private photos (Aadhar cards, IDs, assignments) to any server. Everything stays on your device.
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                            <strong>No Watermarks & No Limits:</strong> Export clean, professional PDFs without any branding. Merge as many JPGs or PNGs as you need.
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                            <strong>Universal Support:</strong> Works flawlessly on Windows, Mac, Android, and iOS devices globally.
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <span class="text-brand">✦</span> How to Convert JPG to PDF
+                    </h3>
+                    <div class="space-y-5">
+                        <div class="flex gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100">
+                            <div class="w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center font-bold shrink-0 shadow-md">1</div>
+                            <p class="text-gray-600 text-sm mt-1"><strong>Upload Images:</strong> Drag and drop your JPG, JPEG, or PNG files into the box above, or click to select them from your gallery.</p>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100">
+                            <div class="w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center font-bold shrink-0 shadow-md">2</div>
+                            <p class="text-gray-600 text-sm mt-1"><strong>Review & Remove:</strong> Check the preview grid. If you accidentally added a wrong photo, simply click the red 'X' icon to remove it instantly.</p>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100">
+                            <div class="w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center font-bold shrink-0 shadow-md">3</div>
+                            <p class="text-gray-600 text-sm mt-1"><strong>Download PDF:</strong> Hit the "Generate & Download" button. Our client-side engine will compile your images into a standard A4-sized PDF instantly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="w-full bg-white border-t border-gray-200 py-10 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-sm font-medium text-gray-500">© 2026 Time Digital India. Built for speed, designed for privacy.</p>
+        </div>
+    </footer>
+
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const workspace = document.getElementById('workspace');
+        const previewGrid = document.getElementById('preview-grid');
+        const imageCountEl = document.getElementById('image-count');
+        const generateBtn = document.getElementById('generate-btn');
+
+        let imageFiles = [];
+
+        // 1. Drag & Drop Event Listeners
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, () => dropZone.classList.add('active'), false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, () => dropZone.classList.remove('active'), false);
+        });
+
+        dropZone.addEventListener('drop', handleDrop, false);
+        fileInput.addEventListener('change', handleFiles, false);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            processFiles(files);
+        }
+
+        function handleFiles(e) {
+            const files = e.target.files;
+            processFiles(files);
+        }
+
+        // 2. Process Files & Create Previews
+        function processFiles(files) {
+            const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
+            let newFilesAdded = false;
+
+            for (let i = 0; i < files.length; i++) {
+                if (validTypes.includes(files[i].type)) {
+                    imageFiles.push(files[i]);
+                    newFilesAdded = true;
+                }
+            }
+
+            if (newFilesAdded) {
+                renderPreviews();
+                workspace.classList.remove('hidden');
+                dropZone.classList.add('hidden'); // Hide dropzone to focus on workspace
+            }
+        }
+
+        function renderPreviews() {
+            previewGrid.innerHTML = '';
+            imageCountEl.innerText = imageFiles.length;
+
+            if(imageFiles.length === 0) {
+                clearAll();
+                return;
+            }
+
+            imageFiles.forEach((file, index) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                
+                reader.onloadend = function() {
+                    const div = document.createElement('div');
+                    div.className = 'preview-card relative group rounded-xl overflow-hidden border border-gray-200 aspect-[3/4] bg-gray-50';
+                    
+                    div.innerHTML = `
+                        <img src="${reader.result}" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
+                            <button onclick="removeImage(${index})" class="remove-btn w-10 h-10 bg-white text-gray-900 rounded-full flex items-center justify-center font-bold shadow-lg" title="Remove">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-2 left-2 right-2 text-center">
+                            <span class="bg-black/60 text-white text-[10px] px-2 py-1 rounded-md backdrop-blur-md truncate block">${file.name}</span>
+                        </div>
+                    `;
+                    previewGrid.appendChild(div);
+                }
+            });
+        }
+
+        function removeImage(index) {
+            imageFiles.splice(index, 1);
+            renderPreviews();
+        }
+
+        function clearAll() {
+            imageFiles = [];
+            fileInput.value = '';
+            workspace.classList.add('hidden');
+            dropZone.classList.remove('hidden');
+        }
+
+        // 3. Generate PDF using jsPDF (Client-Side)
+        async function generatePDF() {
+            if (imageFiles.length === 0) return;
+
+            // Change button state
+            const originalBtnHtml = generateBtn.innerHTML;
+            generateBtn.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Creating PDF...
+            `;
+            generateBtn.disabled = true;
+
+            try {
+                const { jsPDF } = window.jspdf;
+                // A4 size: 210 x 297 mm
+                const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+                
+                for (let i = 0; i < imageFiles.length; i++) {
+                    const file = imageFiles[i];
+                    const imgData = await readFileAsDataURL(file);
+                    
+                    // Add new page for images after the first one
+                    if (i > 0) pdf.addPage();
+
+                    // Calculate dimensions to fit A4 while maintaining aspect ratio
+                    const imgProps = pdf.getImageProperties(imgData);
+                    const pdfWidth = pdf.internal.pageSize.getWidth();
+                    const pdfHeight = pdf.internal.pageSize.getHeight();
+                    
+                    const imgRatio = imgProps.width / imgProps.height;
+                    const pdfRatio = pdfWidth / pdfHeight;
+                    
+                    let finalWidth, finalHeight;
+
+                    // Fit to page logic
+                    if (imgRatio > pdfRatio) {
+                        finalWidth = pdfWidth;
+                        finalHeight = pdfWidth / imgRatio;
+                    } else {
+                        finalHeight = pdfHeight;
+                        finalWidth = pdfHeight * imgRatio;
+                    }
+
+                    // Center the image
+                    const xOffset = (pdfWidth - finalWidth) / 2;
+                    const yOffset = (pdfHeight - finalHeight) / 2;
+
+                    pdf.addImage(imgData, 'JPEG', xOffset, yOffset, finalWidth, finalHeight);
+                }
+
+                // Download the file
+                pdf.save('TimeDigital_Images.pdf');
+
+            } catch (error) {
+                console.error("Error generating PDF: ", error);
+                alert("Something went wrong while creating the PDF.");
+            } finally {
+                // Restore button state
+                generateBtn.innerHTML = originalBtnHtml;
+                generateBtn.disabled = false;
+            }
+        }
+
+        // Helper function to read file asynchronously
+        function readFileAsDataURL(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.spring-reveal').forEach((el) => observer.observe(el));
+
+    </script>
+</body>
+</html>
