@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Free Metal & Steel Weight Calculator | Raw Material Cost Estimator</title>
+    <meta name="description" content="Calculate the exact weight of Mild Steel (MS), Stainless Steel (SS), Aluminum, and Copper for plates, pipes, and bars. 100% Free raw material weight calculator.">
+    <meta name="keywords" content="metal weight calculator, steel weight calculator, ms plate weight formula, pipe weight calculator, raw material calculator, aluminum weight calculator, steel density, ms angle weight">
+    <meta name="author" content="Time Digital India">
+    
+    <meta property="og:title" content="Advanced Metal & Steel Weight Calculator">
+    <meta property="og:description" content="Instantly calculate the weight and cost of industrial raw materials like MS plates, SS pipes, and metal rings. Free online utility tool.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Inter"', 'sans-serif'] },
+                    colors: {
+                        brand: '#4F46E5', 
+                        surface: '#FAFAFA',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #FAFAFA; color: #111827; }
+
+        /* Staggered Spring Reveal */
+        .spring-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .spring-reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* Shape Selector Active State */
+        .shape-btn { transition: all 0.2s ease; border: 2px solid transparent; }
+        .shape-btn.active { border-color: #4F46E5; background-color: #EEF2FF; color: #4F46E5; font-weight: 600; }
+        
+        /* Modern Inputs */
+        .calc-input { transition: all 0.2s ease; }
+        .calc-input:focus { border-color: #4F46E5; box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1); outline: none; }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Metal Weight Calculator",
+      "url": "https://timedigitalindia.com/metal-weight-calculator.html",
+      "applicationCategory": "UtilityApplication",
+      "description": "Calculate weight for MS, SS, Aluminum sheets, pipes, and round bars instantly."
+    }
+    </script>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <nav class="w-full max-w-7xl mx-auto px-6 py-6 flex items-center justify-between border-b border-gray-200">
+        <div class="hidden sm:flex flex-1">
+            <a href="index.html" class="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-brand transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Back to Tools
+            </a>
+        </div>
+        <a href="index.html" class="flex items-center justify-center gap-3 flex-1 sm:flex-none cursor-pointer">
+            <div class="w-9 h-9 rounded-xl bg-gray-900 text-white flex items-center justify-center font-bold shadow-md">T</div>
+            <span class="font-bold text-xl tracking-tight text-gray-900">Time Digital India</span>
+        </a>
+        <div class="hidden sm:flex flex-1 justify-end"></div>
+    </nav>
+
+    <main class="w-full max-w-5xl mx-auto px-6 pt-12 pb-24 flex-1">
+        
+        <div class="text-center mb-10 spring-reveal visible">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-xs font-bold tracking-widest text-emerald-600 uppercase mb-4 shadow-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                100% Accurate & Secure
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">Metal Weight Calculator</h1>
+            <p class="text-gray-500 font-medium max-w-2xl mx-auto">Instantly calculate the theoretical weight and estimated cost of Mild Steel, Stainless Steel, Aluminum, and more. No formulas needed.</p>
+        </div>
+
+        <div class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-6 md:p-10 spring-reveal visible grid md:grid-cols-2 gap-10">
+            
+            <div class="space-y-8">
+                
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">1. Select Material</label>
+                    <select id="material" class="calc-input w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 font-medium appearance-none">
+                        <option value="7.85">Mild Steel (MS) / Iron - 7.85 g/cm³</option>
+                        <option value="7.93">Stainless Steel (SS 304/316) - 7.93 g/cm³</option>
+                        <option value="2.70">Aluminum (Al) - 2.70 g/cm³</option>
+                        <option value="8.96">Copper - 8.96 g/cm³</option>
+                        <option value="8.50">Brass - 8.50 g/cm³</option>
+                        <option value="7.20">Cast Iron - 7.20 g/cm³</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">2. Choose Shape</label>
+                    <div class="grid grid-cols-3 gap-3">
+                        <button type="button" onclick="setShape('flat')" id="btn-flat" class="shape-btn active bg-gray-50 border-gray-200 rounded-xl p-3 flex flex-col items-center justify-center gap-2 text-gray-600">
+                            <div class="w-8 h-4 bg-current rounded-sm"></div>
+                            <span class="text-xs">Flat / Plate</span>
+                        </button>
+                        <button type="button" onclick="setShape('round')" id="btn-round" class="shape-btn bg-gray-50 border-gray-200 rounded-xl p-3 flex flex-col items-center justify-center gap-2 text-gray-600">
+                            <div class="w-6 h-6 bg-current rounded-full"></div>
+                            <span class="text-xs">Round Bar</span>
+                        </button>
+                        <button type="button" onclick="setShape('pipe')" id="btn-pipe" class="shape-btn bg-gray-50 border-gray-200 rounded-xl p-3 flex flex-col items-center justify-center gap-2 text-gray-600">
+                            <div class="w-6 h-6 border-4 border-current rounded-full"></div>
+                            <span class="text-xs">Pipe / Ring</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
+                    <label class="block text-sm font-bold text-gray-700 mb-4">3. Enter Dimensions (in mm)</label>
+                    
+                    <div id="inputs-container" class="space-y-4">
+                        </div>
+
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <label class="block text-xs font-semibold text-gray-500 mb-1">Optional: Price per Kg (₹)</label>
+                        <input type="number" id="price" placeholder="e.g. 65" class="calc-input w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-900 font-medium">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bg-indigo-900 rounded-3xl p-8 text-white flex flex-col relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 translate-x-20 -translate-y-20"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -translate-x-20 translate-y-20"></div>
+
+                <div class="relative z-10 flex-1 flex flex-col">
+                    <h3 class="text-indigo-200 font-semibold mb-8 uppercase tracking-wider text-sm">Live Calculation Result</h3>
+                    
+                    <div class="flex-1 flex flex-col justify-center gap-8">
+                        <div>
+                            <p class="text-indigo-200 text-sm mb-1 font-medium">Total Theoretical Weight</p>
+                            <div class="flex items-baseline gap-2">
+                                <span id="weight-result" class="text-5xl font-extrabold tracking-tight">0.000</span>
+                                <span class="text-xl font-medium text-indigo-300">Kg</span>
+                            </div>
+                        </div>
+
+                        <div class="w-full h-px bg-indigo-800/50"></div>
+
+                        <div>
+                            <p class="text-indigo-200 text-sm mb-1 font-medium">Estimated Material Cost</p>
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-xl font-medium text-emerald-400">₹</span>
+                                <span id="cost-result" class="text-4xl font-bold text-emerald-400">0.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="window.print()" class="mt-8 w-full bg-indigo-800 hover:bg-indigo-700 text-white py-3 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                        Print Estimate
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <article class="mt-20 prose prose-slate max-w-none spring-reveal">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">How to Calculate Metal & Steel Weight?</h2>
+            
+            <div class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <p class="text-gray-600 mb-4">Whether you are working in fabrication, manufacturing, or purchasing raw materials for construction, knowing the exact weight of metals is crucial. Our <strong>raw material calculator</strong> uses standard industry formulas based on the volume and density of the metal.</p>
+                    
+                    <h3 class="text-lg font-bold text-gray-800 mt-6 mb-3">MS Plate Weight Formula</h3>
+                    <p class="text-sm text-gray-600 mb-4 bg-gray-50 p-4 rounded-lg border border-gray-100">
+                        <strong>Formula:</strong> Length (m) × Width (m) × Thickness (mm) × 7.85 = Weight in Kg<br>
+                        <em>Example:</em> A 1m x 1m MS sheet with 10mm thickness weighs exactly 78.5 Kg.
+                    </p>
+
+                    <h3 class="text-lg font-bold text-gray-800 mt-6 mb-3">Pipe / Ring Weight Formula</h3>
+                    <p class="text-sm text-gray-600 bg-gray-50 p-4 rounded-lg border border-gray-100">
+                        <strong>Formula:</strong> (Outer Diameter - Wall Thickness) × Wall Thickness × 0.02466 × Length (m) = Weight in Kg (for Steel).
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">Standard Metal Densities</h3>
+                    <div class="overflow-hidden rounded-xl border border-gray-200">
+                        <table class="min-w-full text-sm text-left text-gray-600">
+                            <thead class="bg-gray-50 text-gray-800 font-semibold">
+                                <tr>
+                                    <th class="px-6 py-3 border-b">Material</th>
+                                    <th class="px-6 py-3 border-b">Density (g/cm³)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b"><td class="px-6 py-3 font-medium">Mild Steel (Iron)</td><td class="px-6 py-3">7.85</td></tr>
+                                <tr class="border-b"><td class="px-6 py-3 font-medium">Stainless Steel (304)</td><td class="px-6 py-3">7.93</td></tr>
+                                <tr class="border-b"><td class="px-6 py-3 font-medium">Aluminum</td><td class="px-6 py-3">2.70</td></tr>
+                                <tr class="border-b"><td class="px-6 py-3 font-medium">Copper</td><td class="px-6 py-3">8.96</td></tr>
+                                <tr><td class="px-6 py-3 font-medium">Brass</td><td class="px-6 py-3">8.50</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="w-full bg-white border-t border-gray-200 py-10 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-sm font-medium text-gray-500">© 2026 Time Digital India. Empowering businesses with smart utilities.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentShape = 'flat';
+
+        const shapeInputs = {
+            flat: `
+                <div class="grid grid-cols-2 gap-4">
+                    <div><label class="text-xs text-gray-500 font-medium">Length (mm)</label><input type="number" id="dim-l" value="1000" class="calc-input w-full border border-gray-200 rounded-lg p-2 mt-1" oninput="calculate()"></div>
+                    <div><label class="text-xs text-gray-500 font-medium">Width (mm)</label><input type="number" id="dim-w" value="1000" class="calc-input w-full border border-gray-200 rounded-lg p-2 mt-1" oninput="calculate()"></div>
+                    <div class="col-span-2"><label class="text-xs text-gray-500 font-medium">Thickness (mm)</label><input type="number" id="dim-t" value="10" class="calc-input w-full border border-gray-200 rounded-lg p-2 mt-1" oninput="calculate()"></div>
+                </div>
+            `,
+            round: `
+                <div class="grid grid-cols-2 gap-4">
+                    <div><label class="text-xs text-gray-500 font-medium">Diameter (mm)</label><input type="number" id="dim-d" value="50" class="calc-input w-full border border-gray-200 rounded-lg p-2 mt-1" oninput="calculate()"></div>
+                    <div><label class="text-xs text-gray-500 font-medium">Length (mm)</label><input type="number" id="dim-l" value="1000" class="calc-input w-full border border-gray-200 rounded-lg p-2 mt-1" oninput="calculate()"></div>
+                </div>
+            `,
+            pipe: `
+                <div class="grid grid-cols-2 gap-4">
+                    <div><label class="text-xs text-gray-500 font-medium">Outer Dia (OD) mm</label><input type="number" id="dim-od" value="100" class="calc-input w-full border border-gray-200 rounded-lg p-2 mt-1" oninput="calculate()"></div>
+                    <div><label class="text-xs text-gray-500 font-medium">Wall Thickness (mm)</label><input type="number" id="dim-wt" value="5" class="calc-input w-full border border-gray-200 rounded-lg p-2 mt-1" oninput="calculate()"></div>
+                    <div class="col-span-2"><label class="text-xs text-gray-500 font-medium">Length / Depth (mm)</label><input type="number" id="dim-l" value="1000" class="calc-input w-full border border-gray-200 rounded-lg p-2 mt-1" oninput="calculate()"></div>
+                </div>
+            `
+        };
+
+        function setShape(shape) {
+            currentShape = shape;
+            
+            // Update UI buttons
+            document.querySelectorAll('.shape-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + shape).classList.add('active');
+            
+            // Inject Inputs
+            document.getElementById('inputs-container').innerHTML = shapeInputs[shape];
+            
+            // Recalculate
+            calculate();
+        }
+
+        function calculate() {
+            const density = parseFloat(document.getElementById('material').value); // g/cm3
+            const price = parseFloat(document.getElementById('price').value) || 0;
+            let volume_mm3 = 0;
+
+            try {
+                if (currentShape === 'flat') {
+                    const l = parseFloat(document.getElementById('dim-l').value) || 0;
+                    const w = parseFloat(document.getElementById('dim-w').value) || 0;
+                    const t = parseFloat(document.getElementById('dim-t').value) || 0;
+                    volume_mm3 = l * w * t;
+                } 
+                else if (currentShape === 'round') {
+                    const d = parseFloat(document.getElementById('dim-d').value) || 0;
+                    const l = parseFloat(document.getElementById('dim-l').value) || 0;
+                    const radius = d / 2;
+                    volume_mm3 = Math.PI * Math.pow(radius, 2) * l;
+                } 
+                else if (currentShape === 'pipe') {
+                    const od = parseFloat(document.getElementById('dim-od').value) || 0;
+                    const wt = parseFloat(document.getElementById('dim-wt').value) || 0;
+                    const l = parseFloat(document.getElementById('dim-l').value) || 0;
+                    const id = od - (2 * wt);
+                    if(id > 0) {
+                        const rOuter = od / 2;
+                        const rInner = id / 2;
+                        volume_mm3 = Math.PI * (Math.pow(rOuter, 2) - Math.pow(rInner, 2)) * l;
+                    }
+                }
+
+                // Convert volume from mm3 to cm3 (divide by 1000)
+                const volume_cm3 = volume_mm3 / 1000;
+                
+                // Weight = Volume * Density. (Result in grams, divide by 1000 for Kg)
+                const weight_kg = (volume_cm3 * density) / 1000;
+                
+                const cost = weight_kg * price;
+
+                // Animate numbers
+                animateValue("weight-result", parseFloat(document.getElementById('weight-result').innerText), weight_kg, 400);
+                animateValue("cost-result", parseFloat(document.getElementById('cost-result').innerText), cost, 400);
+                
+            } catch (e) {
+                console.error("Calculation Error", e);
+            }
+        }
+
+        // Smooth number counting animation
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            if (start === end) return;
+            const range = end - start;
+            let current = start;
+            const increment = end > start ? range / (duration/16) : range / (duration/16);
+            const timer = setInterval(function() {
+                current += increment;
+                if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+                    current = end;
+                    clearInterval(timer);
+                }
+                obj.innerHTML = id === 'weight-result' ? current.toFixed(3) : current.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }, 16);
+        }
+
+        // Event listeners for static inputs
+        document.getElementById('material').addEventListener('change', calculate);
+        document.getElementById('price').addEventListener('input', calculate);
+
+        // Initialize
+        setShape('flat');
+
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.spring-reveal').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
