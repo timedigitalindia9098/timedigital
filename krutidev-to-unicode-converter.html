@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Kruti Dev to Unicode Converter. Easily convert your Hindi Kruti Dev 010 font text to Unicode (Mangal) font instantly online. No login required.">
+    <meta name="keywords" content="kruti dev to unicode converter free, kruti dev to mangal font converter, hindi font converter, krutidev to unicode online, text converter tool">
+    <title>Free Kruti Dev to Unicode Converter | Hindi Font Converter</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FAQ Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Is this Kruti Dev to Unicode Converter free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, this tool is 100% free to use. You can convert unlimited Hindi text from Kruti Dev to Unicode instantly without any registration."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How accurate is the conversion?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our converter uses standard mapping algorithms to ensure highly accurate conversion from legacy Kruti Dev fonts to modern Unicode (Mangal) text."
+        }
+      }]
+    }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-blue-600 text-white shadow-md py-4">
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            <h2 class="text-xl font-bold tracking-wide">Time Digital India Tools</h2>
+            <a href="/" class="text-sm font-medium hover:text-blue-200 transition">← Back to Home</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-6xl mx-auto px-4 py-8 w-full">
+        
+        <div class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">Kruti Dev to Unicode Converter</h1>
+            <p class="text-gray-600 max-w-2xl mx-auto">Instantly convert your legacy Hindi text (Kruti Dev 010) to modern Unicode (Mangal) font for free. Perfect for bloggers, DTP operators, and content creators.</p>
+        </div>
+
+        <!-- Converter Tool Area -->
+        <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-12 border border-gray-100">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Input Area (Kruti Dev) -->
+                <div class="flex flex-col">
+                    <label for="krutiInput" class="text-sm font-semibold text-gray-700 mb-2 flex items-center justify-between">
+                        <span>Paste Kruti Dev Text Here</span>
+                        <button onclick="clearText('krutiInput')" class="text-xs text-red-500 hover:text-red-700">Clear</button>
+                    </label>
+                    <textarea id="krutiInput" rows="10" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none text-lg" placeholder="Here paste your Kruti Dev text... (यहाँ अपना कृति देव टेक्स्ट डालें)"></textarea>
+                </div>
+
+                <!-- Output Area (Unicode) -->
+                <div class="flex flex-col">
+                    <label for="unicodeOutput" class="text-sm font-semibold text-gray-700 mb-2 flex items-center justify-between">
+                        <span>Unicode (Mangal) Result</span>
+                        <button onclick="copyText()" class="text-xs text-blue-600 hover:text-blue-800 font-bold">Copy Result</button>
+                    </label>
+                    <textarea id="unicodeOutput" rows="10" class="w-full p-4 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none resize-none text-lg" placeholder="Your converted Unicode text will appear here..." readonly></textarea>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="mt-6 flex justify-center gap-4">
+                <button onclick="convertKrutiToUnicode()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-md transition transform hover:scale-105">
+                    Convert to Unicode
+                </button>
+            </div>
+        </div>
+
+        <!-- SEO Content Section -->
+        <article class="prose max-w-none text-gray-700 bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">About This Free Kruti Dev to Unicode Converter</h2>
+            <p class="mb-4">Welcome to the fastest and most accurate <strong>Kruti Dev to Unicode Converter free</strong> tool. In India, many government offices, typists, and print media still rely on the legacy Kruti Dev 010 font. However, to publish this Hindi text on the internet, websites, social media, or WhatsApp, it must be converted into the universal Unicode standard (often known as Mangal font).</p>
+            
+            <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">How to Use the Converter?</h3>
+            <ol class="list-decimal pl-6 mb-6 space-y-2">
+                <li>Copy your Hindi text typed in Kruti Dev font.</li>
+                <li>Paste it into the left text box above.</li>
+                <li>Click on the <strong>"Convert to Unicode"</strong> button.</li>
+                <li>Your text will instantly be transformed into Unicode in the right box. Click "Copy Result" to use it anywhere!</li>
+            </ol>
+
+            <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Why Choose Our Tool?</h3>
+            <ul class="list-disc pl-6 space-y-2">
+                <li><strong>100% Free & No Login:</strong> Use it as many times as you want without any restrictions.</li>
+                <li><strong>Privacy Focused:</strong> The conversion happens directly in your browser. We do not store or upload your text to any server.</li>
+                <li><strong>Mobile Friendly:</strong> Works flawlessly on mobile phones, tablets, and desktop computers.</li>
+            </ul>
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-6 text-center mt-auto">
+        <p class="text-sm">&copy; 2026 Time Digital India. All rights reserved.</p>
+    </footer>
+
+    <!-- Conversion Script Logic -->
+    <script>
+        function convertKrutiToUnicode() {
+            var krutiText = document.getElementById("krutiInput").value;
+            if (krutiText.trim() === "") {
+                alert("Please paste some Kruti Dev text first!");
+                return;
+            }
+
+            var array_one = new Array(
+                "ñ","Q+Z","sas","aa",")Z","ZZ","‘","’","“","”",
+                "å","ƒ","„","…","†","‡","ˆ","‰","Š","‹", 
+                "¶+","d+","[+k","[+","x+","T+","t+","M+","<+","Q+",
+                ";+","j+","u+","Ùk","Ù","ä","–","—","é","™",
+                "=kk","f=k","à","á","â","ã","ºz","º","í","{k",
+                "{}","fn","=k","«","Nî","Vî","Bî","Mî","<î","|",
+                "K","}","J","Vª","Mª","<ªª","Nª","Ø","Ý","nzZ",
+                "æ","ç","Á","xz","#",":","v‚","vks","vkS","vk",
+                "v","b±","Ã","bZ","b","m","Å",",s",",","_",
+                "ô","d","Dk","D","[k","[","x","Xk","X","Ä",
+                "?k","?","³","pkS","p","Pk","P","N","t","Tk",
+                "T",">","÷","jh","j","J","B","M+","<+","M",
+                "<",".k",".","r","Rk","R","Fk","F","n","/k",
+                "d","/","u","Uk","U","i","Ik","I","Q","¶",
+                "c","Ck","C","Hk","H","e","Ek","E",";","¸",
+                "y","Yk","Y","G","o","Ok","O","'k","'","\"k",
+                "\"","l","Lk","L","g","È","z","Ì","Í","Î",
+                "Ï","Ñ","Ò","Ó","Ô","Ö","Ø","Ù","Ü","Ý",
+                "Þ","ß","à","á","â","ã","ä","å","æ","ç",
+                "è","é","ê","ë","ì","í","î","ï","ð","ñ",
+                "ò","ó","ô","õ","ö","÷","ø","ù","ú","û",
+                "ü","ý","þ","ÿ","¡","¢","£","¤","¥","¦",
+                "§","¨","©","ª","«","¬","­","®","¯","°",
+                "±","²","³","´","µ","¶","·","¸","¹","º",
+                "»","¼","½","¾","¿","À","Á","Â","Ã","Ä",
+                "Å","Æ","Ç","È","É","Ê","Ë","Ì","Í","Î",
+                "Ï","Ð","Ñ","Ò","Ó","Ô","Õ","Ö","×","Ø",
+                "Ù","Ú","Û","Ü","Ý","Þ","ß","à","á","â",
+                "ã","ä","å","æ","ç","è","é","ê","ë","ì",
+                "í","î","ï","ð","ñ","ò","ó","ô","õ","ö",
+                "÷","ø","ù","ú","û","ü","ý","þ","ÿ","‘",
+                "’","“","”","•","–","—","˜","™","š","›",
+                "œ","\u200D","\u200C","a","A","s","S","d","D","f",
+                "F","g","G","h","H","j","J","k","K","l",
+                "L","q","Q","w","W","e","E","r","R","t",
+                "T","y","Y","u","U","i","I","o","O","p",
+                "P","z","Z","x","X","c","C","v","V","b",
+                "B","n","N","m","M","^","`","~","\\","|"
+            );
+
+            var array_two = new Array(
+                "॰","QZ+","sa","a","र्द्ध","Z","\"","\"","'","'",
+                "०","१","२","३","४","५","६","७","८","९",   
+                "फ़्","क़","ख़","ख़्","ग़","ज्","ज़","ड़","ढ़","फ़",
+                "य़","ऱ","ऩ","त्त","त्त्","क्त","दृ","कृ","न्न","न्न्",
+                "=k","f=","ह्न","ह्य","हृ","ह्म","ह्र","ह्","द्द","क्ष",
+                "क्ष्","द्य","त्र","त्त","छ्य","ट्य","ठ्य","ड्य","ढ्य","द्य",
+                "ज्ञ","द्व","श्र","ट्र","ड्र","ढ्र","छ्र","क्र","फ्र","र्द्र",
+                "च्र","प्र","प्र","ग्र","रु","रू","ऑ","ओ","औ","आ",
+                "अ","ईं","ई","ई","इ","उ","ऊ","ऐ","ए","ऋ",
+                "क्क","क","क","क्","ख","ख्","ग","ग","ग्","घ",
+                "घ","घ्","ङ","चै","च","च","च्","छ","ज","ज",
+                "ज्","झ","झ्","री","र","र्","ठ","ड़","ढ़","ड",
+                "ढ","ण","ण्","त","त","त्","थ","थ्","द","ध",
+                "द","ध्","न","न","न्","प","प","प्","फ","फ्",
+                "ब","ब","ब्","भ","भ्","म","म","म्","य","य्",
+                "ल","ल","ल्","ळ","व","व","व्","श","श्","ष",
+                "ष्","स","स","स्","ह","ीं","्र","द्द","ट्ट","ट्ठ",
+                "ड्ड","कृ","भ","ज्","ड्","झ्","क्र","त्त्","श","श्",
+                "व","ट","ट्","ठ","ठ्","ड","ड्","ढ","ढ्","ण",
+                "ण्","त","त्","थ","थ्","द","ध्","ध","न","न्",
+                "प","प्","फ","फ्","ब","ब्","भ","भ्","म","म्",
+                "य","य्","र","ल","ल्","ळ","व","व्","श","श्",
+                "ष","ष्","स","स्","ह","ीं","्र","द्द","ट्ट","ट्ठ",
+                "ड्ड","कृ","भ","ज्","ड्","झ्","क्र","त्त्","श","श्",
+                "व","ट","ट्","ठ","ठ्","ड","ड्","ढ","ढ्","ण",
+                "ण्","त","त्","थ","थ्","द","ध्","ध","न","न्",
+                "प","प्","फ","फ्","ब","ब्","भ","भ्","म","म्",
+                "य","य्","र","ल","ल्","ळ","व","व्","श","श्",
+                "ष","ष्","स","स्","ह","ीं","्र","द्द","ट्ट","ट्ठ",
+                "ड्ड","कृ","भ","ज्","ड्","झ्","क्र","त्त्","श","श्",
+                "व","ट","ट्","ठ","ठ्","ड","ड्","ढ","ढ्","ण",
+                "ण्","त","त्","थ","थ्","द","ध्","ध","न","न्",
+                "प","प्","फ","फ्","ब","ब्","भ","भ्","म","म्",
+                "य","य्","र","ल","ल्","ळ","व","व्","श","श्",
+                "ष","","","ो","ौ","े","ै","ि","ी","ु",
+                "ू","ृ","ॄ","े","ै","ं","ँ","ा","आ","ी",
+                "ी","ु","ू","ृ","े","ै","ं","ँ","ा","आ",
+                "ि","ी","ु","ू","ृ","े","ै","ं","ँ","ा",
+                "आ","ि","ी","ु","ू","ृ","े","ै","ं","ँ",
+                "ा","आ","ि","ी","ु","ू","ृ","े","ै","ं",
+                "ँ","ा","आ","ि","ी","ु","ू","ृ","े","ै"
+            );
+
+            // Phase 1: Direct Character Replacement
+            var modifiedText = krutiText;
+            for (var input_symbol_idx = 0; input_symbol_idx < array_one.length; input_symbol_idx++) {
+                var idx = 0;
+                while (idx != -1) {
+                    modifiedText = modifiedText.replace(array_one[input_symbol_idx], array_two[input_symbol_idx]);
+                    idx = modifiedText.indexOf(array_one[input_symbol_idx]);
+                }
+            }
+
+            // Phase 2: Position Adjustments (like 'ि' matra which is typed before the character in Kruti Dev)
+            var position_of_i = modifiedText.indexOf("f");
+            while (position_of_i != -1) {
+                var charecter_next_to_i = modifiedText.charAt(position_of_i + 1);
+                var charecter_to_be_replaced = "f" + charecter_next_to_i;
+                modifiedText = modifiedText.replace(charecter_to_be_replaced, charecter_next_to_i + "ि");
+                position_of_i = modifiedText.search(/f/, position_of_i + 1);
+            }
+
+            // Phase 3: Half-R adjustments
+            var position_of_R = modifiedText.indexOf("Z");
+            while (position_of_R > 0) {
+                var probable_position_of_half_r = position_of_R - 1;
+                var charecter_at_probable_position_of_half_r = modifiedText.charAt(probable_position_of_half_r);
+                
+                while (charecter_at_probable_position_of_half_r != null) {
+                    if (charecter_at_probable_position_of_half_r.match(/्/)) {
+                        probable_position_of_half_r = probable_position_of_half_r - 2;
+                        charecter_at_probable_position_of_half_r = modifiedText.charAt(probable_position_of_half_r);
+                    } else if (charecter_at_probable_position_of_half_r.match(/ि/)) {
+                        probable_position_of_half_r = probable_position_of_half_r - 1;
+                        charecter_at_probable_position_of_half_r = modifiedText.charAt(probable_position_of_half_r);
+                    } else {
+                        break;
+                    }
+                }
+                
+                var string_to_be_replaced = modifiedText.substr(probable_position_of_half_r, (position_of_R - probable_position_of_half_r));
+                modifiedText = modifiedText.replace(string_to_be_replaced + "Z", "र्" + string_to_be_replaced);
+                position_of_R = modifiedText.indexOf("Z");
+            }
+
+            document.getElementById("unicodeOutput").value = modifiedText;
+        }
+
+        function copyText() {
+            var outputText = document.getElementById("unicodeOutput");
+            if(outputText.value.trim() === "") {
+                alert("Nothing to copy!");
+                return;
+            }
+            outputText.select();
+            document.execCommand("copy");
+            alert("Unicode text copied to clipboard!");
+        }
+
+        function clearText(id) {
+            document.getElementById(id).value = "";
+            if(id === 'krutiInput') {
+                document.getElementById('unicodeOutput').value = "";
+            }
+        }
+    </script>
+</body>
+</html>
