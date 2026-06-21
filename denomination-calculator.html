@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Rupee Denomination Calculator & Cash Counter</title>
+    <meta name="description" content="Free online cash counter and denomination calculator for Indian Rupees. Tally your notes, calculate total cash instantly, and get the exact amount in words.">
+    <meta name="keywords" content="denomination calculator, cash counter, indian money counter, note counting tool, cash tally online, rupee calculator">
+    <link rel="canonical" href="YOUR_WEBSITE_URL_HERE">
+    
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Custom scrollbar for a premium feel */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+    </style>
+
+    <!-- Schema Markup for SEO (SoftwareApplication & FAQ) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Indian Rupee Denomination Calculator",
+          "operatingSystem": "All",
+          "applicationCategory": "UtilitiesApplication",
+          "description": "A free, browser-based tool to tally Indian currency notes and calculate exact total amounts with text conversion.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "INR"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a Denomination Calculator?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A denomination calculator is a utility tool used to count different currency notes and coins to find the total cash value easily. It is highly useful for shopkeepers, bank tellers, and business owners."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my financial data safe on this tool?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, absolutely. This tool runs entirely on your device's browser (client-side). No data or numbers you enter are ever sent to a server or saved anywhere."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="max-w-5xl mx-auto px-4">
+            <h1 class="text-3xl font-bold">Denomination Calculator</h1>
+            <p class="mt-2 text-blue-100">Instantly Tally Your Cash & Notes Online</p>
+        </div>
+    </header>
+
+    <!-- Main App Container -->
+    <main class="max-w-5xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Left Side: Calculator Inputs -->
+        <div class="md:col-span-2 bg-white rounded-xl shadow-lg p-6">
+            <div class="flex justify-between items-center border-b pb-3 mb-4 font-semibold text-gray-600">
+                <div class="w-1/3">Notes/Coins</div>
+                <div class="w-1/3 text-center">Count</div>
+                <div class="w-1/3 text-right">Amount (₹)</div>
+            </div>
+
+            <!-- Notes List -->
+            <div id="calculator-body" class="space-y-4">
+                <!-- Javascript will inject rows here -->
+            </div>
+
+            <div class="mt-6 flex justify-between items-center pt-4 border-t-2 border-gray-200">
+                <button onclick="resetCalc()" class="px-4 py-2 bg-red-100 text-red-600 rounded hover:bg-red-200 transition font-medium">Reset All</button>
+                <div class="text-right">
+                    <p class="text-gray-500 text-sm">Total Notes: <span id="total-notes-count" class="font-bold text-gray-800">0</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Total Summary -->
+        <div class="bg-white rounded-xl shadow-lg p-6 h-fit sticky top-6">
+            <h2 class="text-xl font-bold text-gray-700 border-b pb-2 mb-4">Grand Total</h2>
+            <div class="text-4xl font-extrabold text-blue-600 mb-2">
+                ₹<span id="grand-total">0</span>
+            </div>
+            <div class="bg-blue-50 text-blue-800 p-4 rounded-lg mt-4 text-sm font-medium leading-relaxed">
+                <span id="amount-in-words">Zero Rupees Only</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- SEO Content & FAQs Section -->
+    <section class="max-w-5xl mx-auto px-4 py-12">
+        <article class="prose prose-blue max-w-none bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">About Indian Rupee Cash Counter Tool</h2>
+            <p class="text-gray-600 mb-6 line-height-loose">
+                Managing daily cash transactions can be tedious and prone to human error. Our <strong>online denomination calculator</strong> is designed specifically for the Indian currency system to help shopkeepers, cashiers, petrol pump attendants, and business owners tally their end-of-day cash quickly and accurately. Simply enter the number of notes you have for each denomination (₹500, ₹200, ₹100, etc.), and the tool will instantly generate the grand total.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Key Features:</h3>
+            <ul class="list-disc pl-6 text-gray-600 mb-6 space-y-2">
+                <li><strong>Live Calculations:</strong> No need to press a submit button. The total updates in real-time as you type.</li>
+                <li><strong>Amount in Words:</strong> Automatically translates the numerical total into Indian English words (Lakhs, Crores) which is perfect for filling out bank deposit slips.</li>
+                <li><strong>100% Secure & Private:</strong> This tool operates entirely in your web browser. We do not store, track, or save your financial data.</li>
+                <li><strong>Mobile Friendly:</strong> Designed to work seamlessly on smartphones, tablets, and desktop computers.</li>
+            </ul>
+
+            <hr class="my-8 border-gray-200">
+
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Frequently Asked Questions (FAQs)</h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-lg font-bold text-gray-700">What is a Denomination Calculator?</h3>
+                    <p class="text-gray-600 mt-2">A denomination calculator is a utility tool used to count different currency notes and coins to find the total cash value easily. It replaces manual counting and standard calculators, reducing the chance of calculation errors.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-gray-700">Is this tool free to use?</h3>
+                    <p class="text-gray-600 mt-2">Yes! Our cash counting tool is 100% free with no hidden charges, and you don't even need to create an account or log in to use it.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-gray-700">Can I use this for bank deposit slips?</h3>
+                    <p class="text-gray-600 mt-2">Absolutely. The tool provides a breakdown of all notes and automatically converts the final amount into words, making it incredibly easy to fill out cash deposit slips at the bank.</p>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-6 text-center text-sm">
+        <p>&copy; 2026 Denomination Calculator. All rights reserved.</p>
+    </footer>
+
+    <!-- App Logic -->
+    <script>
+        // Array of Indian denominations (500 to 1)
+        const denominations = [500, 200, 100, 50, 20, 10, 5, 2, 1];
+        
+        function initApp() {
+            const container = document.getElementById('calculator-body');
+            
+            denominations.forEach(note => {
+                // Determine if it's a note or coin based on value
+                const type = note >= 10 ? 'Note' : 'Coin';
+                
+                const row = document.createElement('div');
+                row.className = 'flex justify-between items-center bg-gray-50 p-2 rounded border border-gray-100 hover:border-blue-300 transition';
+                row.innerHTML = `
+                    <div class="w-1/3 flex items-center">
+                        <span class="bg-green-100 text-green-800 font-bold px-3 py-1 rounded shadow-sm w-20 text-center">₹ ${note}</span>
+                    </div>
+                    <div class="w-1/3 text-center flex justify-center items-center">
+                        <span class="text-gray-400 mr-2">x</span>
+                        <input type="number" min="0" data-note="${note}" class="note-input w-24 px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-center shadow-sm" placeholder="0">
+                    </div>
+                    <div class="w-1/3 text-right font-semibold text-gray-700 text-lg">
+                        ₹ <span class="row-total" id="total-${note}">0</span>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+
+            // Add event listeners to all inputs
+            document.querySelectorAll('.note-input').forEach(input => {
+                input.addEventListener('input', calculateTotal);
+            });
+        }
+
+        function calculateTotal() {
+            let grandTotal = 0;
+            let totalNotesCount = 0;
+
+            document.querySelectorAll('.note-input').forEach(input => {
+                const noteValue = parseInt(input.getAttribute('data-note'));
+                const count = parseInt(input.value) || 0;
+                
+                const rowTotal = noteValue * count;
+                document.getElementById(`total-${noteValue}`).innerText = rowTotal.toLocaleString('en-IN');
+                
+                grandTotal += rowTotal;
+                totalNotesCount += count;
+            });
+
+            document.getElementById('grand-total').innerText = grandTotal.toLocaleString('en-IN');
+            document.getElementById('total-notes-count').innerText = totalNotesCount.toLocaleString('en-IN');
+            document.getElementById('amount-in-words').innerText = numberToWords(grandTotal) + " Only";
+        }
+
+        function resetCalc() {
+            document.querySelectorAll('.note-input').forEach(input => {
+                input.value = '';
+            });
+            calculateTotal();
+        }
+
+        // Indian Number to Words Converter
+        function numberToWords(num) {
+            if (num === 0) return "Zero Rupees";
+            
+            const a = ['', 'One ', 'Two ', 'Three ', 'Four ', 'Five ', 'Six ', 'Seven ', 'Eight ', 'Nine ', 'Ten ', 'Eleven ', 'Twelve ', 'Thirteen ', 'Fourteen ', 'Fifteen ', 'Sixteen ', 'Seventeen ', 'Eighteen ', 'Nineteen '];
+            const b = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+
+            if ((num = num.toString()).length > 9) return 'Overflow';
+            n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+            if (!n) return; 
+            
+            let str = '';
+            str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+            str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+            str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+            str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+            str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) : '';
+            
+            return str.trim() + " Rupees";
+        }
+
+        // Initialize App on Load
+        window.onload = initApp;
+    </script>
+</body>
+</html>
