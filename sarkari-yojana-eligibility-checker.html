@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarkari Yojana Eligibility Checker 2026 | Check Government Schemes Online</title>
+    <meta name="description" content="Check your eligibility for 2026 Sarkari Yojanas instantly. No login required. Find PM and State government schemes based on your age, state, and income.">
+    <meta name="keywords" content="Sarkari Yojana 2026, Scheme Eligibility Checker, PM Kisan, Ladli Behna Yojana eligibility, Government scheme calculator">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Smooth transitions for results */
+        .result-card { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <header class="bg-blue-600 text-white text-center py-6 shadow-md">
+        <h1 class="text-3xl font-bold">Yojana Mitra - Eligibility Checker</h1>
+        <p class="mt-2 text-sm text-blue-100">Find 2026 Government Schemes you are eligible for in 1 second.</p>
+    </header>
+
+    <main class="max-w-4xl mx-auto mt-8 px-4">
+        
+        <section class="bg-white p-6 md:p-8 rounded-xl shadow-lg border border-gray-100">
+            <h2 class="text-2xl font-bold mb-6 text-gray-700 text-center">Enter Details to Check Eligibility</h2>
+            
+            <form id="yojanaForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1">Select State *</label>
+                    <select id="state" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
+                        <option value="">-- Choose State --</option>
+                        <option value="ALL">All India (Central Schemes)</option>
+                        <option value="MP">Madhya Pradesh</option>
+                        <option value="UP">Uttar Pradesh</option>
+                        <option value="BH">Bihar</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1">Gender *</label>
+                    <select id="gender" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
+                        <option value="">-- Choose Gender --</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1">Your Age *</label>
+                    <input type="number" id="age" min="1" max="100" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="E.g. 28" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1">Annual Family Income *</label>
+                    <select id="income" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
+                        <option value="">-- Choose Income Level --</option>
+                        <option value="BPL">Below Poverty Line (BPL)</option>
+                        <option value="Low">Below 2.5 Lakhs</option>
+                        <option value="High">Above 2.5 Lakhs</option>
+                    </select>
+                </div>
+
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-medium text-gray-600 mb-1">Category (Optional)</label>
+                    <select id="category" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                        <option value="ALL">General / Any</option>
+                        <option value="OBC">OBC</option>
+                        <option value="SC_ST">SC / ST</option>
+                    </select>
+                </div>
+
+                <div class="md:col-span-2 mt-4">
+                    <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-lg text-lg transition duration-300 shadow-md">
+                        Check My Schemes Now
+                    </button>
+                </div>
+            </form>
+
+            <div id="resultSection" class="mt-8 hidden">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">Schemes You Are Eligible For:</h3>
+                <div id="schemeList" class="space-y-4">
+                    </div>
+            </div>
+        </section>
+
+        <article class="mt-12 bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100 text-gray-700 leading-relaxed">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">What is the Sarkari Yojana Eligibility Checker?</h2>
+            <p class="mb-4">Finding the right government scheme (Sarkari Yojana) can be confusing. With hundreds of central and state-level initiatives launched in 2026, citizens often miss out on direct financial benefits, scholarships, and housing subsidies simply because they don't know their eligibility. This free online calculator solves that problem instantly.</p>
+            
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">How to Check Government Scheme Eligibility Online?</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>Select your State:</strong> Choose 'All India' for central schemes (like PM Kisan) or your specific state (like Madhya Pradesh for Ladli Behna Yojana).</li>
+                <li><strong>Enter Demographics:</strong> Provide your accurate age and gender, as many schemes are exclusively for women, senior citizens, or youth.</li>
+                <li><strong>Income & Category:</strong> Select your annual family income and category (General/OBC/SC/ST) to filter targeted welfare programs.</li>
+                <li><strong>Get Instant Results:</strong> No OTP, no login, and no sensitive data required. See the list of schemes and document requirements in one second.</li>
+            </ul>
+
+            <h3 class="text-xl font-bold mb-3 text-gray-800">Popular Schemes Covered (2026 Updates)</h3>
+            <p class="mb-4">Our tool database is regularly updated with the latest policies including <em>PM Awas Yojana (PMAY)</em>, <em>Mukhyamantri Seekho Kamao Yojana</em>, <em>Ayushman Bharat</em>, and various pension schemes.</p>
+        </article>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 text-center py-6 mt-12 px-4">
+        <p class="font-bold text-red-400 mb-2">⚠️ DISCLAIMER ⚠️</p>
+        <p class="text-sm max-w-3xl mx-auto">This tool is an independent, privately-run informational platform and is <strong>NOT affiliated, associated, authorized, endorsed by, or in any way officially connected with the Government of India or any State Government.</strong> We do not ask for Aadhar, Bank details, or application fees. This tool only provides estimates based on publicly available data. For official applications, always visit the respective government portal (e.g., .gov.in or .nic.in).</p>
+        <p class="text-xs mt-4">© 2026 timedigitalindia all right reserve</p>
+    </footer>
+
+    <script>
+        // Database of Schemes
+        const schemesDB = [
+            {
+                name: "Mukhyamantri Ladli Behna Yojana",
+                state: "MP", gender: "Female", minAge: 21, maxAge: 60, incomeAllowed: ["BPL", "Low"], category: "ALL",
+                desc: "Financial assistance of ₹1250 per month for women of Madhya Pradesh.",
+                docs: "Aadhar Card, Samagra ID, DBT Bank Account."
+            },
+            {
+                name: "PM Kisan Samman Nidhi Yojana",
+                state: "ALL", gender: "ALL", minAge: 18, maxAge: 100, incomeAllowed: ["BPL", "Low", "High"], category: "ALL",
+                desc: "₹6000 per year direct income support for farmer families.",
+                docs: "Aadhar, Land Records, Bank Passbook."
+            },
+            {
+                name: "Mukhyamantri Seekho Kamao Yojana",
+                state: "MP", gender: "ALL", minAge: 18, maxAge: 29, incomeAllowed: ["BPL", "Low", "High"], category: "ALL",
+                desc: "Skill training with stipend (₹8000 to ₹10000) for MP youth.",
+                docs: "Samagra ID, Marksheets, Bank Account."
+            },
+            {
+                name: "Ayushman Bharat Yojana",
+                state: "ALL", gender: "ALL", minAge: 1, maxAge: 100, incomeAllowed: ["BPL"], category: "ALL",
+                desc: "Free health insurance cover up to ₹5 Lakh per family per year.",
+                docs: "Ration Card, Aadhar Card, Samagra ID."
+            }
+        ];
+
+        document.getElementById('yojanaForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent page reload
+
+            // Get User Input
+            const userState = document.getElementById('state').value;
+            const userGender = document.getElementById('gender').value;
+            const userAge = parseInt(document.getElementById('age').value);
+            const userIncome = document.getElementById('income').value;
+            
+            // Filter Logic
+            const eligibleSchemes = schemesDB.filter(scheme => {
+                const stateMatch = (scheme.state === "ALL" || scheme.state === userState);
+                const genderMatch = (scheme.gender === "ALL" || scheme.gender === userGender);
+                const ageMatch = (userAge >= scheme.minAge && userAge <= scheme.maxAge);
+                const incomeMatch = scheme.incomeAllowed.includes(userIncome);
+
+                return stateMatch && genderMatch && ageMatch && incomeMatch;
+            });
+
+            // Display Results
+            const resultSection = document.getElementById('resultSection');
+            const schemeList = document.getElementById('schemeList');
+            schemeList.innerHTML = ''; // Clear old results
+
+            if(eligibleSchemes.length > 0) {
+                eligibleSchemes.forEach(scheme => {
+                    schemeList.innerHTML += `
+                        <div class="result-card bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg shadow-sm">
+                            <h4 class="text-lg font-bold text-green-800">${scheme.name}</h4>
+                            <p class="text-sm text-gray-700 mt-1">${scheme.desc}</p>
+                            <p class="text-xs text-gray-500 mt-2 font-semibold border-t pt-2">📄 Required: ${scheme.docs}</p>
+                        </div>
+                    `;
+                });
+            } else {
+                schemeList.innerHTML = `
+                    <div class="bg-red-50 text-red-600 p-4 rounded-lg">
+                        Currently, no major schemes match these specific criteria in our database. Try adjusting your filters or check central schemes (All India).
+                    </div>
+                `;
+            }
+
+            resultSection.classList.remove('hidden');
+            resultSection.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to results
+        });
+    </script>
+</body>
+</html>
