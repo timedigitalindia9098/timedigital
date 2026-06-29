@@ -1,48 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9082888442194067" crossorigin="anonymous"></script>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free GST Invoice Generator Online | Create Tax Bill PDF in 1 Min</title>
     
-    <!-- Power SEO Tags -->
-    <title>Free GST Invoice Generator | Online Tax Bill Maker with HSN Code</title>
-    <meta name="description" content="Generate professional GST invoices online for free. Auto-calculate CGST, SGST, IGST, add HSN codes, and download instant PDF bills. Best free online bill maker for Indian businesses.">
-    <meta name="keywords" content="free gst invoice generator, online bill maker india, gst bill format in pdf, tax invoice generator, pucca bill maker, hsn code billing, timedigitalindia, gst invoice online, billing software for small business">
+    <meta name="description" content="Generate professional GST tax invoices online for free. Auto-calculate CGST, SGST, IGST, add HSN codes, and download instant PDF bills. No login required.">
+    <meta name="keywords" content="free gst invoice generator, gst billing software india, online tax invoice maker, generate gst bill with hsn, gst calculator online, small business invoice creator, professional tax invoice pdf, gst invoice format india, free online billing tool, accounting software for small business, timedigitalindia">
     
+    <meta property="og:title" content="Free GST Invoice Generator Online">
+    <meta property="og:description" content="Create fast, accurate, and free GST bills with HSN codes and IGST/CGST auto-calculation.">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Free GST Invoice Generator",
+      "url": "https://timedigitalindia.com/gst-invoice-generator.html",
+      "description": "A free online tool to create professional GST invoices, calculate taxes (CGST/SGST/IGST), and export to PDF.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
-        @media print { .no-print { display: none !important; } }
-        .star-rating { cursor: pointer; color: #d1d5db; transition: color 0.2s; }
-        .star-rating.active { color: #fbbf24; }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background-color: white; }
+            #invoicePreview { border: none; box-shadow: none; padding: 0; }
+        }
+        .custom-scrollbar::-webkit-scrollbar { height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c7c7cc; border-radius: 4px; }
+        /* Rating Stars Style */
+        .star-rating span { cursor: pointer; transition: color 0.2s; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
-    <!-- Header Section -->
     <header class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white text-center py-8 shadow-lg no-print">
-        <a href="index.html" class="inline-block mb-4 text-sm font-bold bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition-colors">← Back to Home</a>
-        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">Pro GST Invoice Maker</h1>
-        <p class="mt-2 text-blue-100 font-medium">Create compliant tax invoices. Click text to edit details.</p>
+        <a href="index.html" class="inline-block mb-4 text-sm font-bold bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition-colors">
+            ← Back to Home
+        </a>
+        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-2">Pro GST Invoice Maker</h1>
+        <p class="mt-2 text-blue-100 font-medium text-lg">Click on any text in the bill below to edit your details.</p>
     </header>
 
     <main class="max-w-[1400px] mx-auto mt-8 px-4 grid grid-cols-1 xl:grid-cols-12 gap-8">
         
-        <!-- Controls -->
         <div class="xl:col-span-4 space-y-6 no-print">
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
-                <h2 class="text-xl font-bold mb-4">Bill Settings</h2>
+                <h2 class="text-xl font-bold mb-4 text-gray-800 border-b pb-2 flex items-center gap-2">Bill Settings</h2>
                 
-                <!-- ... (Inputs rahege wahi, bas neeche button ke upar rating add kar raha hu) ... -->
-                
-                <div class="mt-8 border-t pt-6">
-                    <h3 class="font-bold text-gray-700 mb-2">Rate this tool:</h3>
-                    <div id="starContainer" class="flex gap-2 text-3xl">
-                        <span class="star-rating" data-value="1">★</span>
-                        <span class="star-rating" data-value="2">★</span>
-                        <span class="star-rating" data-value="3">★</span>
-                        <span class="star-rating" data-valueNormally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="col-span-2">
+                        <label class="block text-sm font-semibold text-gray-600 mb-1">Invoice Number</label>
+                        <input type="text" id="invNumberInput" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" value="INV-2026-001" onkeyup="updateInvoice()">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-600 mb-1">Invoice Date</label>
+                        <input type="date" id="invDateInput" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" onchange="updateInvoice()">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-600 mb-1">Due Date</label>
+                        <input type="date" id="dueDateInput" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" onchange="updateInvoice()">
+                    </div>
+                    <div class="col-span-2 border-t pt-4 mt-2">
+                        <label class="block text-sm font-semibold text-gray-600 mb-2">Tax Type (Inter vs Intra State)</label>
+                        <div class="flex gap-4">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="taxType" value="local" checked onchange="calculateTotal()" class="w-4 h-4 text-indigo-600">
+                                <span class="text-sm font-medium">CGST + SGST (Local)</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="taxType" value="interstate" onchange="calculateTotal()" class="w-4 h-4 text-indigo-600">
+                                <span class="text-sm font-medium">IGST (Inter-state)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-gray-50 p-4 rounded-xl border border-gray-200">
+                    <h3 class="text-md font-bold mb-3 text-gray-800">Add Product / Service</h3>
+                    <div class="grid grid-cols-12 gap-2 mb-3">
+                        <input type="text" id="itemName" placeholder="Item Description" class="col-span-12 md:col-span-8 p-2 border border-gray-300 rounded outline-none focus:border-indigo-500 text-sm">
+                        <input type="text" id="itemHsn" placeholder="HSN/SAC" class="col-span-12 md:col-span-4 p-2 border border-gray-300 rounded outline-none focus:border-indigo-500 text-sm">
+                        
+                        <input type="number" id="itemQty" placeholder="Qty" value="1" min="1" class="col-span-4 p-2 border border-gray-300 rounded outline-none focus:border-indigo-500 text-sm">
+                        <input type="number" id="itemPrice" placeholder="Rate (₹)" class="col-span-4 p-2 border border-gray-300 rounded outline-none focus:border-indigo-500 text-sm">
+                        <select id="itemGst" class="col-span-4 p-2 border border-gray-300 rounded outline-none focus:border-indigo-500 text-sm">
+                            <option value="0">0% GST</option>
+                            <option value="5">5% GST</option>
+                            <option value="12">12% GST</option>
+                            <option value="18" selected>18% GST</option>
+                            <option value="28">28% GST</option>
+                        </select>
+                    </div>
+                    <button onclick="addItem()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 rounded-lg transition-colors shadow-sm">
+                        + Add Item to Bill
+                    </button>
+                </div>
+
+                <div class="mt-6 flex items-center gap-3">
+                    <label class="block text-sm font-semibold text-gray-600 w-1/2">Overall Discount (₹)</label>
+                    <input type="number" id="discountInput" placeholder="0" class="w-1/2 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none text-right" onkeyup="calculateTotal()">
+                </div>
+
+                <div class="mt-8">
+                    <button onclick="downloadPDF()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-4 rounded-xl text-lg shadow-lg flex items-center justify-center gap-2 transition-transform transform hover:-translate-y-1">
+                        Download PDF Invoice
+                    </button>
+                </div>
+
+                <div class="mt-6 p-4 bg-gray-50 rounded-lg text-center border border-gray-200">
+                    <p class="text-xs font-bold text-gray-500 mb-2 uppercase">Rate this tool</p>
+                    <div id="star-rating" class="star-rating flex justify-center gap-1 text-2xl text-gray-400">
+                        <span onclick="setRating(1)">★</span>
+                        <span onclick="setRating(2)">★</span>
+                        <span onclick="setRating(3)">★</span>
+                        <span onclick="setRating(4)">★</span>
+                        <span onclick="setRating(5)">★</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="xl:col-span-8 overflow-x-auto pb-10 custom-scrollbar">
+            <div id="invoicePreview" class="bg-white p-10 md:p-14 rounded-2xl shadow-xl border border-gray-200 min-w-[800px] text-gray-800">
+                <div class="flex justify-between items-start border-b-2 border-indigo-900 pb-6 mb-8">
+                    <div class="w-1/2">
+                        <div class="text-4xl font-black text-indigo-900 tracking-tight uppercase">TAX INVOICE</div>
+                        <div class="mt-4 text-sm">
+                            <p class="text-gray-500 font-bold">Invoice No: <span id="displayInvNumber" class="text-gray-900">INV-2026-001</span></p>
+                            <p class="text-gray-500 font-bold">Date: <span id="displayInvDate" class="text-gray-900"></span></p>
+                            <p class="text-gray-500 font-bold">Due Date: <span id="displayDueDate" class="text-gray-900"></span></p>
+                        </div>
+                    </div>
+                    <div class="w-1/2 text-right">
+                        <div contenteditable="true" class="text-2xl font-extrabold text-gray-900 outline-none hover:bg-gray-100 rounded px-1 transition-colors cursor-text">Click to add Company Name</div>
+                        <div contenteditable="true" class="text-sm text-gray-600 outline-none mt-1 hover:bg-gray-100 rounded px-1 cursor-text">Click to add your Address & Contact Details</div>
+                        <div class="mt-2 text-sm font-bold text-gray-800">GSTIN: <span contenteditable="true" class="outline-none hover:bg-gray-100 px-1 text-indigo-700 cursor-text">Enter Your GSTIN</span></div>
+                    </div>
+                </div>
+
+                <div class="mb-8 flex justify-between">
+                    <div class="w-1/2 pr-4">
+                        <h3 class="text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest border-b pb-1">Billed To</h3>
+                        <div contenteditable="true" class="text-lg font-bold text-gray-900 outline-none hover:bg-gray-50 p-1 rounded min-h-[1.5rem] cursor-text">Click to add Client Name</div>
+                        <div contenteditable="true" class="text-sm text-gray-600 outline-none hover:bg-gray-50 p-1 rounded mt-1 min-h-[3rem] cursor-text">Click to add Client Address</div>
+                        <div class="mt-1 text-sm font-bold text-gray-800 p-1">GSTIN: <span contenteditable="true" class="outline-none hover:bg-gray-50 px-1 font-medium cursor-text">Add Client GSTIN</span></div>
+                    </div>
+                    <div class="w-1/3">
+                        <h3 class="text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest border-b pb-1">Payment Status</h3>
+                        <div contenteditable="true" class="inline-block px-3 py-1 bg-red-100 text-red-700 font-bold rounded text-sm outline-none cursor-text">UNPAID</div>
+                    </div>
+                </div>
+
+                <div class="min-h-[250px]">
+                    <table class="w-full mb-4 text-left border-collapse">
+                        <thead>
+                            <tr class="bg-indigo-900 text-white">
+                                <th class="py-3 px-4 font-bold text-sm w-10">#</th>
+                                <th class="py-3 px-4 font-bold text-sm">Item Description</th>
+                                <th class="py-3 px-2 font-bold text-sm text-center">HSN/SAC</th>
+                                <th class="py-3 px-2 font-bold text-sm text-center">Qty</th>
+                                <th class="py-3 px-4 font-bold text-sm text-right">Rate (₹)</th>
+                                <th class="py-3 px-2 font-bold text-sm text-center">GST</th>
+                                <th class="py-3 px-4 font-bold text-sm text-right">Amount (₹)</th>
+                                <th class="py-3 px-2 w-8 no-print text-center">🗑️</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invoiceItems" class="text-gray-700 text-sm"></tbody>
+                    </table>
+                </div>
+
+                <div class="flex justify-between items-start mt-8">
+                    <div class="w-3/5 pr-8">
+                        <div class="mb-6">
+                            <p class="text-xs text-gray-500 font-bold uppercase mb-1">Total Amount in Words:</p>
+                            <p id="amountInWords" class="text-sm font-semibold text-indigo-900 bg-indigo-50 py-2 px-3 rounded italic">Rupees Zero Only</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 font-bold uppercase mb-1 border-b pb-1">Bank Details:</p>
+                            <div contenteditable="true" class="text-xs text-gray-600 outline-none hover:bg-gray-50 p-1 rounded cursor-text">
+                                Click to add Bank Name, Account No, IFSC Code
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-2/5">
+                        <table class="w-full text-sm text-right">
+                            <tr><td class="py-2 text-gray-600 font-bold">Taxable Subtotal:</td><td class="py-2 text-gray-900 font-bold w-32" id="displaySubtotal">₹0.00</td></tr>
+                            <tr id="discountRow" class="hidden text-green-600"><td class="py-2 font-bold">Discount:</td><td class="py-2 font-bold w-32" id="displayDiscount">-₹0.00</td></tr>
+                            <tr id="cgstRow"><td class="py-2 text-gray-600">CGST:</td><td class="py-2 text-gray-800 w-32" id="displayCgst">₹0.00</td></tr>
+                            <tr id="sgstRow"><td class="py-2 text-gray-600">SGST:</td><td class="py-2 text-gray-800 w-32" id="displaySgst">₹0.00</td></tr>
+                            <tr id="igstRow" class="hidden"><td class="py-2 text-gray-600">IGST:</td><td class="py-2 text-gray-800 w-32" id="displayIgst">₹0.00</td></tr>
+                            <tr class="border-t-2 border-gray-900 text-lg"><td class="py-4 text-gray-900 font-black">Grand Total:</td><td class="py-4 text-indigo-700 font-black" id="displayTotal">₹0.00</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('invDateInput').valueAsDate = new Date();
+        let items = [];
+
+        // Rating logic
+        function setRating(stars) {
+            const starElements = document.querySelectorAll('#star-rating span');
+            starElements.forEach((s, index) => {
+                s.style.color = index < stars ? '#FBBF24' : '#d1d5db';
+            });
+            alert("Thank you for your " + stars + " star rating!");
+        }
+
+        function updateInvoice() {
+            document.getElementById('displayInvNumber').innerText = document.getElementById('invNumberInput').value || 'INV-001';
+            const formatDate = (val) => { if(!val) return ''; const d = new Date(val); return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }); };
+            document.getElementById('displayInvDate').innerText = formatDate(document.getElementById('invDateInput').value);
+            document.getElementById('displayDueDate').innerText = formatDate(document.getElementById('dueDateInput').value);
+        }
+        function addItem() {
+            const name = document.getElementById('itemName').value;
+            const hsn = document.getElementById('itemHsn').value || '-';
+            const qty = parseFloat(document.getElementById('itemQty').value);
+            const price = parseFloat(document.getElementById('itemPrice').value);
+            const gstRate = parseFloat(document.getElementById('itemGst').value);
+            if (!name || isNaN(qty) || isNaN(price)) { alert("Enter valid details"); return; }
+            items.push({ id: Date.now(), name, hsn, qty, price, gstRate, taxAmount: (qty * price * gstRate) / 100, amount: qty * price });
+            renderItems();
+        }
+        function deleteItem(id) { items = items.filter(item => item.id !== id); renderItems(); }
+        function renderItems() {
+            const tbody = document.getElementById('invoiceItems'); tbody.innerHTML = '';
+            items.forEach((item, index) => {
+                tbody.innerHTML += `<tr class="border-b border-gray-100"><td class="py-3 px-4">${index + 1}</td><td class="py-3 px-4 font-semibold">${item.name}</td><td class="py-3 px-2 text-center">${item.hsn}</td><td class="py-3 px-2 text-center">${item.qty}</td><td class="py-3 px-4 text-right">₹${item.price.toFixed(2)}</td><td class="py-3 px-2 text-center">${item.gstRate}%</td><td class="py-3 px-4 text-right font-bold">₹${item.amount.toFixed(2)}</td><td class="py-3 px-2 text-center no-print"><button onclick="deleteItem(${item.id})">🗑️</button></td></tr>`;
+            });
+            calculateTotal();
+        }
+        function calculateTotal() {
+            let subtotal = 0, totalTax = 0;
+            items.forEach(item => { subtotal += item.amount; totalTax += item.taxAmount; });
+            let discount = parseFloat(document.getElementById('discountInput').value) || 0;
+            let ratio = subtotal > 0 ? (subtotal - discount) / subtotal : 1;
+            let finalTax = totalTax * ratio;
+            const taxType = document.querySelector('input[name="taxType"]:checked').value;
+            if (taxType === 'local') {
+                document.getElementById('cgstRow').classList.remove('hidden'); document.getElementById('sgstRow').classList.remove('hidden'); document.getElementById('igstRow').classList.add('hidden');
+                document.getElementById('displayCgst').innerText = '₹' + (finalTax / 2).toFixed(2); document.getElementById('displaySgst').innerText = '₹' + (finalTax / 2).toFixed(2);
+            } else {
+                document.getElementById('cgstRow').classList.add('hidden'); document.getElementById('sgstRow').classList.add('hidden'); document.getElementById('igstRow').classList.remove('hidden');
+                document.getElementById('displayIgst').innerText = '₹' + finalTax.toFixed(2);
+            }
+            document.getElementById('displaySubtotal').innerText = '₹' + subtotal.toFixed(2);
+            document.getElementById('displayTotal').innerText = '₹' + Math.round(subtotal - discount + finalTax).toFixed(2);
+            document.getElementById('amountInWords').innerText = `Rupees ${numberToWords(Math.round(subtotal - discount + finalTax))} Only`;
+        }
+        function numberToWords(num) {
+            if (num === 0) return "Zero"; const a = ['', 'One ', 'Two ', 'Three ', 'Four ', 'Five ', 'Six ', 'Seven ', 'Eight ', 'Nine ', 'Ten ', 'Eleven ', 'Twelve ', 'Thirteen ', 'Fourteen ', 'Fifteen ', 'Sixteen ', 'Seventeen ', 'Eighteen ', 'Nineteen ']; const b = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety']; if ((num = num.toString()).length > 9) return 'Overflow'; let n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/); let str = ''; str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : ''; str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : ''; str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : ''; str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : ''; str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) : ''; return str.trim();
+        }
+        function downloadPDF() {
+            const element = document.getElementById('invoicePreview');
+            html2pdf().set({ margin: 0.3, filename: 'invoice.pdf', html2canvas: { scale: 2 }, jsPDF: { unit: 'in', format: 'a4' } }).from(element).save();
+        }
+        updateInvoice();
+    </script>
+</body>
+</html>
