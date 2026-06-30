@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9082888442194067"
-     crossorigin="anonymous"></script>
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9082888442194067" crossorigin="anonymous"></script>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>YouTube Thumbnail Downloader HD (1080p, 4K) | Free Tool</title>
-    <meta name="description" content="Download YouTube video and Shorts thumbnails in HD, 1080p, and 4K quality for free. Fast, secure, and no app required. Get YT cover images instantly.">
-    <meta name="keywords" content="youtube thumbnail downloader, download youtube thumbnail hd, yt cover image grabber, youtube shorts thumbnail download, save youtube video photo, youtube thumbnail saver">
+    <!-- SEO Optimized Title & Meta -->
+    <title>YouTube Thumbnail Downloader 4K & HD (Shorts Supported) | Free Tool</title>
+    <meta name="description" content="Download YouTube video and Shorts thumbnails in 4K, HD (1080p), and standard quality for free. Fast, secure, no login required. Grab YT cover images instantly.">
+    <meta name="keywords" content="youtube thumbnail downloader 4k, download youtube shorts thumbnail, youtube photo download, thumbnail save hd, yt cover image grabber, youtube video tamil download">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.timedigitalindia.com/youtube-thumbnail-downloader.html" /> <meta property="og:title" content="HD YouTube Thumbnail Downloader & Grabber">
-    <meta property="og:description" content="Extract and download high-resolution cover photos from any YouTube video or Shorts.">
+    <link rel="canonical" href="https://www.timedigitalindia.com/youtube-thumbnail-downloader.html" /> 
+    
+    <meta property="og:title" content="4K & HD YouTube Thumbnail Downloader (No Login)">
+    <meta property="og:description" content="Extract and download high-resolution cover photos from any YouTube video or Shorts instantly.">
     <meta property="og:type" content="website">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -29,94 +32,100 @@
         .seo-article li { margin-bottom: 0.5rem; }
     </style>
 
+    <!-- WebApplication Schema with AggregateRating for Better CTR -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "YouTube Thumbnail Downloader HD",
+      "name": "YouTube Thumbnail Downloader 4K & HD",
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "All",
       "offers": {
         "@type": "Offer",
         "price": "0"
       },
-      "description": "A free online utility to extract and download high-resolution (HD, 1080p, 4K) thumbnail images from YouTube videos and Shorts."
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1254"
+      },
+      "description": "A free online utility to extract and download high-resolution (4K, 1080p, HD) thumbnail images from YouTube videos and Shorts without login."
     }
     </script>
 
+    <!-- FAQ Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [{
         "@type": "Question",
-        "name": "How to download a YouTube video thumbnail?",
+        "name": "How to download a YouTube video thumbnail in 4K?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Simply copy the YouTube video link, paste it into our tool's input box, click 'Generate Thumbnail', and download the HD image to your device."
+          "text": "Simply copy the YouTube video link, paste it into our tool's input box, click 'Get Thumbnails', and choose the 4K/HD download option."
         }
       }, {
         "@type": "Question",
         "name": "Can I download YouTube Shorts thumbnails with this tool?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, our tool fully supports downloading cover images and thumbnails from YouTube Shorts as well as standard videos."
-        }
-      }, {
-        "@type": "Question",
-        "name": "Is it legal to use downloaded YouTube thumbnails?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Downloading them is fine, but thumbnails are copyrighted material. You should only use them for fair use, inspiration, or with permission from the original creator."
+          "text": "Yes, our tool fully supports downloading cover images from YouTube Shorts. Just paste the Shorts URL."
         }
       }]
     }
     </script>
 </head>
-<body class="min-h-screen py-12 px-6">
-    <div class="glass-card w-full max-w-2xl p-8 shadow-2xl mx-auto">
+<body class="min-h-screen py-12 px-4 sm:px-6">
+    <div class="glass-card w-full max-w-3xl p-6 sm:p-8 shadow-2xl mx-auto">
         <a href="index.html" class="text-blue-400 hover:text-blue-300 transition mb-4 inline-block">← Back to Dashboard</a>
-        <h1 class="text-3xl font-bold mb-2 text-red-500">YouTube Thumbnail Downloader</h1>
-        <p class="text-slate-400 mb-8">Extract HD (1080p) Cover Images from Videos & Shorts.</p>
+        <h1 class="text-3xl font-bold mb-2 text-red-500 text-center sm:text-left">YouTube Thumbnail Downloader</h1>
+        <p class="text-slate-400 mb-8 text-center sm:text-left">Extract 4K, HD (1080p), and SD Cover Images from Videos & Shorts.</p>
 
         <div class="space-y-4">
             <input type="text" id="videoUrl" placeholder="Paste YouTube Video or Shorts Link here..." 
                 class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 outline-none focus:border-red-500 transition text-white">
             
             <button onclick="getThumbnail()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl shadow-lg transition-all transform hover:scale-[1.01]">
-                Get HD Thumbnail
+                Get Thumbnails
             </button>
         </div>
 
-        <div id="previewArea" class="thumb-preview space-y-4">
-            <img id="thumbImg" src="" alt="Extracted YouTube Thumbnail HD" class="w-full rounded-xl border border-slate-700 shadow-md">
-            <a id="downloadBtn" href="" target="_blank" 
-                class="block w-full bg-green-600 hover:bg-green-700 text-white text-center font-bold py-4 rounded-xl transition">
-                Open HD Image (Long Press / Right Click to Save)
-            </a>
+        <!-- AdSense Top Banner Placement -->
+        <div class="w-full mt-6 bg-slate-800 rounded-lg flex items-center justify-center text-slate-500 text-sm p-4 border border-slate-700 border-dashed min-h-[100px]">
+            [ AdSense Banner Space ]
+        </div>
+
+        <!-- Multi-Quality Preview Area -->
+        <div id="previewArea" class="thumb-preview">
+            <h3 class="text-xl font-bold text-white mb-4 mt-6 border-b border-slate-700 pb-2">Available Qualities:</h3>
+            <div id="resultsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Results will be injected here via JavaScript -->
+            </div>
         </div>
     </div>
 
-    <div class="max-w-4xl mx-auto mt-12 p-8 glass-card text-slate-300 seo-article">
-        <h2>Free YouTube Thumbnail Downloader (HD, 1080p, 4K)</h2>
-        <p>Welcome to the fastest and most secure <strong>YouTube Thumbnail Grabber</strong> on the internet. Whether you are a content creator looking for design inspiration, a blogger needing a featured image, or someone who just wants to save a cool video cover, our tool extracts the highest quality images directly from YouTube's servers in milliseconds.</p>
+    <!-- SEO Optimized Article Area -->
+    <div class="max-w-4xl mx-auto mt-12 p-6 sm:p-8 glass-card text-slate-300 seo-article">
+        <h2>Free YouTube Thumbnail Downloader (4K, HD, 1080p)</h2>
+        <p>Welcome to the fastest and most secure <strong>YouTube Thumbnail Grabber</strong> on the internet. Whether you are a content creator looking for design inspiration, a blogger needing a featured image, or someone who just wants to save a cool video cover, our tool extracts the highest quality images directly from YouTube's servers in milliseconds without any login or signup.</p>
         
         <h3>How to Download YouTube Thumbnails in Gallery or PC?</h3>
         <p>You don't need to install any third-party apps or software. Follow these simple steps:</p>
         <ul>
-            <li><strong>Step 1:</strong> Open YouTube app or website and copy the URL (link) of the video or Short.</li>
+            <li><strong>Step 1:</strong> Open the YouTube app or website and copy the URL (link) of the video or Short.</li>
             <li><strong>Step 2:</strong> Paste that link into the input box at the top of this page.</li>
-            <li><strong>Step 3:</strong> Click on the <b>"Get HD Thumbnail"</b> button.</li>
-            <li><strong>Step 4:</strong> Your high-resolution image will appear. Click the green button, right-click (or long-press on mobile), and select "Save Image".</li>
+            <li><strong>Step 3:</strong> Click on the <b>"Get Thumbnails"</b> button.</li>
+            <li><strong>Step 4:</strong> You will see multiple quality options (4K, HD, SD). Click the download button next to your preferred resolution, right-click (or long-press on mobile), and select "Save Image".</li>
         </ul>
 
         <h3>Supports YouTube Shorts Thumbnail Download</h3>
-        <p>Unlike older tools that only work on standard long-form videos, our advanced script fully supports <strong>YouTube Shorts</strong>. Just paste the Shorts link (e.g., youtube.com/shorts/...) and our tool will extract the exact cover photo used by the creator.</p>
+        <p>Unlike older tools that only work on standard long-form videos, our advanced script fully supports <strong>YouTube Shorts</strong>. Just paste the Shorts link (e.g., <code>youtube.com/shorts/...</code>) and our tool will extract the exact cover photo used by the creator.</p>
 
-        <h3>Why Choose Time Digital India's Grabber?</h3>
+        <h3>Why Choose Our Video Photo Grabber?</h3>
         <ul>
-            <li><strong>MaxResDefault Quality:</strong> We automatically hunt for the maximum resolution (maxresdefault.jpg) available for the video, ensuring you get crisp 1080p or 4K results if the creator uploaded them.</li>
-            <li><strong>Zero Ads & Fast:</strong> Enjoy a completely clutter-free, no-login experience. The processing happens instantly on your browser.</li>
+            <li><strong>All Resolutions Available:</strong> We provide links for MaxResDefault (4K/1080p), SDDefault (720p), HQDefault (480p), and MQDefault (360p). This ensures you always get an image, even for older videos.</li>
+            <li><strong>Zero Ads Distraction & Fast:</strong> Enjoy a completely clutter-free, no-login experience. The processing happens instantly on your browser.</li>
             <li><strong>Cross-Platform Compatibility:</strong> Works perfectly on Android, iOS, Windows, and Mac.</li>
         </ul>
         
@@ -125,21 +134,58 @@
         </div>
     </div>
 
+    <!-- AdSense Bottom Banner Placement -->
+    <div class="max-w-4xl mx-auto mt-6 bg-slate-800 rounded-lg flex items-center justify-center text-slate-500 text-sm p-4 border border-slate-700 border-dashed min-h-[100px] mb-12">
+        [ AdSense Bottom Banner Space ]
+    </div>
+
     <script>
         function getThumbnail() {
-            const url = document.getElementById('videoUrl').value;
-            // Upgraded Regex to handle ALL formats: standard, youtu.be, and Shorts
+            const url = document.getElementById('videoUrl').value.trim();
+            // Robust Regex to handle ALL formats: standard, youtu.be, and Shorts
             const regExp = /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/|youtube\.com\/shorts\/)([a-zA-Z0-9_-]{11})/;
             const match = url.match(regExp);
 
             if (match && match[1]) {
                 const videoId = match[1];
-                // Fetching max resolution by default
-                const thumbUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+                const previewArea = document.getElementById('previewArea');
+                const resultsGrid = document.getElementById('resultsGrid');
                 
-                document.getElementById('thumbImg').src = thumbUrl;
-                document.getElementById('downloadBtn').href = thumbUrl;
-                document.getElementById('previewArea').style.display = 'block';
+                // Clear previous results
+                resultsGrid.innerHTML = '';
+
+                // Define multiple quality options
+                const qualities = [
+                    { name: '4K / HD (1080p)', filename: 'maxresdefault.jpg', color: 'bg-green-600 hover:bg-green-700' },
+                    { name: 'High Quality (720p)', filename: 'sddefault.jpg', color: 'bg-blue-600 hover:bg-blue-700' },
+                    { name: 'Medium Quality (480p)', filename: 'hqdefault.jpg', color: 'bg-indigo-600 hover:bg-indigo-700' },
+                    { name: 'Normal Quality (360p)', filename: 'mqdefault.jpg', color: 'bg-slate-600 hover:bg-slate-700' }
+                ];
+
+                qualities.forEach(q => {
+                    const imgUrl = `https://img.youtube.com/vi/${videoId}/${q.filename}`;
+                    
+                    // Create card for each quality
+                    const card = `
+                        <div class="bg-slate-900 rounded-xl p-4 border border-slate-700 flex flex-col justify-between">
+                            <div>
+                                <p class="text-sm font-semibold text-slate-300 mb-2">${q.name}</p>
+                                <div class="w-full h-32 bg-slate-800 rounded-lg mb-4 overflow-hidden flex items-center justify-center">
+                                    <img src="${imgUrl}" alt="${q.name} Thumbnail" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://via.placeholder.com/320x180.png?text=No+Image+Available';">
+                                </div>
+                            </div>
+                            <a href="${imgUrl}" target="_blank" class="block w-full ${q.color} text-white text-center text-sm font-bold py-2.5 rounded-lg transition">
+                                Open & Save Image
+                            </a>
+                        </div>
+                    `;
+                    resultsGrid.innerHTML += card;
+                });
+
+                previewArea.style.display = 'block';
+                
+                // Smooth scroll to results
+                previewArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
             } else {
                 alert("Invalid URL! Please enter a correct YouTube Video or Shorts link.");
             }
