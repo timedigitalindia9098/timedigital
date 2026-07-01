@@ -8,8 +8,8 @@
     
     <!-- Optimized SEO Title & Meta Description -->
     <title>Free Courier Charges Calculator India | Shipping Cost Estimator</title>
-    <meta name="description" content="Use our free courier charges calculator to estimate shipping cost in India. Check surface and express courier rates per kg for top logistics companies instantly.">
-    <meta name="keywords" content="courier charges calculator, shipping cost calculator india, courier rate calculator india, volumetric weight calculator, shipping charges estimator, courier charges per kg">
+    <meta name="description" content="Use our free courier charges calculator to estimate shipping cost in India. Check surface and express courier rates per kg for Delhivery, Ecom Express, BlueDart & more.">
+    <meta name="keywords" content="courier charges calculator, shipping cost calculator india, courier rate calculator india, delhivery price calculator, 1 kg courier charges, professional courier cost calculator, ecom express courier charges">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://timedigitalindia.com/courier-shipping-estimator">
 
@@ -61,6 +61,20 @@
           "@type": "Answer",
           "text": "Surface logistics utilizes ground trucks taking 4-7 business days but is budget-friendly. Express air shipments reserve cargo hold capacity, commanding a premium price for 24-48 hour delivery."
         }
+      }, {
+        "@type": "Question",
+        "name": "What are FOV charges in logistics?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "FOV stands for Freight on Value. It is an additional risk surcharge levied by courier companies on high-value shipments (like electronics or jewelry) to cover insurance during transit."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How to calculate bulk courier charges?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For shipments above 10-15 kg, commercial carriers offer discounted bulk freight rates which are significantly lower than standard retail per kg courier charges."
+        }
       }]
     }
     </script>
@@ -82,6 +96,7 @@
         .card { background: white; border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05); padding: 30px; border: 1px solid #E2E8F0; }
         h1 { font-size: 26px; color: var(--bg-dark); margin-top: 0; text-align: center; font-weight: 800; }
         h2 { font-size: 22px; color: var(--bg-dark); margin-top: 30px; border-bottom: 2px solid #E2E8F0; padding-bottom: 10px; }
+        h3 { color: var(--bg-dark); margin-top: 20px; }
         
         .form-group { margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 14px; }
@@ -97,7 +112,7 @@
         .weight-badge { display: inline-block; background: #E2E8F0; padding: 4px 10px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 15px; }
         .carrier-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #E2E8F0; }
         .carrier-row:last-child { border-bottom: none; }
-        .carrier-name { font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .carrier-name { font-weight: 600; display: flex; align-items: center; gap: 8px; font-size: 14px; }
         .carrier-price { font-size: 18px; font-weight: 700; color: var(--success); }
 
         /* SEO Content Area */
@@ -106,6 +121,9 @@
         .seo-content li { margin-bottom: 10px; }
         .faq-item { margin-bottom: 20px; }
         .faq-question { font-weight: 700; color: #1E293B; margin-bottom: 5px; font-size: 16px; }
+        
+        /* Footer */
+        .site-footer { text-align: center; margin-top: 50px; padding: 20px; color: #64748B; font-size: 14px; border-top: 1px solid #E2E8F0; font-weight: 600; }
     </style>
 </head>
 <body>
@@ -127,7 +145,7 @@
 
             <!-- Optimized H1 Tag -->
             <h1>Courier Charges Calculator India</h1>
-            <p style="text-align: center; color: #64748B; font-size: 14px; margin-top: -10px; margin-bottom: 25px;">Estimate shipping costs & courier charges per kg instantly.</p>
+            <p style="text-align: center; color: #64748B; font-size: 14px; margin-top: -10px; margin-bottom: 25px;">Estimate 1 kg courier charges & compare shipping costs instantly.</p>
             
             <div class="form-group">
                 <label for="zone">Shipping Destination Zone</label>
@@ -141,7 +159,8 @@
 
             <div class="form-group">
                 <label for="actualWeight">Actual Physical Weight (in Kilograms)</label>
-                <input type="number" id="actualWeight" step="0.01" value="0.5" min="0.1">
+                <!-- Default weight changed to 1kg based on search demand -->
+                <input type="number" id="actualWeight" step="0.01" value="1" min="0.1">
             </div>
 
             <div class="form-group">
@@ -163,18 +182,27 @@
 
             <div class="results-box" id="resultsSection">
                 <div class="weight-badge">Charged Weight Method: <span id="weightMethod">Actual</span></div>
-                <p style="margin: 0 0 15px 0; font-size: 15px;">Final Payable Weight: <strong id="finalWeightDisplay">0.5</strong> Kg</p>
+                <p style="margin: 0 0 15px 0; font-size: 15px;">Final Payable Weight: <strong id="finalWeightDisplay">1.0</strong> Kg</p>
                 
+                <!-- Added new requested carriers -->
                 <div class="carrier-row">
-                    <div class="carrier-name">📦 India Post (Speed Post) <small style="color:#64748B;">(Reliable/Govt)</small></div>
+                    <div class="carrier-name">📦 India Post <small style="color:#64748B;">(Speed Post)</small></div>
                     <div class="carrier-price" id="pricePost">₹0</div>
                 </div>
                 <div class="carrier-row">
-                    <div class="carrier-name">🚚 Delhivery Surface <small style="color:#64748B;">(Best for E-commerce)</small></div>
+                    <div class="carrier-name">🚚 Delhivery Surface <small style="color:#64748B;">(E-commerce)</small></div>
                     <div class="carrier-price" id="priceDelhivery">₹0</div>
                 </div>
                 <div class="carrier-row">
-                    <div class="carrier-name">⚡ BlueDart / Express <small style="color:#64748B;">(Premium/Fastest)</small></div>
+                    <div class="carrier-name">🛒 Ecom Express <small style="color:#64748B;">(Budget Parcel)</small></div>
+                    <div class="carrier-price" id="priceEcom">₹0</div>
+                </div>
+                <div class="carrier-row">
+                    <div class="carrier-name">🏢 Professional Courier <small style="color:#64748B;">(B2B/Documents)</small></div>
+                    <div class="carrier-price" id="priceProfessional">₹0</div>
+                </div>
+                <div class="carrier-row">
+                    <div class="carrier-name">⚡ BlueDart / Express <small style="color:#64748B;">(Premium Fast)</small></div>
                     <div class="carrier-price" id="priceBlueDart">₹0</div>
                 </div>
             </div>
@@ -191,19 +219,23 @@
             <div style="background: white; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; text-align: center; font-weight: bold; border: 1px dashed var(--primary);">
                 Volumetric Weight (Kg) = (L × W × H in cm) / 5000
             </div>
-            <p style="font-size: 13px; color: #475569; margin-top: 15px;"><em>Our automated tool compares this algorithm across India's top courier services to save you from hidden platform fees.</em></p>
+            
+            <!-- Added targeted Delhivery Section -->
+            <h3>Delhivery Shipping Charges Calculator</h3>
+            <p style="font-size: 13px; color: #475569;">Looking specifically for a <strong>delhivery price calculator</strong>? Our tool utilizes base matrices to provide an accurate Delhivery estimate for surface delivery, helping e-commerce sellers plan their shipping cost without hidden fees.</p>
         </div>
 
     </div> 
     
     <div class="seo-content">
-        <h2>How to Use the Free Shipping Cost Calculator India</h2>
-        <p>Managing logistics can be highly challenging for individual e-commerce sellers, retail stores, and small scale distributors on platforms like Meesho and Flipkart. To estimate your shipping cost seamlessly, follow these simple steps:</p>
+        <!-- Added targeted 1 KG Header -->
+        <h2>1 KG Courier Charges in India (Estimated)</h2>
+        <p>A frequent query for online sellers is finding out exact <strong>1 kg courier charges</strong>. The rates fluctuate based on your zone. Managing logistics can be highly challenging for individual e-commerce sellers, retail stores, and small scale distributors on platforms like Meesho and Flipkart. To estimate your shipping cost seamlessly, follow these simple steps:</p>
         <ul>
             <li><strong>Step 1: Select Destination Zone</strong> - Identify if your customer resides locally, regionally, or in a major metropolitan hub.</li>
             <li><strong>Step 2: Enter Dead Weight</strong> - Use a standard weighing scale to input the structural mass of the packed box in kilograms.</li>
             <li><strong>Step 3: Measure Dimensions</strong> - Input the Length, Width, and Height of the outer package box in centimeters to check for volumetric overhead charges.</li>
-            <li><strong>Step 4: Analyze and Compare</strong> - Hit 'Calculate Shipping Cost' to get standard courier charges per kg across leading networks.</li>
+            <li><strong>Step 4: Analyze and Compare</strong> - Hit 'Calculate Shipping Cost' to get standard courier charges per kg across leading networks like Ecom Express and Professional Courier.</li>
         </ul>
 
         <h2>Understanding Volumetric vs. Actual Courier Rates</h2>
@@ -225,7 +257,23 @@
             <div class="faq-question">Q3: Does this shipping cost estimator include GST parameters?</div>
             <div class="faq-content">Ans: No, the base calculation matrix maps out operational cargo costs. You must add standard 18% Integrated Goods and Services Tax (IGST) over the output data for final legal computations.</div>
         </div>
+
+        <!-- Added targeted FAQ 4 & 5 based on search data -->
+        <div class="faq-item">
+            <div class="faq-question">Q4: What are FOV charges in logistics?</div>
+            <div class="faq-content">Ans: FOV stands for Freight on Value. It is an additional risk surcharge levied by courier companies on high-value shipments (like electronics or jewelry) to cover insurance during transit.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Q5: How to calculate bulk courier charges?</div>
+            <div class="faq-content">Ans: For shipments above 10-15 kg, commercial carriers offer discounted bulk freight rates which are significantly lower than standard retail per kg courier charges. You will need to contact the B2B division of carriers directly for accurate bulk pricing.</div>
+        </div>
     </div>
+
+    <!-- Added requested footer -->
+    <footer class="site-footer">
+        © 2026 TIMEDIGITALINDIA ALL RIGHT RESERVED
+    </footer>
 
 </div>
 
@@ -248,19 +296,21 @@ function calculatePremiumShipping() {
     let weightSlabs = Math.ceil(finalWeight / 0.5);
     if(weightSlabs === 0) weightSlabs = 1;
 
-    // Core Pricing Matrices
+    // Core Pricing Matrices updated with new carriers
     let rates = {
-        local: { post: 35, delhivery: 40, bluedart: 70 },
-        regional: { post: 45, delhivery: 55, bluedart: 95 },
-        metro: { post: 60, delhivery: 75, bluedart: 130 },
-        national: { post: 75, delhivery: 90, bluedart: 160 }
+        local: { post: 35, delhivery: 40, ecom: 38, professional: 45, bluedart: 70 },
+        regional: { post: 45, delhivery: 55, ecom: 50, professional: 60, bluedart: 95 },
+        metro: { post: 60, delhivery: 75, ecom: 70, professional: 80, bluedart: 130 },
+        national: { post: 75, delhivery: 90, ecom: 85, professional: 95, bluedart: 160 }
     };
 
     let baseRate = rates[zone];
     
-    // Calculation algorithm
+    // Calculation algorithm (added ecom and professional)
     let finalPost = baseRate.post * (weightSlabs * 0.85); 
     let finalDelhivery = baseRate.delhivery * (weightSlabs * 0.9);
+    let finalEcom = baseRate.ecom * (weightSlabs * 0.88);
+    let finalProfessional = baseRate.professional * (weightSlabs * 0.92);
     let finalBlueDart = baseRate.bluedart * (weightSlabs * 0.95);
 
     // Render Logic
@@ -269,6 +319,8 @@ function calculatePremiumShipping() {
     
     document.getElementById('pricePost').innerText = "₹" + Math.round(finalPost);
     document.getElementById('priceDelhivery').innerText = "₹" + Math.round(finalDelhivery);
+    document.getElementById('priceEcom').innerText = "₹" + Math.round(finalEcom);
+    document.getElementById('priceProfessional').innerText = "₹" + Math.round(finalProfessional);
     document.getElementById('priceBlueDart').innerText = "₹" + Math.round(finalBlueDart);
     
     document.getElementById('resultsSection').style.display = 'block';
