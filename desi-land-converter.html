@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ADVANCED SEO META TAGS -->
+    <title>Desi Land Converter | Bigha, Gaj, Marla to Square Feet Online</title>
+    <meta name="description" content="Free, fast, and no-login online land area converter. Instantly convert Bigha, Gaj, Marla, Kanal, Katha to Square Feet, Acres, and Hectares.">
+    <meta name="keywords" content="bigha to square feet, gaj to sq ft, marla to sq ft converter, kanal to acre, katha to square feet, desi land calculator, land measurement india">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Time Digital India">
+    
+    <!-- Open Graph for Social/WhatsApp Sharing by Property Dealers -->
+    <meta property="og:title" content="Fastest Land Area Converter for India & South Asia">
+    <meta property="og:description" content="Calculate Bigha, Gaj, Marla, and Katha instantly on your mobile. Zero ads, zero login.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://timedigitalindia.com/desi-land-converter">
+
+    <!-- JSON-LD SCHEMA FOR RICH SNIPPETS -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Desi Land Area Converter",
+      "url": "https://timedigitalindia.com/desi-land-converter",
+      "description": "A completely free, client-side utility to convert regional South Asian land units like Bigha, Gaj, and Marla into standard global units.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "INR"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Time Digital India"
+      }
+    }
+    </script>
+
+    <!-- Tailwind CSS (Matching Your Index Page) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Inter"', 'sans-serif'] },
+                    colors: { brand: '#4F46E5', surface: '#FAFAFA' }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #FAFAFA; color: #111827; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(229, 231, 235, 1);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+        input:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+            border-color: #4F46E5;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- BACK BUTTON & HEADER -->
+    <div class="w-full max-w-4xl mx-auto px-6 pt-8">
+        <a href="https://timedigitalindia.com" class="inline-flex items-center text-sm font-semibold text-brand hover:text-indigo-800 transition-colors mb-6 group">
+            <svg class="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Back to Time Digital India Tools
+        </a>
+        
+        <header class="text-center mb-10">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">Desi Land Area Converter</h1>
+            <p class="text-gray-600 font-medium max-w-2xl mx-auto">Instantly convert local units like Gaj, Bigha, and Marla to Square Feet, Acres, and Meters. 100% free, processes instantly in your browser.</p>
+        </header>
+    </div>
+
+    <!-- MAIN TOOL UI -->
+    <main class="flex-1 w-full max-w-4xl mx-auto px-6 pb-20">
+        <div class="glass-card rounded-2xl p-6 sm:p-10 relative overflow-hidden mb-12">
+            <!-- Decorative Background Element -->
+            <div class="absolute top-0 right-0 -mr-16 -mt-16 w-32 h-32 rounded-full bg-indigo-50 opacity-50 pointer-events-none"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+                
+                <!-- INPUT SECTION -->
+                <div class="space-y-4">
+                    <label class="block text-sm font-bold text-gray-700">Value to Convert</label>
+                    <input type="number" id="inputValue" value="1" placeholder="Enter number..." class="w-full px-4 py-4 rounded-xl border border-gray-200 bg-white text-gray-900 text-lg font-semibold transition-all" oninput="calculateLand()">
+                    
+                    <label class="block text-sm font-bold text-gray-700 mt-4">From Unit</label>
+                    <div class="relative">
+                        <select id="fromUnit" class="w-full px-4 py-4 rounded-xl border border-gray-200 bg-white text-gray-900 font-medium appearance-none transition-all cursor-pointer" onchange="calculateLand()">
+                            <option value="sqft">Square Feet (Sq Ft)</option>
+                            <option value="sqmeter">Square Meter (Sq Mt)</option>
+                            <option value="gaj">Gaj (Square Yard)</option>
+                            <option value="bighaUP" selected>Bigha (UP/Rajasthan - 27,000 sqft)</option>
+                            <option value="marla">Marla (272.25 sqft)</option>
+                            <option value="kanal">Kanal (5,445 sqft)</option>
+                            <option value="katha">Katha / Cottah (720 sqft)</option>
+                            <option value="acre">Acre</option>
+                            <option value="hectare">Hectare</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OUTPUT SECTION -->
+                <div class="space-y-4">
+                    <label class="block text-sm font-bold text-gray-700">Converted Result</label>
+                    <input type="text" id="outputValue" readonly class="w-full px-4 py-4 rounded-xl border border-gray-200 bg-gray-50 text-brand text-2xl font-extrabold transition-all">
+                    
+                    <label class="block text-sm font-bold text-gray-700 mt-4">To Unit</label>
+                    <div class="relative">
+                        <select id="toUnit" class="w-full px-4 py-4 rounded-xl border border-gray-200 bg-white text-gray-900 font-medium appearance-none transition-all cursor-pointer" onchange="calculateLand()">
+                            <option value="sqft" selected>Square Feet (Sq Ft)</option>
+                            <option value="sqmeter">Square Meter (Sq Mt)</option>
+                            <option value="gaj">Gaj (Square Yard)</option>
+                            <option value="bighaUP">Bigha (UP/Rajasthan)</option>
+                            <option value="marla">Marla</option>
+                            <option value="kanal">Kanal</option>
+                            <option value="katha">Katha / Cottah</option>
+                            <option value="acre">Acre</option>
+                            <option value="hectare">Hectare</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <button onclick="swapUnits()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold text-sm transition-colors border border-gray-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"></path></svg>
+                    Swap Units
+                </button>
+            </div>
+        </div>
+
+        <!-- SEO TEXT SECTION (To beat the big sites) -->
+        <article class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Why Use Our Free Land Measurement Calculator?</h2>
+            <div class="prose max-w-none text-gray-600 space-y-4 leading-relaxed">
+                <p>Navigating property deals in India, Pakistan, and Bangladesh requires precise land conversion. Whether you are dealing with a plot in <strong>Gaj</strong> in Delhi, agricultural land in <strong>Bigha</strong> in Uttar Pradesh, or residential spaces in <strong>Marla</strong> in Punjab, our tool simplifies the math instantly.</p>
+                
+                <h3 class="text-lg font-bold text-gray-900 mt-6">How many Square Feet are in local units?</h3>
+                <p>Unlike global units, regional units vary. Here is the standard conversion chart used by property dealers and state governments:</p>
+                
+                <div class="overflow-x-auto mt-4 mb-6">
+                    <table class="w-full text-sm text-left border-collapse">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 border-b">Local Unit</th>
+                                <th class="px-6 py-3 border-b">Standard Equivalent (Approx.)</th>
+                                <th class="px-6 py-3 border-b">Used Mostly In</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b">
+                                <td class="px-6 py-4 font-semibold">1 Gaj (Square Yard)</td>
+                                <td class="px-6 py-4">9 Square Feet</td>
+                                <td class="px-6 py-4">Delhi, Haryana, Punjab</td>
+                            </tr>
+                            <tr class="bg-gray-50 border-b">
+                                <td class="px-6 py-4 font-semibold">1 Bigha (UP/Raj/MP)</td>
+                                <td class="px-6 py-4">27,000 Square Feet</td>
+                                <td class="px-6 py-4">Uttar Pradesh, Madhya Pradesh, Rajasthan</td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <td class="px-6 py-4 font-semibold">1 Marla</td>
+                                <td class="px-6 py-4">272.25 Square Feet</td>
+                                <td class="px-6 py-4">Punjab, Haryana, Pakistan</td>
+                            </tr>
+                            <tr class="bg-gray-50 border-b">
+                                <td class="px-6 py-4 font-semibold">1 Kanal</td>
+                                <td class="px-6 py-4">5,445 Square Feet (20 Marlas)</td>
+                                <td class="px-6 py-4">Northern India, Pakistan</td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <td class="px-6 py-4 font-semibold">1 Katha / Cottah</td>
+                                <td class="px-6 py-4">720 Square Feet</td>
+                                <td class="px-6 py-4">West Bengal, Bihar, Assam, Bangladesh</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p><strong>Note on Bigha:</strong> The size of a Bigha varies heavily by state. While this tool uses the standard UP/Rajasthan measurement (27,000 sq ft) for general calculations, always verify localized state revenue records for exact legal property registrations.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full bg-white border-t border-gray-200 py-8 text-center mt-auto">
+        <p class="text-sm font-medium text-gray-500">© 2026 Time Digital India. Designed for instant utility and speed.</p>
+    </footer>
+
+    <!-- LOGIC SCRIPT (100% Client-Side) -->
+    <script>
+        // Conversion rates to a base unit (Square Feet)
+        const unitToSqFt = {
+            sqft: 1,
+            sqmeter: 10.7639,
+            gaj: 9,
+            bighaUP: 27000, 
+            marla: 272.25,
+            kanal: 5445,
+            katha: 720,
+            acre: 43560,
+            hectare: 107639
+        };
+
+        function calculateLand() {
+            const inputVal = parseFloat(document.getElementById('inputValue').value);
+            const fromUnit = document.getElementById('fromUnit').value;
+            const toUnit = document.getElementById('toUnit').value;
+            const outputEl = document.getElementById('outputValue');
+
+            if (isNaN(inputVal)) {
+                outputEl.value = "";
+                return;
+            }
+
+            // Convert Input -> Base (SqFt) -> Target
+            const baseValueInSqFt = inputVal * unitToSqFt[fromUnit];
+            let finalValue = baseValueInSqFt / unitToSqFt[toUnit];
+
+            // Format to avoid extreme decimals, keep it clean for users
+            if (finalValue % 1 !== 0) {
+                finalValue = parseFloat(finalValue.toFixed(4)); 
+            }
+
+            outputEl.value = finalValue;
+        }
+
+        function swapUnits() {
+            const fromEl = document.getElementById('fromUnit');
+            const toEl = document.getElementById('toUnit');
+            
+            const temp = fromEl.value;
+            fromEl.value = toEl.value;
+            toEl.value = temp;
+            
+            calculateLand(); // Recalculate instantly
+        }
+
+        // Run calculation on initial load
+        window.onload = calculateLand;
+    </script>
+</body>
+</html>
