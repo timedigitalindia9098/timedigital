@@ -7,16 +7,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- ADVANCED SEO META TAGS -->
-    <title>Desi Land Converter | Bigha, Gaj, Marla to Square Feet Online</title>
-    <meta name="description" content="Free, fast, and no-login online land area converter. Instantly convert Bigha, Gaj, Marla, Kanal, Katha to Square Feet, Acres, and Hectares.">
-    <meta name="keywords" content="bigha to square feet, gaj to sq ft, marla to sq ft converter, kanal to acre, katha to square feet, desi land calculator, land measurement india">
+    <!-- ADVANCED SEO META TAGS FOR INTERNATIONAL RANKING -->
+    <title>Desi Land Converter | Bigha, Marla, Ropani, Guntha to Sq Ft Online</title>
+    <meta name="description" content="Free, fast online land area converter for India, Pakistan, Nepal, and Bangladesh. Convert Bigha, Lahore Marla, Ropani, Guntha, and Shatak to Square Feet instantly.">
+    <meta name="keywords" content="bigha to square feet, lahore marla to sq ft, ropani to sq ft, guntha converter, shatak to square feet, bengal bigha, nepal land calculator, pakistan land measurement, bangladesh decimal to sq ft, sarsahi, dhur, aana">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Time Digital India">
     
     <!-- Open Graph for Social/WhatsApp Sharing by Property Dealers -->
-    <meta property="og:title" content="Fastest Land Area Converter for India & South Asia">
-    <meta property="og:description" content="Calculate Bigha, Gaj, Marla, and Katha instantly on your mobile. Zero ads, zero login.">
+    <meta property="og:title" content="Ultimate Land Area Converter for South Asia">
+    <meta property="og:description" content="Calculate Bigha, Marla, Ropani, Guntha, and Shatak instantly on your mobile. Zero ads, zero login.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://timedigitalindia.com/desi-land-converter">
 
@@ -27,7 +27,7 @@
       "@type": "WebApplication",
       "name": "Desi Land Area Converter",
       "url": "https://timedigitalindia.com/desi-land-converter",
-      "description": "A completely free, client-side utility to convert regional South Asian land units like Bigha, Gaj, and Marla into standard global units.",
+      "description": "A completely free, client-side utility to convert regional South Asian land units like Bigha, Marla (Pakistan), Ropani (Nepal), and Shatak (Bangladesh) into standard global units.",
       "applicationCategory": "UtilityApplication",
       "operatingSystem": "All",
       "offers": {
@@ -82,7 +82,7 @@
         
         <header class="text-center mb-10">
             <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">Desi Land Area Converter</h1>
-            <p class="text-gray-600 font-medium max-w-2xl mx-auto">Instantly convert local units like Gaj, Bigha, and Marla to Square Feet, Acres, and Meters. 100% free, processes instantly in your browser.</p>
+            <p class="text-gray-600 font-medium max-w-2xl mx-auto">Instantly convert local units from India, Pakistan, Nepal & Bangladesh to Square Feet, Acres, and Meters. 100% free, processes instantly in your browser.</p>
         </header>
     </div>
 
@@ -101,14 +101,22 @@
                     
                     <label class="block text-sm font-bold text-gray-700 mt-4">From Unit</label>
                     <div class="relative">
-                        <select id="fromUnit" class="w-full px-4 py-4 rounded-xl border border-gray-200 bg-white text-gray-900 font-medium appearance-none transition-all cursor-pointer" onchange="calculateLand()">
+                        <select id="fromUnit" class="w-full px-4 py-4 rounded-xl border border-gray-200 bg-white text-gray-900 font-medium appearance-none transition-all cursor-pointer truncate" onchange="calculateLand()">
                             <option value="sqft">Square Feet (Sq Ft)</option>
                             <option value="sqmeter">Square Meter (Sq Mt)</option>
-                            <option value="gaj">Gaj (Square Yard)</option>
-                            <option value="bighaUP" selected>Bigha (UP/Rajasthan - 27,000 sqft)</option>
-                            <option value="marla">Marla (272.25 sqft)</option>
+                            <option value="gaj">Gaj (Square Yard - 9 sqft)</option>
+                            <option value="bighaUP" selected>Bigha (UP/Raj/MP - 27,000 sqft)</option>
+                            <option value="bighaBengal">Bigha (Bengal/Bangladesh - 14,400 sqft)</option>
+                            <option value="marla">Marla (Standard/Revenue - 272.25 sqft)</option>
+                            <option value="marlaLahore">Marla (Lahore/Urban - 225 sqft)</option>
+                            <option value="sarsahi">Sarsahi (Pakistan - 30.25 sqft)</option>
                             <option value="kanal">Kanal (5,445 sqft)</option>
                             <option value="katha">Katha / Cottah (720 sqft)</option>
+                            <option value="shatak">Shatak / Decimal / Cent (435.6 sqft)</option>
+                            <option value="guntha">Guntha / Gunta (1,089 sqft)</option>
+                            <option value="ropani">Ropani (Nepal - 5,476 sqft)</option>
+                            <option value="aana">Aana (Nepal - 342.25 sqft)</option>
+                            <option value="dhur">Dhur (Nepal Terai - 182.25 sqft)</option>
                             <option value="acre">Acre</option>
                             <option value="hectare">Hectare</option>
                         </select>
@@ -125,14 +133,22 @@
                     
                     <label class="block text-sm font-bold text-gray-700 mt-4">To Unit</label>
                     <div class="relative">
-                        <select id="toUnit" class="w-full px-4 py-4 rounded-xl border border-gray-200 bg-white text-gray-900 font-medium appearance-none transition-all cursor-pointer" onchange="calculateLand()">
+                        <select id="toUnit" class="w-full px-4 py-4 rounded-xl border border-gray-200 bg-white text-gray-900 font-medium appearance-none transition-all cursor-pointer truncate" onchange="calculateLand()">
                             <option value="sqft" selected>Square Feet (Sq Ft)</option>
                             <option value="sqmeter">Square Meter (Sq Mt)</option>
-                            <option value="gaj">Gaj (Square Yard)</option>
-                            <option value="bighaUP">Bigha (UP/Rajasthan)</option>
-                            <option value="marla">Marla</option>
-                            <option value="kanal">Kanal</option>
-                            <option value="katha">Katha / Cottah</option>
+                            <option value="gaj">Gaj (Square Yard - 9 sqft)</option>
+                            <option value="bighaUP">Bigha (UP/Raj/MP - 27,000 sqft)</option>
+                            <option value="bighaBengal">Bigha (Bengal/Bangladesh - 14,400 sqft)</option>
+                            <option value="marla">Marla (Standard/Revenue - 272.25 sqft)</option>
+                            <option value="marlaLahore">Marla (Lahore/Urban - 225 sqft)</option>
+                            <option value="sarsahi">Sarsahi (Pakistan - 30.25 sqft)</option>
+                            <option value="kanal">Kanal (5,445 sqft)</option>
+                            <option value="katha">Katha / Cottah (720 sqft)</option>
+                            <option value="shatak">Shatak / Decimal / Cent (435.6 sqft)</option>
+                            <option value="guntha">Guntha / Gunta (1,089 sqft)</option>
+                            <option value="ropani">Ropani (Nepal - 5,476 sqft)</option>
+                            <option value="aana">Aana (Nepal - 342.25 sqft)</option>
+                            <option value="dhur">Dhur (Nepal Terai - 182.25 sqft)</option>
                             <option value="acre">Acre</option>
                             <option value="hectare">Hectare</option>
                         </select>
@@ -151,14 +167,14 @@
             </div>
         </div>
 
-        <!-- SEO TEXT SECTION (To beat the big sites) -->
+        <!-- SEO TEXT SECTION (International Targeting) -->
         <article class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Why Use Our Free Land Measurement Calculator?</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Why Use Our Free South Asian Land Calculator?</h2>
             <div class="prose max-w-none text-gray-600 space-y-4 leading-relaxed">
-                <p>Navigating property deals in India, Pakistan, and Bangladesh requires precise land conversion. Whether you are dealing with a plot in <strong>Gaj</strong> in Delhi, agricultural land in <strong>Bigha</strong> in Uttar Pradesh, or residential spaces in <strong>Marla</strong> in Punjab, our tool simplifies the math instantly.</p>
+                <p>Navigating property deals across South Asia requires precise, localized land conversion. Whether you are dealing with a plot in <strong>Gaj</strong> in Delhi, agricultural land in <strong>Bigha</strong> in Uttar Pradesh, a residential space in <strong>Lahore Marla</strong> in Pakistan, or measuring <strong>Ropani</strong> in Nepal, our tool simplifies the math instantly offline.</p>
                 
-                <h3 class="text-lg font-bold text-gray-900 mt-6">How many Square Feet are in local units?</h3>
-                <p>Unlike global units, regional units vary. Here is the standard conversion chart used by property dealers and state governments:</p>
+                <h3 class="text-lg font-bold text-gray-900 mt-6">Regional Unit Conversion Chart</h3>
+                <p>Unlike standard global units, regional units vary drastically by country and state. Here is the standard conversion chart used by property dealers, real estate agents, and government revenue departments:</p>
                 
                 <div class="overflow-x-auto mt-4 mb-6">
                     <table class="w-full text-sm text-left border-collapse">
@@ -173,33 +189,48 @@
                             <tr class="bg-white border-b">
                                 <td class="px-6 py-4 font-semibold">1 Gaj (Square Yard)</td>
                                 <td class="px-6 py-4">9 Square Feet</td>
-                                <td class="px-6 py-4">Delhi, Haryana, Punjab</td>
+                                <td class="px-6 py-4">Delhi, Haryana, Punjab (India)</td>
                             </tr>
                             <tr class="bg-gray-50 border-b">
                                 <td class="px-6 py-4 font-semibold">1 Bigha (UP/Raj/MP)</td>
                                 <td class="px-6 py-4">27,000 Square Feet</td>
-                                <td class="px-6 py-4">Uttar Pradesh, Madhya Pradesh, Rajasthan</td>
+                                <td class="px-6 py-4">Northern & Central India</td>
                             </tr>
                             <tr class="bg-white border-b">
-                                <td class="px-6 py-4 font-semibold">1 Marla</td>
-                                <td class="px-6 py-4">272.25 Square Feet</td>
-                                <td class="px-6 py-4">Punjab, Haryana, Pakistan</td>
+                                <td class="px-6 py-4 font-semibold">1 Bigha (Bengal)</td>
+                                <td class="px-6 py-4">14,400 Square Feet</td>
+                                <td class="px-6 py-4">West Bengal, Bangladesh</td>
                             </tr>
                             <tr class="bg-gray-50 border-b">
-                                <td class="px-6 py-4 font-semibold">1 Kanal</td>
-                                <td class="px-6 py-4">5,445 Square Feet (20 Marlas)</td>
-                                <td class="px-6 py-4">Northern India, Pakistan</td>
+                                <td class="px-6 py-4 font-semibold">1 Marla (Standard)</td>
+                                <td class="px-6 py-4">272.25 Square Feet</td>
+                                <td class="px-6 py-4">Punjab (India & Pakistan)</td>
                             </tr>
                             <tr class="bg-white border-b">
-                                <td class="px-6 py-4 font-semibold">1 Katha / Cottah</td>
-                                <td class="px-6 py-4">720 Square Feet</td>
-                                <td class="px-6 py-4">West Bengal, Bihar, Assam, Bangladesh</td>
+                                <td class="px-6 py-4 font-semibold">1 Marla (Lahore/Urban)</td>
+                                <td class="px-6 py-4">225 Square Feet</td>
+                                <td class="px-6 py-4">Lahore, Major Cities in Pakistan</td>
+                            </tr>
+                            <tr class="bg-gray-50 border-b">
+                                <td class="px-6 py-4 font-semibold">1 Ropani</td>
+                                <td class="px-6 py-4">5,476 Square Feet</td>
+                                <td class="px-6 py-4">Nepal (Hilly Regions, Kathmandu)</td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <td class="px-6 py-4 font-semibold">1 Guntha / Gunta</td>
+                                <td class="px-6 py-4">1,089 Square Feet</td>
+                                <td class="px-6 py-4">Maharashtra, Gujarat, Karnataka</td>
+                            </tr>
+                            <tr class="bg-gray-50 border-b">
+                                <td class="px-6 py-4 font-semibold">1 Shatak / Decimal / Cent</td>
+                                <td class="px-6 py-4">435.6 Square Feet</td>
+                                <td class="px-6 py-4">Bangladesh, Kerala, Tamil Nadu</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <p><strong>Note on Bigha:</strong> The size of a Bigha varies heavily by state. While this tool uses the standard UP/Rajasthan measurement (27,000 sq ft) for general calculations, always verify localized state revenue records for exact legal property registrations.</p>
+                <p><strong>Legal Disclaimer:</strong> Land measurements like Bigha, Marla, and Katha vary heavily by specific state and local districts. While this calculator uses standard accepted revenue values for general estimations, always verify localized state revenue records before making legal property registrations or financial decisions.</p>
             </div>
         </article>
     </main>
@@ -211,15 +242,23 @@
 
     <!-- LOGIC SCRIPT (100% Client-Side) -->
     <script>
-        // Conversion rates to a base unit (Square Feet)
+        // Extensive Conversion rates to a base unit (Square Feet)
         const unitToSqFt = {
             sqft: 1,
             sqmeter: 10.7639,
             gaj: 9,
             bighaUP: 27000, 
+            bighaBengal: 14400,
             marla: 272.25,
+            marlaLahore: 225,
+            sarsahi: 30.25,
             kanal: 5445,
             katha: 720,
+            shatak: 435.6, // Also equals 1 Cent / Decimal
+            guntha: 1089,
+            ropani: 5476,
+            aana: 342.25,
+            dhur: 182.25,
             acre: 43560,
             hectare: 107639
         };
