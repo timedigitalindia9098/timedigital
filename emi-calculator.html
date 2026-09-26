@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 🚀 HIGHLY OPTIMIZED SEO META TAGS -->
+    <title>Free EMI Calculator Online: Home, Car & Personal Loan | Time Digital India</title>
+    <meta name="description" content="Calculate your monthly Equated Monthly Installment (EMI) for Home, Car, or Personal loans easily. Use our free online EMI calculator to check total interest and repayment schedule.">
+    <meta name="keywords" content="emi calculator, loan emi calculator, personal loan emi calculator, home loan emi calculator, car loan emi, online emi check, Time Digital India">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="Time Digital India">
+    
+    <!-- Canonical Tag (Tells Google this is the original page) -->
+    <link rel="canonical" href="https://www.timedigitalindia.com/emi-calculator.html">
+
+    <!-- 🚀 OPEN GRAPH / SOCIAL MEDIA TAGS -->
+    <meta property="og:title" content="Free EMI Calculator Online | Time Digital India">
+    <meta property="og:description" content="Easily calculate your monthly loan EMI. Check total interest payable and total repayment amount in seconds.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.timedigitalindia.com/emi-calculator.html">
+    <meta property="og:site_name" content="Time Digital India">
+
+    <!-- 🚀 FAQ SCHEMA MARKUP (For Google Rich Snippets) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an EMI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EMI stands for Equated Monthly Installment. It is a fixed payment amount made by a borrower to a lender at a specified date each calendar month. EMIs are used to pay off both interest and principal each month so that over a specified number of years, the loan is paid off in full."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is EMI calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The mathematical formula to calculate EMI is: EMI = [P x R x (1+R)^N]/[(1+R)^N-1], where P stands for the loan amount or principal, R is the interest rate per month, and N is the number of monthly installments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the EMI amount change during the loan tenure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you opt for a fixed interest rate, your EMI remains the same throughout the loan tenure. However, if you choose a floating interest rate, your EMI may fluctuate depending on the market interest rates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this EMI Calculator free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the EMI Calculator by Time Digital India is completely free to use. You can calculate EMIs for personal loans, home loans, car loans, and education loans without any sign-up."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --text-dark: #0f172a;
+            --text-light: #475569;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+        .subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        /* Calculator UI */
+        .calculator-wrapper {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        @media (max-width: 768px) {
+            .calculator-wrapper {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        /* Results UI */
+        .results-box {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .result-item {
+            margin-bottom: 20px;
+        }
+        .result-item:last-child {
+            margin-bottom: 0;
+            padding-top: 20px;
+            border-top: 1px solid #dcfce7;
+        }
+        .result-title {
+            font-size: 14px;
+            color: #166534;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .result-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: #15803d;
+            margin-top: 5px;
+        }
+        
+        /* SEO Content & FAQ Section */
+        .seo-content, .faq-section {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .seo-content h2, .faq-section h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        /* Accessible Accordion FAQs */
+        details {
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        summary {
+            padding: 18px 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            background-color: #f8fafc;
+            list-style: none;
+            position: relative;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            font-size: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+        }
+        details[open] summary::after {
+            content: '-';
+        }
+        details p {
+            padding: 0 20px 20px 20px;
+            margin: 0;
+            color: var(--text-light);
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>Free Online EMI Calculator</h1>
+            <p class="subtitle">Calculate Home, Car, and Personal Loan EMIs instantly</p>
+        </header>
+
+        <!-- CALCULATOR SECTION -->
+        <main class="calculator-wrapper">
+            <div class="inputs">
+                <div class="input-group">
+                    <label for="loanAmount">Loan Amount (₹)</label>
+                    <input type="number" id="loanAmount" placeholder="e.g. 500000" min="1000">
+                </div>
+                
+                <div class="input-group">
+                    <label for="interestRate">Interest Rate (% p.a.)</label>
+                    <input type="number" id="interestRate" placeholder="e.g. 8.5" step="0.1" min="0.1">
+                </div>
+                
+                <div class="input-group">
+                    <label for="loanTenure">Loan Tenure (Months)</label>
+                    <input type="number" id="loanTenure" placeholder="e.g. 60" min="1">
+                </div>
+                
+                <button onclick="calculateEMI()">Calculate EMI</button>
+            </div>
+
+            <div class="results-box">
+                <div class="result-item">
+                    <div class="result-title">Monthly EMI</div>
+                    <div class="result-value" id="monthlyEmi">₹0</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-title">Total Interest Payable</div>
+                    <div class="result-value" id="totalInterest" style="font-size:22px; color:#166534;">₹0</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-title">Total Payment (Principal + Interest)</div>
+                    <div class="result-value" id="totalPayment" style="font-size:22px; color:#166534;">₹0</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- SEO OPTIMIZED CONTENT SECTION -->
+        <article class="seo-content">
+            <h2>How Does Our EMI Calculator Work?</h2>
+            <p>Managing your finances starts with understanding your liabilities. Whether you are planning to buy a dream home, a new car, or taking a personal loan, calculating your <strong>Equated Monthly Installment (EMI)</strong> beforehand is crucial. Our free EMI calculator helps you plan your budget efficiently.</p>
+            <p>The mathematical formula used by banks to calculate EMI is: <br>
+            <strong>EMI = P &times; r &times; (1 + r)<sup>n</sup> / ((1 + r)<sup>n</sup> - 1)</strong></p>
+            <ul>
+                <li><strong>P</strong> = Principal loan amount</li>
+                <li><strong>r</strong> = Rate of interest calculated per month</li>
+                <li><strong>n</strong> = Loan tenure in months</li>
+            </ul>
+        </article>
+
+        <!-- SEO FRIENDLY FAQ SECTION -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            
+            <details>
+                <summary>What is an EMI?</summary>
+                <p>EMI stands for Equated Monthly Installment. It is a fixed payment amount made by a borrower to a lender at a specified date each calendar month. EMIs are used to pay off both interest and principal each month so that over a specified number of years, the loan is paid off in full.</p>
+            </details>
+            
+            <details>
+                <summary>How is EMI calculated?</summary>
+                <p>The mathematical formula to calculate EMI is: EMI = [P x R x (1+R)^N]/[(1+R)^N-1], where P stands for the loan amount or principal, R is the interest rate per month, and N is the number of monthly installments.</p>
+            </details>
+
+            <details>
+                <summary>Does the EMI amount change during the loan tenure?</summary>
+                <p>If you opt for a fixed interest rate, your EMI remains the same throughout the loan tenure. However, if you choose a floating interest rate (usually common in Home Loans), your EMI or loan tenure may fluctuate depending on the RBI's repo rate and market interest rates.</p>
+            </details>
+
+            <details>
+                <summary>Is this EMI Calculator free to use?</summary>
+                <p>Yes, the EMI Calculator by <strong>Time Digital India</strong> is completely free to use. You can calculate EMIs for personal loans, home loans, car loans, and education loans any number of times without registration.</p>
+            </details>
+        </section>
+
+    </div>
+
+    <!-- CALCULATOR LOGIC SCRIPT -->
+    <script>
+        function calculateEMI() {
+            const principal = parseFloat(document.getElementById('loanAmount').value);
+            const annualInterestRate = parseFloat(document.getElementById('interestRate').value);
+            const tenureInMonths = parseFloat(document.getElementById('loanTenure').value);
+
+            if (isNaN(principal) || isNaN(annualInterestRate) || isNaN(tenureInMonths) || principal <= 0 || annualInterestRate <= 0 || tenureInMonths <= 0) {
+                alert("Please enter valid positive numbers to calculate EMI.");
+                return;
+            }
+
+            const monthlyRate = (annualInterestRate / 12) / 100;
+            const emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, tenureInMonths)) / (Math.pow(1 + monthlyRate, tenureInMonths) - 1);
+            const totalPayment = emi * tenureInMonths;
+            const totalInterest = totalPayment - principal;
+
+            const formatCurrency = (amount) => {
+                return '₹' + amount.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+            };
+
+            // Animate numbers for better user experience
+            document.getElementById('monthlyEmi').innerText = formatCurrency(emi);
+            document.getElementById('totalInterest').innerText = formatCurrency(totalInterest);
+            document.getElementById('totalPayment').innerText = formatCurrency(totalPayment);
+        }
+    </script>
+</body>
+</html>
